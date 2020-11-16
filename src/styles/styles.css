@@ -1,0 +1,8 @@
+.root {
+    -fx-background-color: maroon;
+}
+.label{
+    -fx-text-fill: goldenrod;
+    -fx-font-family: "castellar";
+    -fx-font-size: 32px;
+}
