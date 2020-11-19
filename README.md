@@ -13,3 +13,15 @@ The objective of the game is to become the wealthiest player through buying, ren
 -   Chance and Community Chest cards (16)
 -   Title Deed cards for each property (28)
 -   Money
+
+## PREPARATION
+
+-	Each player chooses one token to represent him/her whiletraveling around the board.
+-	Each player is given $1500 divided as follows: 2 each of $500’s,$100’s and $50’s; 6 $20’s; 5 each of $10’s, $5’s and $1’s.
+-	All remaining money and other equipment go to the Bank.
+
+
+##BANKER
+
+-	Select as Banker a player who will also make a good Auctioneer. 
+	A Banker who plays in the game must keep his/her personal funds separate from those of the Bank. When more than five persons play, the Banker may elect to act only as Banker and Auctioneer.
