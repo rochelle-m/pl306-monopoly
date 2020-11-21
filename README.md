@@ -23,7 +23,14 @@ The objective of the game is to become the wealthiest player through buying, ren
 -	All remaining money and other equipment go to the Bank.
 
 
-## BANKER
+## Class Diagram
 
--	Select as Banker a player who will also make a good Auctioneer. 
-	A Banker who plays in the game must keep his/her personal funds separate from those of the Bank. When more than five persons play, the Banker may elect to act only as Banker and Auctioneer.
+```mermaid
+classDiagram
+      Monopoly -- Board
+      Monopoly -- Player
+      Monopoly -- Timer
+      Monopoly -- Dice
+      
+```
+
