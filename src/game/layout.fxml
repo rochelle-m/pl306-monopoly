@@ -12,9 +12,9 @@
           stylesheets="/styles/styles.css">
 
     <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-          spacing="15.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+          spacing="28.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
         <Label fx:id="title" text="MONOPOLY"/>
-        <VBox alignment="CENTER_LEFT" spacing="4.0">
+        <VBox alignment="CENTER_LEFT" spacing="8.0">
             <Label text="Number of Players"/>
             <fx:define>
                 <Integer fx:id="min" fx:value="2"/>
