@@ -20,6 +20,7 @@ public class Controller {
         Parent  root;
         stage = (Stage) btnPlay.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("board.fxml"));
+        Monopoly monopoly = new Monopoly((Integer) spinner.getValue());
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
