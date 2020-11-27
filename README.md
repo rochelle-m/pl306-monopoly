@@ -8,12 +8,12 @@ The objective of the game is to become the wealthiest player through buying, ren
 ## Components
 
 -   Board
--   Die (2)
--   Token for each player
--   House (32)
--   Hotel (12)
--   Chance and Community Chest cards (16)
--   Title Deed cards for each property (28)
+-   Die
+-   Player
+-   House 
+-   Hotel
+-   Chance and Community Chest cards
+-   Title Deed cards for each property
 -   Money
 
 ## PREPARATION
@@ -25,12 +25,4 @@ The objective of the game is to become the wealthiest player through buying, ren
 
 ## Class Diagram
 
-```mermaid
-classDiagram
-      Monopoly -- Board
-      Monopoly -- Player
-      Monopoly -- Timer
-      Monopoly -- Dice
-      
-```
-
+![Class Diagram](/src/images/readme-pics/classdiagram.png)
