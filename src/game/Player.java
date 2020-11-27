@@ -26,6 +26,11 @@ public class Player {
         }
     }
 
+    public void earn(float amountToPay){
+        amountOfMoney += amountToPay;
+    }
+
+
     public Integer getId() {
         return id;
     }
