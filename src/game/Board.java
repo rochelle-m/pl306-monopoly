@@ -1,4 +1,8 @@
 package game;
 
-public class Board {
+import javafx.scene.layout.GridPane;
+
+public class Board{
+    public GridPane board;
+
 }

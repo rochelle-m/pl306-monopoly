@@ -2,10 +2,62 @@
 
 <?import javafx.scene.layout.*?>
 
-<?import javafx.scene.control.Label?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="game.Board"
-            prefHeight="400.0" prefWidth="600.0">
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Text?>
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          alignment="CENTER"
+          fx:controller="game.Board"
+          prefHeight="400.0" prefWidth="600.0"
+          stylesheets="/styles/board.css">
 
-</AnchorPane>
+    <GridPane fx:id="board" alignment="CENTER"  stylesheets="/styles/board.css">
+    <Rectangle width="720" height="720" fill="maroon"  stroke="black" > </Rectangle>
+
+
+        <!--    <Rectangle width="90" height="90" fill="white"  GridPane.columnIndex="0" GridPane.rowIndex="0" stroke="black">   </Rectangle>-->
+
+    <!--    left-->
+    <Rectangle width="90" height="90" fill="white"  translateY="-45"   stroke="black">   </Rectangle>
+    <Rectangle width="90" height="90" fill="white"  translateY="-135"   stroke="black">   </Rectangle>
+    <Rectangle width="90" height="90" fill="white"  translateY="-225"   stroke="black">   </Rectangle>
+    <Rectangle width="90" height="90" fill="white"  translateY="-315"   stroke="black">   </Rectangle>
+    <Rectangle width="90" height="90" fill="white"  translateY="45"   stroke="black">   </Rectangle>
+    <Rectangle width="90" height="90" fill="white"  translateY="135"   stroke="black">   </Rectangle>
+    <Rectangle width="90" height="90" fill="white"  translateY="225"   stroke="black">   </Rectangle>
+    <Rectangle width="90" height="90" fill="white"  translateY="315"   stroke="black">   </Rectangle>
+
+    <!--    right-->
+    <Rectangle width="90" height="90" fill="white"  translateY="-45"  translateX="630" stroke="black">   </Rectangle>
+    <Rectangle width="90" height="90" fill="white"  translateY="-135"  translateX="630" stroke="black">   </Rectangle>
+    <Rectangle width="90" height="90" fill="white"  translateY="-225"  translateX="630"  stroke="black">   </Rectangle>
+    <Rectangle width="90" height="90" fill="white"  translateY="-315"  translateX="630" stroke="black">   </Rectangle>
+    <Rectangle width="90" height="90" fill="white"  translateY="45" translateX="630"  stroke="black">   </Rectangle>
+    <Rectangle width="90" height="90" fill="white"  translateY="135"  translateX="630"  stroke="black">   </Rectangle>
+    <Rectangle width="90" height="90" fill="white"  translateY="225" translateX="630"   stroke="black">   </Rectangle>
+    <Rectangle width="90" height="90" fill="white"  translateY="315" translateX="630"  stroke="black">   </Rectangle>
+
+    <!--  bottom-->
+    <Rectangle width="90" height="90" fill="white"  translateY="315" translateX="540"  stroke="black">   </Rectangle>
+    <Rectangle width="90" height="90" fill="white"  translateY="315" translateX="450"  stroke="black">   </Rectangle>
+    <Rectangle width="90" height="90" fill="white"  translateY="315" translateX="360"  stroke="black">   </Rectangle>
+    <Rectangle width="90" height="90" fill="white"  translateY="315" translateX="270"  stroke="black">   </Rectangle>
+    <Rectangle width="90" height="90" fill="white"  translateY="315" translateX="180"  stroke="black">   </Rectangle>
+    <Rectangle width="90" height="90" fill="white"  translateY="315" translateX="90"  stroke="black">   </Rectangle>
+
+    <!--  top -->
+    <Rectangle width="90" height="90" fill="white"  translateY="-315" translateX="540"  stroke="black">   </Rectangle>
+    <Rectangle width="90" height="90" fill="white"  translateY="-315" translateX="450"  stroke="black">   </Rectangle>
+    <Rectangle width="90" height="90" fill="white"  translateY="-315" translateX="360"  stroke="black">   </Rectangle>
+    <Rectangle width="90" height="90" fill="white"  translateY="-315" translateX="270"  stroke="black">   </Rectangle>
+    <Rectangle width="90" height="90" fill="white"  translateY="-315" translateX="180"  stroke="black">   </Rectangle>
+    <Rectangle width="90" styleClass="x" height="90" fill="white"  translateY="-315" translateX="90"  stroke="black">   </Rectangle>
+
+    <Text text="MONOPOLY"  translateX="160" rotate="-45" fill="white"/>
+
+    </GridPane>
+
+
+
+
+</GridPane>
