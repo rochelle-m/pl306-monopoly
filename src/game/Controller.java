@@ -13,9 +13,8 @@ import java.io.IOException;
 public class Controller {
     public Button btnPlay;
     public Spinner spinner;
-    public Label title;
 
-    public void play(javafx.event.ActionEvent actionEvent) throws IOException {
+        public void play(javafx.event.ActionEvent actionEvent) throws IOException {
         Stage stage;
         Parent  root;
         stage = (Stage) btnPlay.getScene().getWindow();

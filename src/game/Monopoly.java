@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class Monopoly extends Application {
+public class Monopoly {
     List<Player> players;
     private Integer numOfPlayers;
 
@@ -22,6 +22,10 @@ public class Monopoly extends Application {
         players = new ArrayList<>();
         IntStream.range(0, numOfPlayers).mapToObj(i -> new Player(ids[i], names[i], (float) 1000.00, false)).
                 forEachOrdered(p -> players.add(p));
+
+        for(Player p: players){
+            System.out.println(p.getName());
+        }
     }
 
     void removePlayer(){
@@ -36,12 +40,5 @@ public class Monopoly extends Application {
         this.numOfPlayers = numOfPlayers;
     }
 
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("board.fxml"));
-        primaryStage.setTitle("APP_NAME");
-        primaryStage.setScene(new Scene(root, 500, 475));
-        primaryStage.show();
-    }
 }
 
