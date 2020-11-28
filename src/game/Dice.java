@@ -1,29 +1,40 @@
 package game;
 
 import java.util.Random;
+import javafx.util.Pair;
 
 public class Dice {
 
-    Random rand = new Random();
-
-    private int dice1;
+    private Integer dice1;
     private Integer dice2;
     private Integer sumOfDice;
 
-    public Dice( Integer dice1,  Integer dice2,  Integer sumOfDice){
-            this.dice1 =  rand.nextInt(6);;
-            while(true) {
-                if(dice1 != 0)
-                    break;
-            }
+    public Dice(){
+            this.dice1 =1;
+            this.dice2 =1;
 
-            this.dice2 = rand.nextInt(7);
-            while(true) {
-                if(dice2 != 0)
-                    break;
-            }
+    }
 
-           this.sumOfDice= dice1 + dice2;
+    Random rand = new Random();
+
+    public Pair<Integer,Integer> rollTheDice()
+    {
+        diceOperation(dice1);
+        diceOperation(dice2);
+
+        return new Pair<Integer, Integer>(dice1,dice2);
+    }
+
+    private int diceSum(){
+        return dice1 + dice2;
+    }
+
+    public void diceOperation(Integer dice){
+        rand.nextInt(6);
+        while(true){
+            if(dice != 0)
+                break;
+        }
     }
 
     public Integer getDice1() {
