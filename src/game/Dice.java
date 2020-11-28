@@ -7,12 +7,10 @@ public class Dice {
 
     private Integer dice1;
     private Integer dice2;
-    private Integer sumOfDice;
 
-    public Dice(){
-            this.dice1 =1;
-            this.dice2 =1;
-
+    public Dice(Integer dice1, Integer dice2){
+            this.dice1 = dice1;
+            this.dice2 = dice2;
     }
 
     Random rand = new Random();
@@ -25,16 +23,13 @@ public class Dice {
         return new Pair<Integer, Integer>(dice1,dice2);
     }
 
+    //returns sum of dice
     private int diceSum(){
         return dice1 + dice2;
     }
 
     public void diceOperation(Integer dice){
-        rand.nextInt(6);
-        while(true){
-            if(dice != 0)
-                break;
-        }
+        dice = rand.nextInt(6)+1;
     }
 
     public Integer getDice1() {
@@ -53,11 +48,4 @@ public class Dice {
         this.dice2 = dice2;
     }
 
-    public Integer getSumOfDice() {
-        return sumOfDice;
-    }
-
-    public void setSumOfDice(Integer sumOfDice) {
-        this.sumOfDice = sumOfDice;
-    }
 }
