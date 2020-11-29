@@ -42,7 +42,7 @@
                     </font></Label>
                <ImageView fitHeight="37.0" fitWidth="69.0" layoutX="8.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
                   <image>
-                     <Image url="@../images/cities/maxresdefault.jpg" />
+                     <Image url="@../images/cities/bangalore.jpg" />
                   </image>
                </ImageView>
             </Pane>
