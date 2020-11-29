@@ -1,75 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane alignment="CENTER" prefHeight="400.0" prefWidth="600.0" stylesheets="/styles/board.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.Board">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="725.0" prefWidth="1357.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.Board">
+   <children>
+      <GridPane fx:id="board" alignment="BOTTOM_LEFT" layoutX="600.0" layoutY="15.0" prefHeight="660.0" prefWidth="660.0" style="-fx-border-color: black;">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Pane prefHeight="67.0" prefWidth="104.0" style="-fx-background-color: goldenrod;" styleClass="my-pane" GridPane.columnIndex="7" GridPane.rowIndex="7">
+            <Label layoutX="23.0" layoutY="27.0" rotate="-36.0" text="GO" textFill="WHITE">
+                  <font>
+                     <Font name="Bookman Old Style Italic" size="24.0" />
+                  </font></Label>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FF3139;" GridPane.columnIndex="6" GridPane.rowIndex="7">
+                <Label layoutX="7.0" layoutY="6.0" text="Bangalore" textFill="WHITE">
+                    <font>
+                        <Font name="Bookman Old Style Italic" size="14.0" />
+                    </font></Label>
+               <ImageView fitHeight="37.0" fitWidth="69.0" layoutX="8.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../images/cities/maxresdefault.jpg" />
+                  </image>
+               </ImageView>
+            </Pane>
 
-    <GridPane fx:id="board" alignment="CENTER" stylesheets="/styles/board.css" GridPane.columnIndex="1">
-    <Rectangle fill="maroon" height="720" stroke="black" width="720"> </Rectangle>
-
-
-        <!--    <Rectangle width="90" height="90" fill="white"  GridPane.columnIndex="0" GridPane.rowIndex="0" stroke="black">   </Rectangle>-->
-
-    <!--    left-->
-    <Rectangle fill="white" height="90" stroke="black" translateY="-45" width="90">   </Rectangle>
-    <Rectangle fill="white" height="90" stroke="black" translateY="-135" width="90">   </Rectangle>
-    <Rectangle fill="white" height="90" stroke="black" translateY="-225" width="90">   </Rectangle>
-    <Rectangle fill="white" height="90" stroke="black" translateY="-315" width="90">   </Rectangle>
-    <Rectangle fill="white" height="90" stroke="black" translateY="45" width="90">   </Rectangle>
-    <Rectangle fill="white" height="90" stroke="black" translateY="135" width="90">   </Rectangle>
-    <Rectangle fill="white" height="90" stroke="black" translateY="225" width="90">   </Rectangle>
-    <Rectangle fill="white" height="90" stroke="black" translateY="315" width="90">   </Rectangle>
-
-    <!--    right-->
-    <Rectangle fill="white" height="90" stroke="black" translateX="630" translateY="-45" width="90">   </Rectangle>
-    <Rectangle fill="white" height="90" stroke="black" translateX="630" translateY="-135" width="90">   </Rectangle>
-    <Rectangle fill="white" height="90" stroke="black" translateX="630" translateY="-225" width="90">   </Rectangle>
-    <Rectangle fill="white" height="90" stroke="black" translateX="630" translateY="-315" width="90">   </Rectangle>
-    <Rectangle fill="white" height="90" stroke="black" translateX="630" translateY="45" width="90">   </Rectangle>
-    <Rectangle fill="white" height="90" stroke="black" translateX="630" translateY="135" width="90">   </Rectangle>
-    <Rectangle fill="white" height="90" stroke="black" translateX="630" translateY="225" width="90">   </Rectangle>
-    <Rectangle fill="white" height="90" stroke="black" translateX="630" translateY="315" width="90">   </Rectangle>
-
-    <!--  bottom-->
-    <Rectangle fill="white" height="90" stroke="black" translateX="540" translateY="315" width="90">   </Rectangle>
-    <Rectangle fill="white" height="90" stroke="black" translateX="450" translateY="315" width="90">   </Rectangle>
-    <Rectangle fill="white" height="90" stroke="black" translateX="360" translateY="315" width="90">   </Rectangle>
-    <Rectangle fill="white" height="90" stroke="black" translateX="270" translateY="315" width="90">   </Rectangle>
-    <Rectangle fill="white" height="90" stroke="black" translateX="180" translateY="315" width="90">   </Rectangle>
-    <Rectangle fill="white" height="90" stroke="black" translateX="90" translateY="315" width="90">   </Rectangle>
-
-    <!--  top -->
-    <Rectangle fill="white" height="90" stroke="black" translateX="540" translateY="-315" width="90">   </Rectangle>
-    <Rectangle fill="white" height="90" stroke="black" translateX="450" translateY="-315" width="90">   </Rectangle>
-    <Rectangle fill="white" height="90" stroke="black" translateX="360" translateY="-315" width="90">   </Rectangle>
-    <Rectangle fill="white" height="90" stroke="black" translateX="270" translateY="-315" width="90">   </Rectangle>
-    <Rectangle fill="white" height="90" stroke="black" translateX="180" translateY="-315" width="90">   </Rectangle>
-    <Rectangle fill="white" height="90" stroke="black" styleClass="x" translateX="90" translateY="-315" width="90">   </Rectangle>
-
-    <Text fill="white" rotate="-45" text="MONOPOLY" translateX="160" wrappingWidth="369.78479766845703">
-         <font>
-            <Font name="Century Gothic" size="60.0" />
-         </font></Text>
-      <columnConstraints>
-         <ColumnConstraints />
-      </columnConstraints>
-      <rowConstraints>
-         <RowConstraints />
-      </rowConstraints>
-
-    </GridPane>
-   <Box depth="100" height="100" width="100" />
-   <columnConstraints>
-      <ColumnConstraints />
-      <ColumnConstraints />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints />
-   </rowConstraints>
-
-
-
-
-</GridPane>
+         </children>
+      </GridPane>
+   </children>
+</Pane>
