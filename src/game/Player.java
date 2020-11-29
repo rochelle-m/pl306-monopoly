@@ -26,8 +26,8 @@ public class Player {
         }
     }
 
-    public void earn(float amountToPay){
-        playerMoney += amountToPay;
+    public void earn(float amount){
+        playerMoney += amount;
     }
 
 
