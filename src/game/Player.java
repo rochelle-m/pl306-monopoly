@@ -9,7 +9,7 @@ public class Player {
     // add current pos
     // list of cards -- TODO check for colors
 
-    public Player(Integer id, String name, float amountOfMoney, Boolean isInJail) {
+    public Player(Integer id, String name, float playerMoney, Boolean isInJail) {
         this.id = id;
         this.name = name;
         this.playerMoney = playerMoney;
