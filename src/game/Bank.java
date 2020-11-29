@@ -17,7 +17,7 @@ public class Bank {
     }
 
     public void giveMoneyToPlayer(Player player, int amount) {
-        player.setAmountOfMoney(amount);
+        player.setPlayerMoney(amount);
         this.bankMoney -= amount;
     }
 
