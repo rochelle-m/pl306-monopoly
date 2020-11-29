@@ -3,7 +3,7 @@ package game;
 public class Player {
     private Integer id;
     private String name;
-    private float amountOfMoney;
+    private float playerMoney;
     private Boolean isInJail;
     private Boolean turn;
     // add current pos
@@ -12,22 +12,22 @@ public class Player {
     public Player(Integer id, String name, float amountOfMoney, Boolean isInJail) {
         this.id = id;
         this.name = name;
-        this.amountOfMoney = amountOfMoney;
+        this.playerMoney = playerMoney;
         this.isInJail = isInJail;
     }
 
     public void pay(float amountToPay){
-        if(amountToPay > amountOfMoney){
+        if(amountToPay > playerMoney){
             // not enough money
         }
         else{
             // deduct money
-            amountOfMoney = amountOfMoney - amountToPay;
+            playerMoney =  playerMoney - amountToPay;
         }
     }
 
     public void earn(float amountToPay){
-        amountOfMoney += amountToPay;
+        playerMoney += amountToPay;
     }
 
 
@@ -47,12 +47,12 @@ public class Player {
         this.name = name;
     }
 
-    public float getAmountOfMoney() {
-        return amountOfMoney;
+    public float getPlayerMoney() {
+        return  playerMoney;
     }
 
-    public void setAmountOfMoney(float amountOfMoney) {
-        this.amountOfMoney = amountOfMoney;
+    public void setPlayerMoney(float  playerMoney) {
+        this.playerMoney =  playerMoney;
     }
 
     public Boolean getInJail() {
