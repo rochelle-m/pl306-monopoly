@@ -29,7 +29,7 @@ public class Monopoly {
     }
 
     void removePlayer(){
-        players.removeIf(p -> p.getAmountOfMoney() == (float) 0.0);
+        players.removeIf(p -> p.getPlayerMoney() == (float) 0.0);
     }
 
     public Integer getNumOfPlayers() {
