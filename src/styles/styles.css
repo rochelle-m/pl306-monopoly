@@ -1,12 +1,12 @@
 .root {
     -fx-background-color: maroon;
     -fx-font-family: "Century Gothic";
-    -fx-text-fill: goldenrod;
+    -fx-text-fill: white;
 }
 
 #title{
     -fx-font-size: 32px;
-    -fx-border-color: goldenrod;
+    -fx-border-color: white;
     -fx-border-width: 2px;
     -fx-border-radius: 5px;
     -fx-padding: 5px;
@@ -14,27 +14,27 @@
 
 .label{
     -fx-font-size: 16px;
-    -fx-text-fill: goldenrod;
+    -fx-text-fill: white;
 }
 
 #btnPlay{
-    -fx-background-color: goldenrod;
+    -fx-background-color: white;
     -fx-font-size: 20px;
     -fx-text-fill: maroon;
 }
 
 #btnPlay:hover{
-    -fx-background-color: ladder(#AAA, maroon 0%, goldenrod 100%);
+    -fx-background-color: ladder(#AAA, maroon 0%, white 100%);
     -fx-cursor: hand;
 }
 
 .spinner .increment-arrow-button,
 .spinner .decrement-arrow-button {
-    -fx-body-color: goldenrod;
+    -fx-body-color: white;
 }
 
 .spinner .increment-arrow-button:hover,
 .spinner .decrement-arrow-button:hover {
     -fx-cursor: hand;
-    -fx-body-color: ladder(#444, goldenrod 0%, red 100%);
+    -fx-body-color: ladder(#444, white 0%, red 100%);
 }
