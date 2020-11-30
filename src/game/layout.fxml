@@ -1,29 +1,30 @@
-<?import javafx.scene.layout.GridPane?>
+<?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.Spinner?>
-<?import java.lang.Integer?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<GridPane fx:controller="game.Controller"
-          xmlns:fx="http://javafx.com/fxml" alignment="center"
-          hgap="10" vgap="10"
-          stylesheets="/styles/styles.css">
+<GridPane alignment="center" hgap="10" stylesheets="/styles/styles.css" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="game.Controller">
 
-    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-          spacing="28.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-        <Label fx:id="title" text="MONOPOLY"/>
+
+    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="28.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+        <Label fx:id="title" text="MONOPOLY" textFill="#b29100">
+         <font>
+            <Font name="Century Gothic" size="36.0" />
+         </font></Label>
         <VBox alignment="CENTER_LEFT" spacing="8.0">
-            <Label text="Number of Players"/>
-            <fx:define>
-                <Integer fx:id="min" fx:value="2"/>
-                <Integer fx:id="max" fx:value="4"/>
-            </fx:define>
-            <Spinner fx:id="spinner" min="$min" max="$max"/>
+            <Label text="Number of Players" />
+
+            <Spinner fx:id="spinner" max="4" min="2" />
         </VBox>
 
-        <Button fx:id="btnPlay" text="Play" onAction="#play"/>
+        <Button fx:id="btnPlay" onAction="#play" text="Play" />
     </VBox>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
 
 </GridPane>
