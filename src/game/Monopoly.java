@@ -23,10 +23,9 @@ public class Monopoly {
         IntStream.range(0, numOfPlayers).mapToObj(i -> new Player(ids[i], names[i], (float) 1000.00, false)).
                 forEachOrdered(p -> players.add(p));
 
-        for(Player p: players){
-            System.out.println(p.getName());
-        }
+       
     }
+
 
     void removePlayer(){
         players.removeIf(p -> p.getPlayerMoney() == (float) 0.0);
@@ -39,6 +38,8 @@ public class Monopoly {
     public void setNumOfPlayers(Integer numOfPlayers) {
         this.numOfPlayers = numOfPlayers;
     }
+
+
 
 }
 

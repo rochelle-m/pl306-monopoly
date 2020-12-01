@@ -35,7 +35,7 @@
             <Pane prefHeight="67.0" prefWidth="104.0" style="-fx-background-color: cornflowerblue;" styleClass="my-pane" GridPane.columnIndex="7" GridPane.rowIndex="7">
                <ImageView fitHeight="82.0" fitWidth="82.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
                   <image>
-                     <Image url="@../game/GO.png" />
+                     <Image url="@../images/GO.png" />
                   </image>
                </ImageView>
             </Pane>
@@ -230,7 +230,6 @@
                      </font>
                   </Label>
                </children></Pane>
-
         <Pane prefHeight="67.0" prefWidth="104.0" style="-fx-background-color: cornflowerblue;" styleClass="my-pane" GridPane.columnIndex="7" GridPane.rowIndex="7">
             <ImageView fitHeight="82.0" fitWidth="82.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
                 <Image url="@../game/GO.png" />
@@ -306,7 +305,5 @@
                 <Font name="Century Gothic" size="55.0" />
             </font>
         </Label>
-
-
     </GridPane>
 </Pane>
