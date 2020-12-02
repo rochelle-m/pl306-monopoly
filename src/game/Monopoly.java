@@ -23,7 +23,7 @@ public class Monopoly {
         IntStream.range(0, numOfPlayers).mapToObj(i -> new Player(ids[i], names[i], (float) 1000.00, false)).
                 forEachOrdered(p -> players.add(p));
 
-       
+
     }
 
 
