@@ -1,19 +1,25 @@
 package game;
 
-import javafx.fxml.Initializable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.GridPane;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
-import java.util.stream.IntStream;
 
-public class Monopoly implements Initializable {
+public class Monopoly {
     public GridPane monopoly;
+    public ListView<String> playerList;
+    public Label dice;
     List<Player> players;
     private Integer numOfPlayers;
 
-    void removePlayer(){
+    public void setNumOfPlayers(Integer numOfPlayers) {
+        this.numOfPlayers = numOfPlayers;
+    }
+
+    void removePlayer() {
         players.removeIf(p -> p.getPlayerMoney() == (float) 0.0);
     }
 
@@ -23,24 +29,30 @@ public class Monopoly implements Initializable {
 
     public void setPlayers() {
         Integer[] ids = {1, 2, 3, 4};
-        String[] names = {"A", "B", "C", "D"};
+        String[] names = {"Chetana", "Shruti", "Rochelle", "Jay"};
         this.players = new ArrayList<>();
-        System.out.println(this.numOfPlayers);
-        int bound = numOfPlayers;
-        IntStream.range(0, bound).mapToObj(i -> new Player(ids[i], names[i], (float) 1000.00, false)).forEach(player -> players.add(player));
+        for (int i = 0; i < numOfPlayers; i++) {
+            Player p = new Player(ids[i],
+                    names[i],
+                    (float) 1000.00,
+                    false);
+            players.add(p);
+
+        }
     }
 
     public Integer getNumOfPlayers() {
         return numOfPlayers;
     }
 
-    public void setNumOfPlayers(Integer numOfPlayers) {
-        this.numOfPlayers = numOfPlayers;
+    public void start(Integer numOfPlayers) {
+        setNumOfPlayers(numOfPlayers);
         setPlayers();
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+        ObservableList<String> namesList = FXCollections.observableArrayList();
+        for (Player p : this.players) {
+            namesList.add(p.getName());
+        }
+        playerList.setItems(namesList);
 
     }
 }
