@@ -17,7 +17,7 @@ public class Controller {
         Parent parent = loader.load();
         Monopoly monopoly = loader.getController();
         monopoly.setNumOfPlayers((Integer) spinner.getValue());
-        Stage stage = new Stage();
+        Stage stage = (Stage) btnPlay.getScene().getWindow();
         stage.setScene(new Scene(parent));
         stage.show();
     }
