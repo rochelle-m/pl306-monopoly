@@ -9,9 +9,13 @@ import java.util.ResourceBundle;
 import java.util.stream.IntStream;
 
 public class Monopoly implements Initializable {
-    public GridPane board;
+    public GridPane monopoly;
     List<Player> players;
     private Integer numOfPlayers;
+
+    void removePlayer(){
+        players.removeIf(p -> p.getPlayerMoney() == (float) 0.0);
+    }
 
     public List<Player> getPlayers() {
         return players;
