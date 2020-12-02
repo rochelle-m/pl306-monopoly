@@ -13,10 +13,10 @@ public class Controller {
     public Spinner spinner;
 
     public void play() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("board.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("monopoly.fxml"));
         Parent parent = loader.load();
-        Board board = loader.getController();
-        board.setNumOfPlayers((Integer) spinner.getValue());
+        Monopoly monopoly = loader.getController();
+        monopoly.setNumOfPlayers((Integer) spinner.getValue());
         Stage stage = new Stage();
         stage.setScene(new Scene(parent));
         stage.show();
