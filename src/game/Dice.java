@@ -9,7 +9,7 @@ public class Dice {
 
 
     public Dice(){
-
+    this.faceValue = 0;
     }
 
     Random rand = new Random();

@@ -34,9 +34,7 @@
 
             <Pane prefHeight="67.0" prefWidth="104.0" style="-fx-background-color: cornflowerblue;" styleClass="my-pane" GridPane.columnIndex="7" GridPane.rowIndex="7">
                <ImageView fitHeight="82.0" fitWidth="82.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
-                  <image>
-                     <Image url="@../images/GO.png" />
-                  </image>
+                     <Image url="@../images/go.png" />
                </ImageView>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FF3139;" GridPane.columnIndex="6" GridPane.rowIndex="7">
@@ -45,9 +43,7 @@
                         <Font name="Bookman Old Style" size="14.0" />
                     </font></Label>
                <ImageView fitHeight="37.0" fitWidth="69.0" layoutX="9.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
                      <Image url="@../images/cities/bangalore.jpg" />
-                  </image>
                </ImageView>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #B3D8D5; -fx-border-color: black;" GridPane.columnIndex="5" GridPane.rowIndex="7">
@@ -232,7 +228,7 @@
                </children></Pane>
         <Pane prefHeight="67.0" prefWidth="104.0" style="-fx-background-color: cornflowerblue;" styleClass="my-pane" GridPane.columnIndex="7" GridPane.rowIndex="7">
             <ImageView fitHeight="82.0" fitWidth="82.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
-                <Image url="@../game/GO.png" />
+                <Image url="@../images/go.png" />
 
             </ImageView>
         </Pane>
