@@ -1,30 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane alignment="center" hgap="10" stylesheets="/styles/styles.css" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="game.Controller">
+<GridPane alignment="CENTER" hgap="10" prefHeight="353.0" prefWidth="415.0" stylesheets="/styles/styles.css" vgap="62.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.Controller">
 
-
-    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="28.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-        <Label fx:id="title" text="MONOPOLY" textFill="white">
-         <font>
-            <Font name="Century Gothic" size="36.0" />
-         </font></Label>
-        <VBox alignment="CENTER_LEFT" spacing="8.0">
+    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="113.0" prefWidth="240.0" spacing="28.0" GridPane.rowIndex="1" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+        <VBox alignment="CENTER" spacing="8.0">
             <Label text="Number of Players" />
-
-            <Spinner fx:id="spinner" max="4" min="2" />
+            <Spinner fx:id="spinner" max="4" min="2" prefHeight="29.0" prefWidth="94.0" />
         </VBox>
 
         <Button fx:id="btnPlay" onAction="#play" text="Play" />
     </VBox>
-   <columnConstraints>
-      <ColumnConstraints />
-   </columnConstraints>
-   <rowConstraints>
+     <Label style="-fx-font-size: 36px;" text="MONOPOLY" textAlignment="CENTER" textFill="#8a0404" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+         <font>
+             <Font name="Century Gothic" size="56.0" />
+         </font>
+      <effect>
+         <Glow />
+      </effect>
+     </Label>
+    <columnConstraints>
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
       <RowConstraints />
-   </rowConstraints>
+      <RowConstraints />
+    </rowConstraints>
 
 </GridPane>
