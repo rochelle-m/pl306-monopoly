@@ -32,12 +32,8 @@ public class Monopoly {
         String[] names = {"Chetana", "Shruti", "Rochelle", "Jay"};
         this.players = new ArrayList<>();
         for (int i = 0; i < numOfPlayers; i++) {
-            Player p = new Player(ids[i],
-                    names[i],
-                    (float) 1000.00,
-                    false);
+            Player p = new Player(ids[i], names[i]);
             players.add(p);
-
         }
     }
 
@@ -45,9 +41,8 @@ public class Monopoly {
         return numOfPlayers;
     }
 
-    public void start(Integer numOfPlayers) {
-        setNumOfPlayers(numOfPlayers);
-        setPlayers();
+    public void start() {
+
         ObservableList<String> namesList = FXCollections.observableArrayList();
         for (Player p : this.players) {
             namesList.add(p.getName());

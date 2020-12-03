@@ -16,7 +16,9 @@ public class Controller {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("monopoly.fxml"));
         Parent parent = loader.load();
         Monopoly monopoly = loader.getController();
-        monopoly.start((Integer) spinner.getValue());
+        monopoly.setNumOfPlayers((Integer) spinner.getValue());
+        monopoly.setPlayers();
+        monopoly.start();
         Stage stage = (Stage) btnPlay.getScene().getWindow();
         stage.setScene(new Scene(parent));
         stage.show();
