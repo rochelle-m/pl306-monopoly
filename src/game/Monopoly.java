@@ -63,23 +63,21 @@ public class Monopoly {
         Dice d1 = new Dice();
         Dice d2 = new Dice();
 
-         getFirstPlayer(players, d1, d2);
-        findMaxSum( initialRolls);
-
+        currentPlayer = getFirstPlayer(players, d1, d2);
+        System.out.println(currentPlayer.getName());
     }
 
-    private void getFirstPlayer(List<Player> players, Dice d1, Dice d2) {
+    private Player getFirstPlayer(List<Player> players, Dice d1, Dice d2) {
 
         for (int i = 0; i < numOfPlayers; i++) {
             currentPlayer = players.get(i);
-            currentPlayer.setTurn(true);
             Integer roll1 = currentPlayer.roll(d1, d2);
             initialRolls.add(roll1);
             System.out.println("This player rolls the dice " + currentPlayer.getName() + " with " + roll1);
-            currentPlayer.setTurn(false);
         }
-
-
+        Integer max = findMaxSum(initialRolls);
+        playerList.getSelectionModel().select(initialRolls.indexOf(max));
+        return players.get(initialRolls.indexOf(max));
     }
 
     public Integer findMaxSum(List <Integer> initialRolls) {
@@ -93,9 +91,6 @@ public class Monopoly {
 
             }
         }
-        System.out.println("Max sum= " +MaxVal);
-
-
         return MaxVal;
     }
 
