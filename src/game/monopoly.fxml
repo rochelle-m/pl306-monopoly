@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="725.0" prefWidth="1312.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.Monopoly">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="725.0" prefWidth="1312.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.Monopoly">
     <GridPane fx:id="monopoly" alignment="BOTTOM_LEFT" layoutX="600.0" layoutY="15.0" prefHeight="660.0" prefWidth="660.0" style="-fx-border-color: gray;">
 
         <columnConstraints>
@@ -20,7 +20,7 @@
         </columnConstraints>
         <rowConstraints>
             <RowConstraints maxHeight="80.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="92.0" minHeight="10.0" prefHeight="86.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="82.0" minHeight="10.0" prefHeight="86.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />

@@ -49,14 +49,14 @@ public class Monopoly {
             namesList.add(p.getName());
         }
         playerList.setItems(namesList);
-        // start game
+
         /* TODO Timer
          */
 
         initialRolls = new ArrayList<>();
 
-        Dice d1 = new Dice();
-        Dice d2 = new Dice();
+        Dice d1 = new Dice(),
+                d2 = new Dice();
 
         currentPlayer = getFirstPlayer(players, d1, d2);
         System.out.println("Who goes first? "+ currentPlayer.getName());
