@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane alignment="CENTER" hgap="10" prefHeight="353.0" prefWidth="415.0" stylesheets="/styles/styles.css" vgap="62.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.Controller">
+<GridPane alignment="CENTER" hgap="10" prefHeight="353.0" prefWidth="415.0" stylesheets="/styles/styles.css" vgap="62.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.Controller">
 
     <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="113.0" prefWidth="240.0" spacing="28.0" GridPane.rowIndex="1" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
         <VBox alignment="CENTER" spacing="8.0">
