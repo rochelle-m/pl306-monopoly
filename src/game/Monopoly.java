@@ -29,13 +29,13 @@ public class Monopoly {
         return players;
     }
 
-    public void setPlayers() {
-        Integer[] ids = {1, 2, 3, 4};
-        String[] names = {"Chetana", "Shruti", "Rochelle", "Jay"};
+    public void setPlayers(String[] names) {
         this.players = new ArrayList<>();
-        for (int i = 0; i < numOfPlayers; i++) {
-            Player p = new Player(ids[i], names[i]);
+        int i = 0;
+        for (String name: names) {
+            Player p = new Player((i+1), name);
             players.add(p);
+            i++;
         }
     }
 
@@ -44,15 +44,12 @@ public class Monopoly {
     }
 
     public void start() {
-
         ObservableList<String> namesList = FXCollections.observableArrayList();
         for (Player p : this.players) {
             namesList.add(p.getName());
         }
         playerList.setItems(namesList);
-
         // start game
-
         /* TODO Timer
          */
 
@@ -87,10 +84,6 @@ public class Monopoly {
         }
         return MaxVal;
     }
-
-    
-
-
 
 }
 
