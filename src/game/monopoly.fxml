@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="725.0" prefWidth="1312.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.Monopoly">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="725.0" prefWidth="1312.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.Monopoly">
     <GridPane fx:id="monopoly" alignment="BOTTOM_LEFT" layoutX="600.0" layoutY="15.0" prefHeight="660.0" prefWidth="660.0" style="-fx-border-color: gray;">
 
         <columnConstraints>
@@ -32,7 +32,7 @@
 
         <Pane prefHeight="67.0" prefWidth="104.0" style="-fx-background-color: cornflowerblue;" styleClass="my-pane" GridPane.columnIndex="7" GridPane.rowIndex="7">
             <ImageView fitHeight="82.0" fitWidth="82.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
-                <Image url="@../images/GO.png" />
+                <Image url="@../images/go.png" />
             </ImageView>
         </Pane>
         <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FF3139;" GridPane.columnIndex="6" GridPane.rowIndex="7">
