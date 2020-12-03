@@ -14,6 +14,7 @@ public class Monopoly {
     public Label dice;
     List<Player> players;
     private Integer numOfPlayers;
+    Integer currentPlayerIndex;
     Player currentPlayer;
     List<Integer> initialRolls;
 
@@ -51,6 +52,7 @@ public class Monopoly {
         playerList.setItems(namesList);
 
         /* TODO Timer
+           TODO square mapping
          */
 
         initialRolls = new ArrayList<>();
@@ -58,11 +60,16 @@ public class Monopoly {
         Dice d1 = new Dice(),
                 d2 = new Dice();
 
-        currentPlayer = getFirstPlayer(players, d1, d2);
+        currentPlayerIndex = getFirstPlayerIndex(players, d1, d2);
+        currentPlayer = players.get(currentPlayerIndex);
+        currentPlayer.setTurn(true);
         System.out.println("Who goes first? "+ currentPlayer.getName());
+        System.out.println(currentPlayer.getName() + " moves " + currentPlayer.roll(d1, d2) + " squares");
+        System.out.println("next player index: "+ (currentPlayerIndex + 1) % numOfPlayers);
+
     }
 
-    private Player getFirstPlayer(List<Player> players, Dice d1, Dice d2) {
+    private Integer getFirstPlayerIndex(List<Player> players, Dice d1, Dice d2) {
 
         players.forEach(player -> {
             Integer roll1 = player.roll(d1, d2);
@@ -72,7 +79,7 @@ public class Monopoly {
         Integer max = findMaxSum(initialRolls);
 //        Integer max = Collections.max(initialRolls)
         playerList.getSelectionModel().select(initialRolls.indexOf(max));
-        return players.get(initialRolls.indexOf(max));
+        return initialRolls.indexOf(max);
     }
 
     public Integer findMaxSum(List <Integer> initialRolls) {
