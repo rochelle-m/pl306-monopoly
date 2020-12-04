@@ -1,6 +1,5 @@
 package game;
 
-import com.sun.xml.internal.bind.v2.TODO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
@@ -55,8 +54,6 @@ public class Monopoly {
         // start game
 
         /* TODO Timer
-
-
          */
 
         initialRolls = new ArrayList<>();
@@ -65,21 +62,36 @@ public class Monopoly {
         Dice d2 = new Dice();
 
         currentPlayer = getFirstPlayer(players, d1, d2);
-
+        System.out.println("Who goes first? "+ currentPlayer.getName());
     }
 
     private Player getFirstPlayer(List<Player> players, Dice d1, Dice d2) {
 
-        for(int i = 0; i < numOfPlayers; i++){
-            currentPlayer = players.get(i);
-            currentPlayer.setTurn(true);
-            Integer roll1 = currentPlayer.roll(d1, d2);
+        players.forEach(player -> {
+            Integer roll1 = player.roll(d1, d2);
             initialRolls.add(roll1);
-            System.out.println("This player rolls the dice " + currentPlayer.getName()+" with " +roll1);
-            currentPlayer.setTurn(false);
-        }
-        int max_index = -1;
-        // TODO Chetana for max roll, check for duplicates
-        return players.get(max_index);
+            System.out.println(player.getName() + " rolls " + roll1);
+        });
+        Integer max = findMaxSum(initialRolls);
+//        Integer max = Collections.max(initialRolls)
+        playerList.getSelectionModel().select(initialRolls.indexOf(max));
+        return players.get(initialRolls.indexOf(max));
     }
+
+    public Integer findMaxSum(List <Integer> initialRolls) {
+        int MaxVal = initialRolls.get(0);
+        for (Integer initialRoll : initialRolls) {
+            if (initialRoll > MaxVal) {
+                MaxVal = initialRoll;
+            }
+        }
+        return MaxVal;
+    }
+
+    
+
+
+
 }
+
+
