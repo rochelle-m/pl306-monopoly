@@ -4,18 +4,17 @@ public class Company extends Square {
 
     private Integer cost;
     private Integer rent;
-    private Integer mV;
 
-    public Company(String squareName, Integer cost, Integer rent, Integer mV) {
-        super(squareName);
+    public Company(String squareName, Integer id, Integer cost, Integer rent) {
+        super(squareName, id);
         this.cost = cost;
         this.rent = rent;
-        this.mV = mV;
     }
 
     public void totalRent(){
 
     }
+
 
     public Integer getRent() {
         return rent;
@@ -33,11 +32,4 @@ public class Company extends Square {
         this.cost = cost;
     }
 
-    public Integer getmV() {
-        return mV;
-    }
-
-    public void setmV(Integer mV) {
-        this.mV = mV;
-    }
 }

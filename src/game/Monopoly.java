@@ -45,26 +45,35 @@ public class Monopoly {
     }
 
     public void start() {
+        // displays names in listview
         ObservableList<String> namesList = FXCollections.observableArrayList();
         for (Player p : this.players) {
             namesList.add(p.getName());
         }
         playerList.setItems(namesList);
 
-        /* TODO Timer
-           TODO square mapping
+        /*
+            TODO Timer
+            TODO square mapping
          */
-
-        initialRolls = new ArrayList<>();
 
         Dice d1 = new Dice(),
                 d2 = new Dice();
+
+        initialRolls = new ArrayList<>();
+
+        Square go = new CornerBox("GO", 1, 200);
+        Square bangalore = new City("Bangalore", 1, "Red", 300, new float[]{00, 00, 00, 00 });
+
+
 
         currentPlayerIndex = getFirstPlayerIndex(players, d1, d2);
         currentPlayer = players.get(currentPlayerIndex);
         currentPlayer.setTurn(true);
         System.out.println("Who goes first? "+ currentPlayer.getName());
-        System.out.println(currentPlayer.getName() + " moves " + currentPlayer.roll(d1, d2) + " squares");
+
+        currentPlayer.setPosition(currentPlayer.roll(d1, d2));
+        System.out.println(currentPlayer.getPosition());
         // perform task
         System.out.println("next player index: "+ (currentPlayerIndex + 1) % numOfPlayers);
 

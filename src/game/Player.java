@@ -6,12 +6,14 @@ public class Player {
     private float playerMoney;
     private Boolean isInJail;
     private Boolean turn;
+    private Integer position;
     // add current pos
     // list of cards -- TODO check for colors
 
     public Player(Integer id, String name) {
         this.id = id;
         this.name = name;
+        this.position = 0;
         this.playerMoney = (float) 1000;
         this.isInJail = false;
         this.turn = false;
@@ -73,5 +75,13 @@ public class Player {
 
     public void setTurn(Boolean turn) {
         this.turn = turn;
+    }
+
+    public Integer getPosition() {
+        return position;
+    }
+
+    public void setPosition(Integer position) {
+        this.position = position;
     }
 }
