@@ -22,3 +22,13 @@ public class Main extends Application {
         launch(args);
     }
 }
+
+
+/*
+
+    Class Diagram
+    Classes we have written - Functions
+    Demo
+    What we'll do next
+
+ */

@@ -65,6 +65,7 @@ public class Monopoly {
         currentPlayer.setTurn(true);
         System.out.println("Who goes first? "+ currentPlayer.getName());
         System.out.println(currentPlayer.getName() + " moves " + currentPlayer.roll(d1, d2) + " squares");
+        // perform task
         System.out.println("next player index: "+ (currentPlayerIndex + 1) % numOfPlayers);
 
     }
