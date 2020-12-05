@@ -88,7 +88,7 @@ public class Monopoly {
 
         currentPlayerIndex = (currentPlayerIndex + 1) % numOfPlayers;
 
-        currentPlayer.setTurn(false);
+//        currentPlayer.setTurn(false);
     }
 
     private void displayNamesInListView() {
