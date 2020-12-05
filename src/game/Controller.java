@@ -22,8 +22,9 @@ public class Controller {
         Parent parent = loader.load();
 
         Monopoly monopoly = loader.getController();
-        monopoly.setNumOfPlayers((Integer) spinner.getValue());
-        monopoly.setPlayers(Arrays.copyOfRange(names, 0, (Integer) spinner.getValue()), Arrays.copyOfRange(colors, 0, (Integer) spinner.getValue()));
+        Integer numOfPlayers = (Integer) spinner.getValue();
+        monopoly.setNumOfPlayers(numOfPlayers);
+        monopoly.setPlayers(Arrays.copyOfRange(names, 0, numOfPlayers), Arrays.copyOfRange(colors, 0, numOfPlayers));
         monopoly.start();
 
         Stage stage = (Stage) btnPlay.getScene().getWindow();
