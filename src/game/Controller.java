@@ -13,7 +13,7 @@ import java.util.Arrays;
 public class Controller {
 
     final String[] names = {"Chetana", "Shruti", "Rochelle", "Jay"};
-    final Color[] colors = {Color.DARKBLUE, Color.HONEYDEW, Color.SPRINGGREEN, Color.CRIMSON};
+    final Color[] colors = {Color.DARKBLUE, Color.YELLOWGREEN, Color.SPRINGGREEN, Color.CRIMSON};
     public Button btnPlay;
     public Spinner spinner;
 
