@@ -5,6 +5,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Spinner;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Arrays;
@@ -12,6 +13,7 @@ import java.util.Arrays;
 public class Controller {
 
     final String[] names = {"Chetana", "Shruti", "Rochelle", "Jay"};
+    final Color[] colors = {Color.DARKBLUE, Color.HONEYDEW, Color.SPRINGGREEN, Color.CRIMSON};
     public Button btnPlay;
     public Spinner spinner;
 
@@ -21,7 +23,7 @@ public class Controller {
 
         Monopoly monopoly = loader.getController();
         monopoly.setNumOfPlayers((Integer) spinner.getValue());
-        monopoly.setPlayers(Arrays.copyOfRange(names, 0, (Integer) spinner.getValue()));
+        monopoly.setPlayers(Arrays.copyOfRange(names, 0, (Integer) spinner.getValue()), Arrays.copyOfRange(colors, 0, (Integer) spinner.getValue()));
         monopoly.start();
 
         Stage stage = (Stage) btnPlay.getScene().getWindow();
