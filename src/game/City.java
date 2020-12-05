@@ -1,16 +1,17 @@
 package game;
 
+import javafx.scene.layout.Pane;
+
 public class City extends Square{
     private String color;
     private float buyingAmount;
     private float[] rents;
 
-    public City(String squareName, Integer squareId,  String color, float buyingAmount, float[] rents) {
-        super(squareName, squareId);
+    public City(String squareName, Integer squareId,  String color, float buyingAmount, float[] rents, Pane pane) {
+        super(squareName, squareId, pane);
         this.buyingAmount = buyingAmount;
         this.color = color;
         this.rents = rents;
-
     }
 
     public String getColor() {

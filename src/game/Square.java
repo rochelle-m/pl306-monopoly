@@ -1,22 +1,40 @@
 package game;
 
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.Circle;
+
 public class Square {
-    // add (property) square index
-    private String squareName;
-    private Integer squareId;
+    private final String SQUARE_NAME;
+    private final Integer SQUARE_ID;
+    private final Pane PANE;
 
-
-    public Square(String squareName, Integer id){
-        this.squareId = id;
-        this.squareName= squareName ;
+    public Square(String squareName, Integer id, Pane pane){
+        this.SQUARE_ID = id;
+        this.SQUARE_NAME = squareName ;
+        this.PANE = pane;
     }
 
-    public String getSquareName() {
-        return squareName;
+    // trial
+    public void addPlayerToSquare(Paint color){
+        Circle c = new Circle();
+        c.setRadius(5.0);
+        c.setLayoutX(10.0);
+        c.setLayoutY(20.0);
+        c.setFill(color);
+        this.PANE.getChildren().add(c);
     }
 
-    public void setSquareName(String squareName) {
-        this.squareName = squareName;
+    public String getSQUARE_NAME() {
+        return SQUARE_NAME;
+    }
+
+    public Integer getSQUARE_ID() {
+        return SQUARE_ID;
+    }
+
+    public Pane getPANE() {
+        return PANE;
     }
 }
 
