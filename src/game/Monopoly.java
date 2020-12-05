@@ -5,6 +5,8 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +14,7 @@ public class Monopoly {
     public GridPane monopoly;
     public ListView<String> playerList;
     public Label dice;
+    public Pane S1, S0;
     List<Player> players;
     private Integer numOfPlayers;
     Integer currentPlayerIndex;
@@ -30,11 +33,11 @@ public class Monopoly {
         return players;
     }
 
-    public void setPlayers(String[] names) {
+    public void setPlayers(String[] names, Color[] colors) {
         this.players = new ArrayList<>();
         int i = 0;
         for (String name: names) {
-            Player p = new Player((i+1), name);
+            Player p = new Player((i+1), name, colors[i]);
             players.add(p);
             i++;
         }
@@ -62,16 +65,34 @@ public class Monopoly {
 
         initialRolls = new ArrayList<>();
 
-        Square go = new CornerBox("GO", 1, 200);
-        Square bangalore = new City("Bangalore", 1, "Red", 300, new float[]{00, 00, 00, 00 });
+        Square go = new CornerBox("GO", 0, 200, S0);
 
+        Square bangalore = new City("Bangalore", 1, "Red", 300, new float[]{0, 0, 0, 0 }, S1);
+        Square hyderabad = new City("Hyderabad", 3, "Red", 220, new float[]{0, 0, 0, 0 }, null);
+        Square mumbai = new City("Mumbai", 6, "Red", 500, new float[]{0, 0, 0, 0}, null);
+        Square kolkata = new City("Kolkata", 10, "Yellow", 200, new float[]{0, 0, 0, 0}, null);
+        Square pune = new City("Pune", 11, "Yellow", 400, new float[]{0, 0, 0, 0 }, null);
+        Square patna = new City("Patna", 13, "Yellow", 230, new float[]{0, 0, 0, 0}, null);
+        Square chennai = new City("Chennai", 16, "Blue", 300, new float[]{0, 0, 0, 0}, null);
+        Square delhi = new City("Delhi", 17, "Blue", 450, new float[]{0, 0, 0, 0 }, null);
+        Square jaipur = new City("Jaipur", 20, "Blue", 260, new float[]{0, 0, 0, 0}, null);
+        Square chandigarh = new City("Chandigarh", 23, "Green", 290, new float[]{0, 0, 0, 0}, null);
+        Square indore = new City("Indore", 25, "Green", 420, new float[]{0, 0, 0, 0 }, null);
+        Square kanpur = new City("Kanpur", 26, "Green", 260, new float[]{0, 0, 0, 0}, null);
 
+        List<Square> list = new ArrayList<>();
+        list.add(0, go);
+        list.add(1, bangalore);
 
         currentPlayerIndex = getFirstPlayerIndex(players, d1, d2);
         currentPlayer = players.get(currentPlayerIndex);
         currentPlayer.setTurn(true);
         System.out.println("Who goes first? "+ currentPlayer.getName());
 
+        // test
+        Integer x = currentPlayer.getPosition()+ currentPlayer.roll(d1, d2);
+        System.out.println(x);
+        list.get(1).addPlayerToSquare(currentPlayer.getTokenColor());
         currentPlayer.setPosition(currentPlayer.roll(d1, d2));
         System.out.println(currentPlayer.getPosition());
         // perform task
