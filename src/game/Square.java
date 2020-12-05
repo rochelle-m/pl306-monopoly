@@ -1,6 +1,7 @@
 package game;
 
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 
@@ -16,11 +17,12 @@ public class Square {
     }
 
     // trial
-    public void addPlayerToSquare(Paint color){
+    public void addPlayerToSquare(Paint color, double x){
         Circle c = new Circle();
-        c.setRadius(5.0);
-        c.setLayoutX(10.0);
-        c.setLayoutY(20.0);
+        c.setStroke(Color.BLACK);
+        c.setRadius(8.0);
+        c.setLayoutX(x * 18.0);
+        c.setLayoutY(24.0);
         c.setFill(color);
         this.PANE.getChildren().add(c);
     }
