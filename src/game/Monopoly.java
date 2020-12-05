@@ -66,6 +66,16 @@ public class Monopoly {
         initialRolls = new ArrayList<>();
 
         Square go = new CornerBox("GO", 0, 200, S0);
+        Square jail = new CornerBox("JAIL", 7, 100, null);
+        Square pub = new CornerBox("PUB", 14, 250, null);
+        Square resthouse = new CornerBox("restHouse", 21, 200, null);
+
+        Square waterworks = new Company("WATERWORKS", 5, 150, 80, null);
+        Square airways = new Company("AIRWAYS", 8, 320, 190, null);
+        Square waterways = new Company("WATERWAYS", 15, 280, 110, null);
+        Square roadways = new Company("ROADWAYS", 19, 170, 50, null);
+        Square electricity = new Company("ELECTRICITY", 24, 180, 60, null);
+        Square railways = new Company("RAILWAYS", 27, 210, 90, null);
 
         Square bangalore = new City("Bangalore", 1, "Red", 300, new float[]{0, 0, 0, 0 }, S1);
         Square hyderabad = new City("Hyderabad", 3, "Red", 220, new float[]{0, 0, 0, 0 }, null);
