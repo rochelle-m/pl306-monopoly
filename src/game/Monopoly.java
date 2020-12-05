@@ -14,57 +14,20 @@ public class Monopoly {
     public GridPane monopoly;
     public ListView<String> playerList;
     public Label dice;
-    public Pane S1, S0;
+    public Pane p0GO, p1Bangalore, p2Chance1;
     List<Player> players;
     private Integer numOfPlayers;
     Integer currentPlayerIndex;
     Player currentPlayer;
     List<Integer> initialRolls;
-
-    public void setNumOfPlayers(Integer numOfPlayers) {
-        this.numOfPlayers = numOfPlayers;
-    }
-
-    void removePlayer() {
-        players.removeIf(p -> p.getPlayerMoney() == (float) 0.0);
-    }
-
-    public List<Player> getPlayers() {
-        return players;
-    }
-
-    public void setPlayers(String[] names, Color[] colors) {
-        this.players = new ArrayList<>();
-        int i = 0;
-        for (String name: names) {
-            Player p = new Player((i+1), name, colors[i]);
-            players.add(p);
-            i++;
-        }
-    }
-
-    public Integer getNumOfPlayers() {
-        return numOfPlayers;
-    }
+    Square[] board;
+    Dice d1, d2;
 
     public void start() {
-        // displays names in listview
-        ObservableList<String> namesList = FXCollections.observableArrayList();
-        for (Player p : this.players) {
-            namesList.add(p.getName());
-        }
-        playerList.setItems(namesList);
+        d1 = new Dice();
+        d2 = new Dice();
 
-        /*
-            TODO Timer
-         */
-
-        Dice d1 = new Dice(),
-                d2 = new Dice();
-
-        initialRolls = new ArrayList<>();
-
-        Square go = new CornerBox("GO", 0, 200, S0);
+        Square go = new CornerBox("GO", 0, 200, p0GO);
         Square jail = new CornerBox("JAIL", 7, 100, null);
         Square pub = new CornerBox("PUB", 14, 250, null);
         Square resthouse = new CornerBox("restHouse", 21, 200, null);
@@ -76,7 +39,7 @@ public class Monopoly {
         Square electricity = new Company("ELECTRICITY", 24, 180, 60, null);
         Square railways = new Company("RAILWAYS", 27, 210, 90, null);
 
-        Square bangalore = new City("Bangalore", 1, "Red", 300, new float[]{0, 0, 0, 0 }, S1);
+        Square bangalore = new City("Bangalore", 1, "Red", 300, new float[]{0, 0, 0, 0 }, p1Bangalore);
         Square hyderabad = new City("Hyderabad", 3, "Red", 220, new float[]{0, 0, 0, 0 }, null);
         Square mumbai = new City("Mumbai", 6, "Red", 500, new float[]{0, 0, 0, 0}, null);
         Square kolkata = new City("Kolkata", 10, "Yellow", 200, new float[]{0, 0, 0, 0}, null);
@@ -89,7 +52,7 @@ public class Monopoly {
         Square indore = new City("Indore", 25, "Green", 420, new float[]{0, 0, 0, 0 }, null);
         Square kanpur = new City("Kanpur", 26, "Green", 260, new float[]{0, 0, 0, 0}, null);
 
-        Square chance1 = new Chance("chance1", 2,null);
+        Square chance1 = new Chance("chance1", 2, p2Chance1);
         Square chance2 = new Chance("chance2",18 ,null);
 
         Square cchest1 = new CommunityChest("cchest1", 9,null);
@@ -98,39 +61,54 @@ public class Monopoly {
         Square incomeTax= new Square("Income Tax",4,null);
         Square luxuryTax= new Square("Luxury Tax",12,null);
 
-        Square[] board = {go, bangalore, chance1, hyderabad, incomeTax, waterworks, mumbai, jail, airways, cchest1,
+        board = new Square[]{go, bangalore, chance1, hyderabad, incomeTax, waterworks, mumbai, jail, airways, cchest1,
                 kolkata, pune, luxuryTax, patna, pub, waterways, chennai, delhi, chance2, roadways, jaipur,
                 resthouse, cchest2, chandigarh, electricity, indore, kanpur, railways};
 
-
         currentPlayerIndex = getFirstPlayerIndex(players, d1, d2);
         currentPlayer = players.get(currentPlayerIndex);
+
+        // temp
+        for(Player p: players){
+            board[0].addPlayerToSquare(p);
+        }
+
+        displayNamesInListView();
+
+        nextMove(currentPlayer);
+    }
+
+    private void nextMove(Player currentPlayer) {
         currentPlayer.setTurn(true);
-        System.out.println("Who goes first? "+ currentPlayer.getName());
 
-        // test
-        Integer x = currentPlayer.getPosition()+ currentPlayer.roll(d1, d2);
-        System.out.println(x);
-//        list.get(1).addPlayerToSquare(currentPlayer.getTokenColor());
-        board[1].addPlayerToSquare(currentPlayer.getTokenColor());
-        currentPlayer.setPosition(currentPlayer.roll(d1, d2));
-        System.out.println(currentPlayer.getPosition());
-        // perform task
-        System.out.println("next player index: "+ (currentPlayerIndex + 1) % numOfPlayers);
+        Integer roll = currentPlayer.roll(d1, d2);
+        Integer newPos = currentPlayer.getPosition()+ roll;
+//        board[newPos].addPlayerToSquare(currentPlayer);
+        currentPlayer.setPosition(newPos);
 
-        ((Chance)chance1).chanceConditions(4);
+        currentPlayerIndex = (currentPlayerIndex + 1) % numOfPlayers;
+
+        currentPlayer.setTurn(false);
+    }
+
+    private void displayNamesInListView() {
+        ObservableList<String> namesList = FXCollections.observableArrayList();
+        int i = 0;
+        for (Player p : this.players) {
+            namesList.add(p.getName() + "\t\t"+ initialRolls.get(i++));
+        }
+        playerList.setItems(namesList);
+        playerList.getSelectionModel().select(currentPlayerIndex);
     }
 
     private Integer getFirstPlayerIndex(List<Player> players, Dice d1, Dice d2) {
-
+        initialRolls = new ArrayList<>();
         players.forEach(player -> {
             Integer roll1 = player.roll(d1, d2);
             initialRolls.add(roll1);
-            System.out.println(player.getName() + " rolls " + roll1);
         });
         Integer max = findMaxSum(initialRolls);
 //        Integer max = Collections.max(initialRolls)
-        playerList.getSelectionModel().select(initialRolls.indexOf(max));
         return initialRolls.indexOf(max);
     }
 
@@ -144,6 +122,30 @@ public class Monopoly {
         return MaxVal;
     }
 
+    void removePlayer() {
+        players.removeIf(p -> p.getPlayerMoney() == (float) 0.0);
+    }
+
+    public List<Player> getPlayers() {
+        return players;
+    }
+
+    public void setNumOfPlayers(Integer numOfPlayers) {
+        this.numOfPlayers = numOfPlayers;
+    }
+
+    public Integer getNumOfPlayers() {
+        return numOfPlayers;
+    }
+
+    public void setPlayers(String[] names, Color[] colors) {
+        this.players = new ArrayList<>();
+        int i = 0;
+        for (String name: names) {
+            Player p = new Player((i+1), name, colors[i]);
+            players.add(p);
+            i++;
+        }
+    }
+
 }
-
-
