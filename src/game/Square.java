@@ -17,13 +17,13 @@ public class Square {
     }
 
     // trial
-    public void addPlayerToSquare(Paint color, double x){
+    public void addPlayerToSquare(Player player){
         Circle c = new Circle();
         c.setStroke(Color.BLACK);
         c.setRadius(8.0);
-        c.setLayoutX(x * 18.0);
+        c.setLayoutX(player.getId() * 18.0);
         c.setLayoutY(24.0);
-        c.setFill(color);
+        c.setFill(player.getTokenColor());
         this.PANE.getChildren().add(c);
     }
 
