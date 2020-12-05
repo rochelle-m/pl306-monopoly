@@ -57,7 +57,6 @@ public class Monopoly {
 
         /*
             TODO Timer
-            TODO square mapping
          */
 
         Dice d1 = new Dice(),
@@ -80,9 +79,9 @@ public class Monopoly {
         Square indore = new City("Indore", 25, "Green", 420, new float[]{0, 0, 0, 0 }, null);
         Square kanpur = new City("Kanpur", 26, "Green", 260, new float[]{0, 0, 0, 0}, null);
 
-        List<Square> list = new ArrayList<>();
-        list.add(0, go);
-        list.add(1, bangalore);
+        Square[] board = {go, bangalore, null, hyderabad, null, null, mumbai, null, null, null, kolkata, pune, null,
+                patna, null, null, chennai, delhi, null, null, jaipur, null, null, chandigarh, null, indore, kanpur};
+
 
         currentPlayerIndex = getFirstPlayerIndex(players, d1, d2);
         currentPlayer = players.get(currentPlayerIndex);
@@ -92,7 +91,8 @@ public class Monopoly {
         // test
         Integer x = currentPlayer.getPosition()+ currentPlayer.roll(d1, d2);
         System.out.println(x);
-        list.get(1).addPlayerToSquare(currentPlayer.getTokenColor());
+//        list.get(1).addPlayerToSquare(currentPlayer.getTokenColor());
+        board[1].addPlayerToSquare(currentPlayer.getTokenColor());
         currentPlayer.setPosition(currentPlayer.roll(d1, d2));
         System.out.println(currentPlayer.getPosition());
         // perform task
