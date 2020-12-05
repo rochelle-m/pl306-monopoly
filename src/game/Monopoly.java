@@ -89,20 +89,18 @@ public class Monopoly {
         Square indore = new City("Indore", 25, "Green", 420, new float[]{0, 0, 0, 0 }, null);
         Square kanpur = new City("Kanpur", 26, "Green", 260, new float[]{0, 0, 0, 0}, null);
 
-
-
         Square chance1 = new Chance("chance1", 2,null);
         Square chance2 = new Chance("chance2",18 ,null);
 
         Square cchest1 = new CommunityChest("cchest1", 9,null);
         Square cchest2 = new CommunityChest("cchest2",22 ,null);
 
-        Square incomeTax= new Square("incomeTax",4,null);
-        Square luxaryTax= new Square("luxaryTax",12,null);
+        Square incomeTax= new Square("Income Tax",4,null);
+        Square luxuryTax= new Square("Luxury Tax",12,null);
 
-
-        Square[] board = {go, bangalore, null, hyderabad, null, null, mumbai, null, null, null, kolkata, pune, null,
-                patna, null, null, chennai, delhi, null, null, jaipur, null, null, chandigarh, null, indore, kanpur};
+        Square[] board = {go, bangalore, chance1, hyderabad, incomeTax, waterworks, mumbai, jail, airways, cchest1,
+                kolkata, pune, luxuryTax, patna, pub, waterways, chennai, delhi, chance2, roadways, jaipur,
+                resthouse, cchest2, chandigarh, electricity, indore, kanpur, railways};
 
 
         currentPlayerIndex = getFirstPlayerIndex(players, d1, d2);
