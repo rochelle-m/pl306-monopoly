@@ -80,6 +80,16 @@ public class Monopoly {
         Square indore = new City("Indore", 25, "Green", 420, new float[]{0, 0, 0, 0 }, null);
         Square kanpur = new City("Kanpur", 26, "Green", 260, new float[]{0, 0, 0, 0}, null);
 
+        Square chance1 = new Chance("chance1", 2,null);
+        Square chance2 = new Chance("chance2",18 ,null);
+
+        Square cchest1 = new CommunityChest("cchest1", 9,null);
+        Square cchest2 = new CommunityChest("cchest2",22 ,null);
+
+        Square incomeTax= new Square("incomeTax",4,null);
+        Square luxaryTax= new Square("luxaryTax",12,null);
+
+
         List<Square> list = new ArrayList<>();
         list.add(0, go);
         list.add(1, bangalore);
@@ -98,6 +108,7 @@ public class Monopoly {
         // perform task
         System.out.println("next player index: "+ (currentPlayerIndex + 1) % numOfPlayers);
 
+        ((Chance)chance1).chanceConditions(4);
     }
 
     private Integer getFirstPlayerIndex(List<Player> players, Dice d1, Dice d2) {
