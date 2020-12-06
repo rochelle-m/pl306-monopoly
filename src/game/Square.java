@@ -19,11 +19,11 @@ public class Square {
     // trial
     public void addPlayerToSquare(Player player){
         Circle c = new Circle();
-        c.setStroke(Color.BLACK);
+//        c.setStroke(Color.BLACK);
         c.setRadius(8.0);
         c.setLayoutX(player.getId() * 18.0);
         c.setLayoutY(24.0);
-        c.setFill(player.getTokenColor());
+        c.setStyle("-fx-background-color :"+player.getTokenColor()+";");
         this.PANE.getChildren().add(c);
     }
 

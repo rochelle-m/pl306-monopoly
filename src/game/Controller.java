@@ -12,8 +12,9 @@ import java.util.Arrays;
 
 public class Controller {
 
-    final String[] names = {"Chetana", "Shruti", "Rochelle", "Jay"};
+    final String[] names = {"Chetana", "Shruti", "Rochelle", "Jane Doe"};
     final Color[] colors = {Color.DARKBLUE, Color.YELLOWGREEN, Color.SPRINGGREEN, Color.CRIMSON};
+    final String[] colorsS = {"#00008B", "#9ACD32", "#00FF7F", "#DC143C"};
     public Button btnPlay;
     public Spinner spinner;
 
@@ -24,7 +25,7 @@ public class Controller {
         Monopoly monopoly = loader.getController();
         Integer numOfPlayers = (Integer) spinner.getValue();
         monopoly.setNumOfPlayers(numOfPlayers);
-        monopoly.setPlayers(Arrays.copyOfRange(names, 0, numOfPlayers), Arrays.copyOfRange(colors, 0, numOfPlayers));
+        monopoly.setPlayers(Arrays.copyOfRange(names, 0, numOfPlayers), Arrays.copyOfRange(colorsS, 0, numOfPlayers));
         monopoly.start();
 
         Stage stage = (Stage) btnPlay.getScene().getWindow();

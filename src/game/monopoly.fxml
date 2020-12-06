@@ -5,7 +5,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="725.0" prefWidth="1312.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.Monopoly">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="725.0"
+      prefWidth="1312.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="game.Monopoly" fx:id="pane" >
     <GridPane fx:id="monopoly" alignment="BOTTOM_LEFT" layoutX="600.0" layoutY="15.0" prefHeight="660.0" prefWidth="660.0" style="-fx-border-color: gray;">
 
         <columnConstraints>
@@ -322,6 +324,5 @@
          </children>
       </Pane>
     </GridPane>
-   <ListView fx:id="playerList" layoutX="57.0" layoutY="107.0" prefHeight="98.0" prefWidth="187.0" style="-fx-border-color: black;" />
    <Label fx:id="dice" layoutX="57.0" layoutY="255.0" />
 </Pane>

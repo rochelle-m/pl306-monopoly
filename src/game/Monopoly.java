@@ -12,9 +12,9 @@ import java.util.List;
 
 public class Monopoly {
     public GridPane monopoly;
-    public ListView<String> playerList;
     public Label dice;
     public Pane p0GO, p1Bangalore, p2Chance1;
+    public Pane pane;
     List<Player> players;
     private Integer numOfPlayers;
     Integer currentPlayerIndex;
@@ -92,13 +92,17 @@ public class Monopoly {
     }
 
     private void displayNamesInListView() {
-        ObservableList<String> namesList = FXCollections.observableArrayList();
         int i = 0;
         for (Player p : this.players) {
-            namesList.add(p.getName() + "\t\t"+ initialRolls.get(i++));
+            Label l = new Label(p.getName() + "\t\t\t"+ initialRolls.get(i++));
+            l.setTextFill(Color.WHITE);
+            l.setStyle("-fx-background-color :"+p.getTokenColor()+";" + " -fx-padding: 10;" +"-fx-font-size: 18px;");
+            l.setLayoutX(40.0);
+            l.setMinWidth(200);
+            l.setLayoutY(p.getId() * 50);
+            l.setId(String.valueOf(p.getId()));
+            pane.getChildren().add(l);
         }
-        playerList.setItems(namesList);
-        playerList.getSelectionModel().select(currentPlayerIndex);
     }
 
     private Integer getFirstPlayerIndex(List<Player> players, Dice d1, Dice d2) {
@@ -138,7 +142,7 @@ public class Monopoly {
         return numOfPlayers;
     }
 
-    public void setPlayers(String[] names, Color[] colors) {
+    public void setPlayers(String[] names, String[] colors) {
         this.players = new ArrayList<>();
         int i = 0;
         for (String name: names) {
