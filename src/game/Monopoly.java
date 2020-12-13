@@ -26,8 +26,8 @@ public class Monopoly {
     public void start() {
         d1 = new Dice();
         d2 = new Dice();
+
         Bank bank = new Bank(numOfPlayers * 10000);
-        System.out.println(bank.getBankMoney());
 
         Square go = new CornerBox("GO", 0, 200, p0GO);
         Square jail = new CornerBox("JAIL", 7, 100, p7Jail);
@@ -102,7 +102,7 @@ public class Monopoly {
 
         Integer roll = currentPlayer.roll(d1, d2);
         System.out.println(roll);
-        Integer newPos = (currentPlayer.getPosition()+ roll) % 27;
+        Integer newPos = (currentPlayer.getPosition()+ roll) % 28;
 
         // 7-> square
         board[newPos].addPlayerToSquare(currentPlayer);
