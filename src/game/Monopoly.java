@@ -11,7 +11,7 @@ public class Monopoly {
     public GridPane monopoly;
     public Label dice;
     public Pane p0GO, p1Bangalore, p2Chance1, pane, p3Hyderabad, p4IncomeTax,p5WaterWorks, p6Mumbai, p7Jail, p8Airways,
-                p9Cchest1, p10Kolkata, p11Pune, p12luxaryTax, p13Patna, p14Pub, p15Waterways, p16Chennai, p17Delhi,
+                p9Cchest1, p10Kolkata, p11Pune, p12luxuryTax, p13Patna, p14Pub, p15Waterways, p16Chennai, p17Delhi,
                 p18Chance2, p20Jaipur, p19roadways, p21Resthouse, p27railroad, p22Community2, p24Electricity,
                 p23Chandigarh, p25Indore, p26Kanpur;
 
@@ -26,11 +26,13 @@ public class Monopoly {
     public void start() {
         d1 = new Dice();
         d2 = new Dice();
+        Bank bank = new Bank(numOfPlayers * 10000);
+        System.out.println(bank.getBankMoney());
 
         Square go = new CornerBox("GO", 0, 200, p0GO);
         Square jail = new CornerBox("JAIL", 7, 100, p7Jail);
         Square pub = new CornerBox("PUB", 14, 250, p14Pub);
-        Square resthouse = new CornerBox("restHouse", 21, 200, null);
+        Square resthouse = new CornerBox("restHouse", 21, 200, p21Resthouse);
 
 
         Square waterworks = new Company("WATERWORKS", 5, 150, 80, p5WaterWorks);
@@ -75,7 +77,7 @@ public class Monopoly {
 
 
         Square incomeTax= new Square("Income Tax",4,p4IncomeTax);
-        Square luxuryTax= new Square("Luxury Tax",12,p12luxaryTax);
+        Square luxuryTax= new Square("Luxury Tax",12,p12luxuryTax);
 
         board = new Square[]{go, bangalore, chance1, hyderabad, incomeTax, waterworks, mumbai, jail, airways, cchest1,
                 kolkata, pune, luxuryTax, patna, pub, waterways, chennai, delhi, chance2, roadways, jaipur,
@@ -89,6 +91,7 @@ public class Monopoly {
             board[0].addPlayerToSquare(p);
         }
 
+
         displayNamesInListView();
 
         nextMove(currentPlayer);
@@ -98,13 +101,22 @@ public class Monopoly {
         currentPlayer.setTurn(true);
 
         Integer roll = currentPlayer.roll(d1, d2);
-        Integer newPos = currentPlayer.getPosition()+ roll;
-//        board[newPos].addPlayerToSquare(currentPlayer);
+        System.out.println(roll);
+        Integer newPos = (currentPlayer.getPosition()+ roll) % 27;
+
+        // 7-> square
+        board[newPos].addPlayerToSquare(currentPlayer);
         currentPlayer.setPosition(newPos);
 
         currentPlayerIndex = (currentPlayerIndex + 1) % numOfPlayers;
 
-//        currentPlayer.setTurn(false);
+
+        /*
+        *  TODO
+        *   R: Remove player from old square
+        *   S: Add roll button for each player
+        *   ALL: Give the task at new position
+        * */
     }
 
     private void displayNamesInListView() {

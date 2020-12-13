@@ -11,6 +11,7 @@ public class CornerBox extends Square {
         this.setAmount(amount);
     }
 
+
     public void pay(Player player, CornerBox cornerBox, Bank bank){
 /*        if cornerbox = resthouse
         deduct from other players, add pa

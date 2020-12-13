@@ -12,6 +12,7 @@ public class Bank {
     public Bank() {
         this.bankMoney =  0;
     }
+
     public Bank(int bankMoney) {
         this.bankMoney = bankMoney;
     }

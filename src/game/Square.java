@@ -1,9 +1,7 @@
 package game;
 
-import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 
 public class Square {
@@ -30,6 +28,10 @@ public class Square {
         c.setLayoutX(player.getId() * 18.0);
         c.setLayoutY(24.0);
         this.PANE.getChildren().add(player.getId(), c);
+    }
+
+    void task(){
+        // TODO Chetana
     }
 
     public String getSQUARE_NAME() {

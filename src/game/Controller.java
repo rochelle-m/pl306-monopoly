@@ -5,7 +5,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Spinner;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Arrays;
@@ -13,7 +12,8 @@ import java.util.Arrays;
 public class Controller {
 
     final String[] names = {"Chetana", "Shruti", "Rochelle", "Jane Doe"};
-    final Color[] colors = {Color.DARKBLUE, Color.YELLOWGREEN, Color.SPRINGGREEN, Color.CRIMSON};
+
+    // TODO CHETANA find color contrast
     final String[] colorsS = {"#00008B", "#9ACD32", "#00FF7F", "#DC143C"};
     public Button btnPlay;
     public Spinner spinner;
