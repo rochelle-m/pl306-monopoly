@@ -10,35 +10,10 @@ import java.util.List;
 public class Monopoly {
     public GridPane monopoly;
     public Label dice;
-    public Pane p0GO, p1Bangalore, p2Chance1;
-    public Pane pane;
-
-    public Pane p3Hyderabad;
-    public Pane p4IncomeTax;
-    public Pane p5WaterWorks;
-    public Pane p6Mumbai;
-    public Pane p7Jail;
-    public Pane p8Airways;
-    public Pane p9Cchest1;
-    public Pane p10Kolkata;
-    public Pane p11Pune;
-    public Pane p12luxaryTax;
-    public Pane p13Patna;
-    public Pane p14Pub;
-    public Pane p15Waterways;
-    public Pane p16Chennai;
-
-    public Pane p17Delhi;
-    public Pane p18Chance2;
-    public Pane p20Jaipur;
-    public Pane p19roadways;
-    public Pane p21Resthouse;
-    public Pane p27railroad;
-    public Pane p22Community2;
-    public Pane p24Electricity;
-    public Pane p23Chandigarh;
-    public Pane p25Indore;
-    public Pane p26Kanpur;
+    public Pane p0GO, p1Bangalore, p2Chance1, pane, p3Hyderabad, p4IncomeTax,p5WaterWorks, p6Mumbai, p7Jail, p8Airways,
+                p9Cchest1, p10Kolkata, p11Pune, p12luxaryTax, p13Patna, p14Pub, p15Waterways, p16Chennai, p17Delhi,
+                p18Chance2, p20Jaipur, p19roadways, p21Resthouse, p27railroad, p22Community2, p24Electricity,
+                p23Chandigarh, p25Indore, p26Kanpur;
 
     List<Player> players;
     private Integer numOfPlayers;
@@ -65,18 +40,30 @@ public class Monopoly {
         Square electricity = new Company("ELECTRICITY", 24, 180, 60, p24Electricity);
         Square railways = new Company("RAILWAYS", 27, 210, 90, p27railroad);
 
-        Square bangalore = new City("Bangalore", 1, "Red", 300, new float[]{0, 0, 0, 0 }, p1Bangalore);
-        Square hyderabad = new City("Hyderabad", 3, "Red", 220, new float[]{0, 0, 0, 0 }, p3Hyderabad);
-        Square mumbai = new City("Mumbai", 6, "Red", 500, new float[]{0, 0, 0, 0}, p6Mumbai);
-        Square kolkata = new City("Kolkata", 10, "Yellow", 200, new float[]{0, 0, 0, 0}, p10Kolkata);
-        Square pune = new City("Pune", 11, "Yellow", 400, new float[]{0, 0, 0, 0 }, p11Pune);
-        Square patna = new City("Patna", 13, "Yellow", 230, new float[]{0, 0, 0, 0}, p13Patna);
-        Square chennai = new City("Chennai", 16, "Blue", 300, new float[]{0, 0, 0, 0}, p16Chennai);
-        Square delhi = new City("Delhi", 17, "Blue", 450, new float[]{0, 0, 0, 0 }, p17Delhi);
-        Square jaipur = new City("Jaipur", 20, "Blue", 260, new float[]{0, 0, 0, 0}, p20Jaipur);
-        Square chandigarh = new City("Chandigarh", 23, "Green", 290, new float[]{0, 0, 0, 0}, p23Chandigarh);
-        Square indore = new City("Indore", 25, "Green", 420, new float[]{0, 0, 0, 0 }, p25Indore);
-        Square kanpur = new City("Kanpur", 26, "Green", 260, new float[]{0, 0, 0, 0}, p26Kanpur);
+        Square bangalore = new City("Bangalore", 1, "Red",
+                300, new float[]{0, 0, 0, 0 }, p1Bangalore);
+        Square hyderabad = new City("Hyderabad", 3, "Red",
+                220, new float[]{0, 0, 0, 0 }, p3Hyderabad);
+        Square mumbai = new City("Mumbai", 6, "Red",
+                500, new float[]{0, 0, 0, 0}, p6Mumbai);
+        Square kolkata = new City("Kolkata", 10, "Yellow",
+                200, new float[]{0, 0, 0, 0}, p10Kolkata);
+        Square pune = new City("Pune", 11, "Yellow",
+                400, new float[]{0, 0, 0, 0 }, p11Pune);
+        Square patna = new City("Patna", 13, "Yellow",
+                230, new float[]{0, 0, 0, 0}, p13Patna);
+        Square chennai = new City("Chennai", 16, "Blue",
+                300, new float[]{0, 0, 0, 0}, p16Chennai);
+        Square delhi = new City("Delhi", 17, "Blue",
+                450, new float[]{0, 0, 0, 0 }, p17Delhi);
+        Square jaipur = new City("Jaipur", 20, "Blue",
+                260, new float[]{0, 0, 0, 0}, p20Jaipur);
+        Square chandigarh = new City("Chandigarh", 23, "Green",
+                290, new float[]{0, 0, 0, 0}, p23Chandigarh);
+        Square indore = new City("Indore", 25, "Green",
+                420, new float[]{0, 0, 0, 0 }, p25Indore);
+        Square kanpur = new City("Kanpur", 26, "Green",
+                260, new float[]{0, 0, 0, 0}, p26Kanpur);
 
 
         Square chance1 = new Chance("chance1", 2, p2Chance1);
