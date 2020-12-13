@@ -12,6 +12,22 @@ public class Monopoly {
     public Label dice;
     public Pane p0GO, p1Bangalore, p2Chance1;
     public Pane pane;
+
+    public Pane p3Hyderabad;
+    public Pane p4IncomeTax;
+    public Pane p5WaterWorks;
+    public Pane p6Mumbai;
+    public Pane p7Jail;
+    public Pane p8Airways;
+    public Pane p9Cchest1;
+    public Pane p10Kolkata;
+    public Pane p11Pune;
+    public Pane p12luxaryTax;
+    public Pane p13Patna;
+    public Pane p14Pub;
+    public Pane p15Waterways;
+    public Pane p16Chennai;
+
     public Pane p17Delhi;
     public Pane p18Chance2;
     public Pane p20Jaipur;
@@ -23,6 +39,7 @@ public class Monopoly {
     public Pane p23Chandigarh;
     public Pane p25Indore;
     public Pane p26Kanpur;
+
     List<Player> players;
     private Integer numOfPlayers;
     Integer currentPlayerIndex;
@@ -36,38 +53,42 @@ public class Monopoly {
         d2 = new Dice();
 
         Square go = new CornerBox("GO", 0, 200, p0GO);
-        Square jail = new CornerBox("JAIL", 7, 100, null);
-        Square pub = new CornerBox("PUB", 14, 250, null);
+        Square jail = new CornerBox("JAIL", 7, 100, p7Jail);
+        Square pub = new CornerBox("PUB", 14, 250, p14Pub);
         Square resthouse = new CornerBox("restHouse", 21, 200, null);
 
-        Square waterworks = new Company("WATERWORKS", 5, 150, 80, null);
-        Square airways = new Company("AIRWAYS", 8, 320, 190, null);
-        Square waterways = new Company("WATERWAYS", 15, 280, 110, null);
+
+        Square waterworks = new Company("WATERWORKS", 5, 150, 80, p5WaterWorks);
+        Square airways = new Company("AIRWAYS", 8, 320, 190, p8Airways);
+        Square waterways = new Company("WATERWAYS", 15, 280, 110, p15Waterways);
         Square roadways = new Company("ROADWAYS", 19, 170, 50, p19roadways);
         Square electricity = new Company("ELECTRICITY", 24, 180, 60, p24Electricity);
         Square railways = new Company("RAILWAYS", 27, 210, 90, p27railroad);
 
         Square bangalore = new City("Bangalore", 1, "Red", 300, new float[]{0, 0, 0, 0 }, p1Bangalore);
-        Square hyderabad = new City("Hyderabad", 3, "Red", 220, new float[]{0, 0, 0, 0 }, null);
-        Square mumbai = new City("Mumbai", 6, "Red", 500, new float[]{0, 0, 0, 0}, null);
-        Square kolkata = new City("Kolkata", 10, "Yellow", 200, new float[]{0, 0, 0, 0}, null);
-        Square pune = new City("Pune", 11, "Yellow", 400, new float[]{0, 0, 0, 0 }, null);
-        Square patna = new City("Patna", 13, "Yellow", 230, new float[]{0, 0, 0, 0}, null);
-        Square chennai = new City("Chennai", 16, "Blue", 300, new float[]{0, 0, 0, 0}, null);
+        Square hyderabad = new City("Hyderabad", 3, "Red", 220, new float[]{0, 0, 0, 0 }, p3Hyderabad);
+        Square mumbai = new City("Mumbai", 6, "Red", 500, new float[]{0, 0, 0, 0}, p6Mumbai);
+        Square kolkata = new City("Kolkata", 10, "Yellow", 200, new float[]{0, 0, 0, 0}, p10Kolkata);
+        Square pune = new City("Pune", 11, "Yellow", 400, new float[]{0, 0, 0, 0 }, p11Pune);
+        Square patna = new City("Patna", 13, "Yellow", 230, new float[]{0, 0, 0, 0}, p13Patna);
+        Square chennai = new City("Chennai", 16, "Blue", 300, new float[]{0, 0, 0, 0}, p16Chennai);
         Square delhi = new City("Delhi", 17, "Blue", 450, new float[]{0, 0, 0, 0 }, p17Delhi);
         Square jaipur = new City("Jaipur", 20, "Blue", 260, new float[]{0, 0, 0, 0}, p20Jaipur);
         Square chandigarh = new City("Chandigarh", 23, "Green", 290, new float[]{0, 0, 0, 0}, p23Chandigarh);
         Square indore = new City("Indore", 25, "Green", 420, new float[]{0, 0, 0, 0 }, p25Indore);
         Square kanpur = new City("Kanpur", 26, "Green", 260, new float[]{0, 0, 0, 0}, p26Kanpur);
 
+
         Square chance1 = new Chance("chance1", 2, p2Chance1);
         Square chance2 = new Chance("chance2",18 ,p18Chance2);
 
-        Square cchest1 = new CommunityChest("cchest1", 9,null);
+
+        Square cchest1 = new CommunityChest("cchest1", 9,p9Cchest1);
         Square cchest2 = new CommunityChest("cchest2",22 ,p22Community2);
 
-        Square incomeTax= new Square("Income Tax",4,null);
-        Square luxuryTax= new Square("Luxury Tax",12,null);
+
+        Square incomeTax= new Square("Income Tax",4,p4IncomeTax);
+        Square luxuryTax= new Square("Luxury Tax",12,p12luxaryTax);
 
         board = new Square[]{go, bangalore, chance1, hyderabad, incomeTax, waterworks, mumbai, jail, airways, cchest1,
                 kolkata, pune, luxuryTax, patna, pub, waterways, chennai, delhi, chance2, roadways, jaipur,
