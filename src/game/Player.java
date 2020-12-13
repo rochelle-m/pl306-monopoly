@@ -1,7 +1,5 @@
 package game;
 
-import javafx.scene.paint.Color;
-
 public class Player {
     private Integer id;
     private String name;
@@ -9,11 +7,11 @@ public class Player {
     private Boolean isInJail;
     private Boolean turn;
     private Integer position;
-    private final Color TOKEN_COLOR;
+    private final String TOKEN_COLOR;
     // add current pos
     // list of cards -- TODO check for colors
 
-    public Player(Integer id, String name, Color tokenColor) {
+    public Player(Integer id, String name, String tokenColor) {
         this.id = id;
         this.name = name;
         this.position = 0;
@@ -89,7 +87,7 @@ public class Player {
         this.position = position;
     }
 
-    public Color getTokenColor() {
+    public String getTokenColor() {
         return TOKEN_COLOR;
     }
 }
