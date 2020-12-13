@@ -13,8 +13,8 @@ public class Controller {
 
     final String[] names = {"Chetana", "Shruti", "Rochelle", "Jane Doe"};
 
-    // TODO CHETANA find color contrast
-    final String[] colorsS = {"#00008B", "#9ACD32", "#00FF7F", "#DC143C"};
+
+    final String[] colorsS = {"#800080", "#800000", "#404040", "#008080"};
     public Button btnPlay;
     public Spinner spinner;
 
