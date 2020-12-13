@@ -115,7 +115,7 @@
                 <Image url="@../images/jail1.png" />
             </ImageView>
         </Pane>
-        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="7" GridPane.rowIndex="6">
+        <Pane fx:id="p27railroad" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="7" GridPane.rowIndex="6">
             <ImageView fitHeight="57.0" fitWidth="66.0" layoutX="9.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                 <Image url="@../images/railroad.jpg" />
             </ImageView>
@@ -201,22 +201,20 @@
                <Font name="Century Gothic" size="55.0" />
            </font>
        </Label>
-      <Pane prefHeight="66.0" prefWidth="62.0" style="-fx-background-color: navy blue; -fx-border-color: black;" GridPane.columnIndex="3">
-         <children>
-            <ImageView fitHeight="37.0" fitWidth="58.0" layoutX="16.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/cities/delhi.jpg" />
-               </image>
+        <Pane fx:id="p17Delhi" prefHeight="66.0" prefWidth="62.0"
+              style="-fx-background-color: navy blue; -fx-border-color: black;" GridPane.columnIndex="3">
+            <ImageView fitHeight="37.0" fitWidth="58.0" layoutX="16.0" layoutY="17.0" pickOnBounds="true"
+                       preserveRatio="true">
+                <Image url="@../images/cities/delhi.jpg"/>
             </ImageView>
             <Label layoutX="20.0" text="Delhi" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font name="Bookman Old Style" size="14.0" />
-               </font>
+                <font>
+                    <Font name="Bookman Old Style" size="14.0"/>
+                </font>
             </Label>
-            <Label layoutX="20.0" layoutY="58.0" prefHeight="17.0" prefWidth="45.0" text="Rs. 450" textFill="WHITE" />
-         </children>
-      </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #B3D8D5; -fx-border-color: black;" GridPane.columnIndex="4">
+            <Label layoutX="20.0" layoutY="58.0" prefHeight="17.0" prefWidth="45.0" text="Rs. 450" textFill="WHITE"/>
+        </Pane>
+      <Pane fx:id="p18Chance2" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #B3D8D5; -fx-border-color: black;" GridPane.columnIndex="4">
          <children>
             <Label layoutX="29.0" layoutY="-3.0" prefHeight="48.0" prefWidth="23.0" text="?" textFill="#dd7d0e">
                <font>
@@ -230,7 +228,7 @@
             </Label>
          </children>
       </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="5">
+      <Pane fx:id="p19roadways" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="5">
          <children>
             <ImageView fitHeight="82.0" fitWidth="83.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -240,22 +238,22 @@
             <Label layoutX="14.0" layoutY="62.0" text="Rs. 170" />
          </children>
       </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: navy blue; -fx-border-color: black;" GridPane.columnIndex="6">
-         <children>
-            <ImageView fitHeight="39.0" fitWidth="65.0" layoutX="13.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/cities/jaipur.jpg" />
-               </image>
+        <Pane fx:id="p20Jaipur" prefHeight="200.0" prefWidth="200.0"
+              style="-fx-background-color: navy blue; -fx-border-color: black;" GridPane.columnIndex="6">
+            <ImageView fitHeight="39.0" fitWidth="65.0" layoutX="13.0" layoutY="18.0" pickOnBounds="true"
+                       preserveRatio="true">
+                <image>
+                    <Image url="@../images/cities/jaipur.jpg"/>
+                </image>
             </ImageView>
             <Label layoutX="19.0" layoutY="1.0" text="Jaipur" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font name="Bookman Old Style" size="14.0" />
-               </font>
+                <font>
+                    <Font name="Bookman Old Style" size="14.0"/>
+                </font>
             </Label>
-            <Label layoutX="21.0" layoutY="60.0" prefHeight="17.0" prefWidth="45.0" text="Rs. 260" textFill="WHITE" />
-         </children>
-      </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: white;" GridPane.columnIndex="7">
+            <Label layoutX="21.0" layoutY="60.0" prefHeight="17.0" prefWidth="45.0" text="Rs. 260" textFill="WHITE"/>
+        </Pane>
+      <Pane fx:id="p21Resthouse" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: white;" GridPane.columnIndex="7">
          <children>
             <ImageView fitHeight="73.0" fitWidth="94.0" layoutX="5.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -263,7 +261,7 @@
                </image></ImageView>
          </children>
       </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="7" GridPane.rowIndex="1">
+      <Pane fx:id="p22Community2" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="7" GridPane.rowIndex="1">
          <children>
             <ImageView fitHeight="105.0" fitWidth="81.0" layoutX="1.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -271,7 +269,7 @@
                </image>
             </ImageView>
          </children></Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green; -fx-border-color: black;" GridPane.columnIndex="7" GridPane.rowIndex="2">
+      <Pane fx:id="p23Chandigarh" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green; -fx-border-color: black;" GridPane.columnIndex="7" GridPane.rowIndex="2">
          <children>
             <ImageView fitHeight="37.0" fitWidth="56.0" layoutX="14.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -284,16 +282,13 @@
             </Label>
             <Label layoutX="28.0" layoutY="59.0" text="Rs. 290" textFill="WHITE" />
          </children></Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="7" GridPane.rowIndex="3">
-         <children>
+        <Pane fx:id="p24Electricity" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;"
+              GridPane.columnIndex="7" GridPane.rowIndex="3">
             <ImageView fitHeight="82.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/electricity.jpg" />
-               </image>
+                <Image url="@../images/electricity.jpg"/>
             </ImageView>
-         </children>
-      </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green; -fx-border-color: black;" GridPane.columnIndex="7" GridPane.rowIndex="4">
+        </Pane>
+      <Pane fx:id="p25Indore" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green; -fx-border-color: black;" GridPane.columnIndex="7" GridPane.rowIndex="4">
          <children>
             <ImageView fitHeight="39.0" fitWidth="57.0" layoutX="13.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -306,23 +301,23 @@
                </font>
             </Label>
             <Label layoutX="22.0" layoutY="59.0" prefHeight="17.0" prefWidth="45.0" text="Rs. 420" textFill="WHITE" />
+            <Label layoutX="22.0" layoutY="59.0" prefHeight="17.0" prefWidth="45.0" text="Rs. 420" textFill="WHITE" />
          </children>
       </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green; -fx-border-color: black;" GridPane.columnIndex="7" GridPane.rowIndex="5">
-         <children>
-            <ImageView fitHeight="39.0" fitWidth="66.0" layoutX="8.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/cities/kanpur.jpg" />
-               </image>
+        <Pane fx:id="p26Kanpur" prefHeight="200.0" prefWidth="200.0"
+              style="-fx-background-color: green; -fx-border-color: black;" GridPane.columnIndex="7"
+              GridPane.rowIndex="5">
+            <ImageView fitHeight="39.0" fitWidth="66.0" layoutX="8.0" layoutY="18.0" pickOnBounds="true"
+                       preserveRatio="true">
+                <Image url="@../images/cities/kanpur.jpg"/>
             </ImageView>
             <Label layoutX="16.0" text="Kanpur" textFill="WHITE">
-               <font>
-                  <Font name="Bookman Old Style" size="14.0" />
-               </font>
+                <font>
+                    <Font name="Bookman Old Style" size="14.0"/>
+                </font>
             </Label>
-            <Label layoutX="23.0" layoutY="59.0" text="Rs. 260" textFill="WHITE" />
-         </children>
-      </Pane>
+            <Label layoutX="23.0" layoutY="59.0" text="Rs. 260" textFill="WHITE"/>
+        </Pane>
     </GridPane>
    <Pane layoutX="76.0" layoutY="227.0" prefHeight="98.0" prefWidth="146.0" style="-fx-background-color: silver; -fx-border-color: black;">
       <children>
