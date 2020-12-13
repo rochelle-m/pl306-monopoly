@@ -1,5 +1,6 @@
 package game;
 
+import javafx.scene.control.Tooltip;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -23,11 +24,13 @@ public class Square {
         int g = Integer.parseInt(color.substring(3,5),16);
         int b = Integer.parseInt(color.substring(5,7),16);
         c.setFill(Color.rgb(r, g, b));
-        c.setId(player.getName());
+        c.setId("circle");
+        c.onMouseClickedProperty();
         c.setRadius(8.0);
         c.setLayoutX(player.getId() * 18.0);
         c.setLayoutY(24.0);
         this.PANE.getChildren().add(player.getId(), c);
+        Tooltip.install(c, new Tooltip(player.getName()));
     }
 
     void task(){
