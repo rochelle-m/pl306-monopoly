@@ -5,11 +5,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="725.0"
-      prefWidth="1312.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="game.Monopoly" fx:id="pane" >
-    <GridPane fx:id="monopoly" alignment="BOTTOM_LEFT" layoutX="600.0" layoutY="15.0" prefHeight="660.0" prefWidth="660.0"
-              style="-fx-border-color: gray; -fx-background-color: aliceblue;">
+<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="725.0" prefWidth="1312.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.Monopoly">
+    <GridPane fx:id="monopoly" alignment="BOTTOM_LEFT" layoutX="600.0" layoutY="15.0" prefHeight="660.0" prefWidth="660.0" style="-fx-border-color: gray; -fx-background-color: aliceblue;">
 
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -33,9 +30,11 @@
         </rowConstraints>
 
 
-        <Pane prefHeight="67.0" prefWidth="104.0" style="-fx-background-color: cornflowerblue;" styleClass="my-pane" GridPane.columnIndex="7" GridPane.rowIndex="7" fx:id="p0GO">
+
+        <Pane fx:id="p0GO" prefHeight="67.0" prefWidth="104.0" style="-fx-background-color: cornflowerblue;" styleClass="my-pane" GridPane.columnIndex="7" GridPane.rowIndex="7">
+
             <ImageView fitHeight="82.0" fitWidth="82.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
-                <Image url="@../images/go.png" />
+                <Image url="@../images/GO.png" />
             </ImageView>
         </Pane>
         <Pane fx:id="p1Bangalore" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FF3139;" GridPane.columnIndex="6" GridPane.rowIndex="7">
@@ -53,7 +52,7 @@
             </font>
          </Label>
         </Pane>
-        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #B3D8D5; -fx-border-color: black;" GridPane.columnIndex="5" GridPane.rowIndex="7" fx:id="p2Chance1">
+        <Pane fx:id="p2Chance1" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #B3D8D5; -fx-border-color: black;" GridPane.columnIndex="5" GridPane.rowIndex="7">
             <Label layoutX="30.0" prefHeight="64.0" prefWidth="29.0" text="?" textAlignment="CENTER" textFill="#dd7d0e">
                 <font>
                     <Font name="Book Antiqua" size="52.0" />
@@ -320,5 +319,9 @@
             <Label layoutX="23.0" layoutY="59.0" text="Rs. 260" textFill="WHITE"/>
         </Pane>
     </GridPane>
-   <Label fx:id="dice" layoutX="57.0" layoutY="255.0" />
+   <Pane layoutX="76.0" layoutY="227.0" prefHeight="98.0" prefWidth="146.0" style="-fx-background-color: silver; -fx-border-color: black;">
+      <children>
+         
+      </children>
+   </Pane>
 </Pane>
