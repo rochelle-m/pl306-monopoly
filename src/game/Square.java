@@ -1,6 +1,5 @@
 package game;
 
-import javafx.scene.Node;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -17,7 +16,6 @@ public class Square {
         this.PANE = pane;
     }
 
-    // trial
     public void addPlayerToSquare(Player player) {
         Circle c = new Circle();
         String color = player.getTokenColor();

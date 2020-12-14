@@ -34,7 +34,6 @@ public class Monopoly {
         Square pub = new CornerBox("PUB", 14, 250, p14Pub);
         Square resthouse = new CornerBox("restHouse", 21, 200, p21Resthouse);
 
-
         Square waterworks = new Company("WATERWORKS", 5, 150, 80, p5WaterWorks);
         Square airways = new Company("AIRWAYS", 8, 320, 190, p8Airways);
         Square waterways = new Company("WATERWAYS", 15, 280, 110, p15Waterways);
@@ -67,14 +66,11 @@ public class Monopoly {
         Square kanpur = new City("Kanpur", 26, "Green",
                 260, new float[]{0, 0, 0, 0}, p26Kanpur);
 
-
         Square chance1 = new Chance("chance1", 2, p2Chance1);
         Square chance2 = new Chance("chance2",18 ,p18Chance2);
 
-
         Square cchest1 = new CommunityChest("cchest1", 9,p9Cchest1);
         Square cchest2 = new CommunityChest("cchest2",22 ,p22Community2);
-
 
         Square incomeTax= new Square("Income Tax",4,p4IncomeTax);
         Square luxuryTax= new Square("Luxury Tax",12,p12luxuryTax);
@@ -86,39 +82,29 @@ public class Monopoly {
         currentPlayerIndex = getFirstPlayerIndex(players, d1, d2);
         currentPlayer = players.get(currentPlayerIndex);
 
-        // temp
         for(Player p: players){
             board[0].addPlayerToSquare(p);
         }
-
-
         displayNamesInListView();
 
-        nextMove(currentPlayer);
+        // TODO
+        currentPlayer.setTurn(true);
+        currentPlayerIndex = nextMove(currentPlayer);
     }
 
-    private void nextMove(Player currentPlayer) {
-        currentPlayer.setTurn(true);
-
+    private Integer nextMove(Player currentPlayer) {
         Integer roll = currentPlayer.roll(d1, d2);
-        System.out.println(roll);
-        board[currentPlayer.getPosition()].removePlayerToSquare(currentPlayer);
-        Integer newPos = (currentPlayer.getPosition()+ roll) % 28;
+        Integer currPos = currentPlayer.getPosition();
+        board[currPos].removePlayerToSquare(currentPlayer);
 
-        // 7-> square
+        Integer newPos = (currPos+ roll) % 28;
         board[newPos].addPlayerToSquare(currentPlayer);
         currentPlayer.setPosition(newPos);
 
+        // TODO tasks
         board[newPos].task(currentPlayer, bank);
 
-        currentPlayerIndex = (currentPlayerIndex + 1) % numOfPlayers;
-
-        /*
-        *  TODO
-        *   R: Remove player from old square
-        *   S: Add roll button for each player
-        *   ALL: Give the task at new position
-        * */
+        return (currentPlayerIndex + 1) % numOfPlayers;
     }
 
     private void displayNamesInListView() {
@@ -141,6 +127,8 @@ public class Monopoly {
             Integer roll1 = player.roll(d1, d2);
             initialRolls.add(roll1);
         });
+
+        // TODO refactor @Chetana
         Integer max = findMaxSum(initialRolls);
 //        Integer max = Collections.max(initialRolls)
         return initialRolls.indexOf(max);
