@@ -35,6 +35,9 @@ public class Player {
         playerMoney += amount;
     }
 
+    //s
+    public void payToPlayer(Player player, int amount){ playerMoney -= amount; }
+
     public Integer roll(Dice d1, Dice d2){
         return d1.diceOperation() + d2.diceOperation();
     }

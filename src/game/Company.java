@@ -12,6 +12,7 @@ public class Company extends Square {
         this.rent = rent;
     }
 
+    //s
     public void totalRent( Company company, Player player){
         if( company.getSQUARE_NAME() == "WATERWORKS" ){
 

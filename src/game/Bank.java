@@ -22,6 +22,12 @@ public class Bank {
         this.bankMoney -= amount;
     }
 
+    //s
+    public void takeMoneyFromPlayer(Player player, int amount){
+        player.setPlayerMoney(-amount);
+        this.bankMoney += amount;
+    }
+
     public int getBankMoney() {
         return bankMoney;
     }
