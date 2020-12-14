@@ -9,7 +9,6 @@ import java.util.List;
 
 public class Monopoly {
     public GridPane monopoly;
-    public Label dice;
     public Pane p0GO, p1Bangalore, p2Chance1, pane, p3Hyderabad, p4IncomeTax,p5WaterWorks, p6Mumbai, p7Jail, p8Airways,
                 p9Cchest1, p10Kolkata, p11Pune, p12luxuryTax, p13Patna, p14Pub, p15Waterways, p16Chennai, p17Delhi,
                 p18Chance2, p20Jaipur, p19roadways, p21Resthouse, p27railroad, p22Community2, p24Electricity,
@@ -22,12 +21,13 @@ public class Monopoly {
     List<Integer> initialRolls;
     Square[] board;
     Dice d1, d2;
+    Bank bank;
 
     public void start() {
         d1 = new Dice();
         d2 = new Dice();
 
-        Bank bank = new Bank(numOfPlayers * 10000);
+        bank = new Bank(numOfPlayers * 10000);
 
         Square go = new CornerBox("GO", 0, 200, p0GO);
         Square jail = new CornerBox("JAIL", 7, 100, p7Jail);
@@ -102,14 +102,16 @@ public class Monopoly {
 
         Integer roll = currentPlayer.roll(d1, d2);
         System.out.println(roll);
+        board[currentPlayer.getPosition()].removePlayerToSquare(currentPlayer);
         Integer newPos = (currentPlayer.getPosition()+ roll) % 28;
 
         // 7-> square
         board[newPos].addPlayerToSquare(currentPlayer);
         currentPlayer.setPosition(newPos);
 
-        currentPlayerIndex = (currentPlayerIndex + 1) % numOfPlayers;
+        board[newPos].task(currentPlayer, bank);
 
+        currentPlayerIndex = (currentPlayerIndex + 1) % numOfPlayers;
 
         /*
         *  TODO

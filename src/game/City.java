@@ -14,6 +14,10 @@ public class City extends Square{
         this.rents = rents;
     }
 
+    void task(Player player, Bank bank){
+        System.out.println("You're in " + this.getSQUARE_NAME());
+    }
+
     public String getColor() {
         return color;
     }
