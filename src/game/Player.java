@@ -36,6 +36,7 @@ public class Player {
     }
 
     //s
+    public void takeFromPlayer(Player player, int amount){ playerMoney += amount; }
     public void payToPlayer(Player player, int amount){ playerMoney -= amount; }
 
     public Integer roll(Dice d1, Dice d2){

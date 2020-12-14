@@ -17,6 +17,21 @@ public class Company extends Square {
         if( company.getSQUARE_NAME() == "WATERWORKS" ){
 
         }
+        else if (company.getSQUARE_NAME() == " AIRWAYS"){
+
+        }
+        else if (company.getSQUARE_NAME() == " WATERWAYS"){
+
+        }
+        else if (company.getSQUARE_NAME() == " ROADWAYS"){
+
+        }
+        else if (company.getSQUARE_NAME() == " ELECTRICITY"){
+
+        }
+        else if (company.getSQUARE_NAME() == " RAILWAYS"){
+
+        }
 
     }
 

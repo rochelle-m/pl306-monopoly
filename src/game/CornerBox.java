@@ -19,22 +19,17 @@ public class CornerBox extends Square {
          deduct from payee bal, and give to remaining*/
 
         //s
-        if( cornerBox.getSQUARE_NAME() == "JAIL") {
-            bank.takeMoneyFromPlayer(player, amount);
-        }
+        if( cornerBox.getSQUARE_NAME() == "JAIL")
+        { bank.takeMoneyFromPlayer(player, amount); }
+
         else if( cornerBox.getSQUARE_NAME() == "GO")
-        {
-            bank.giveMoneyToPlayer(player, amount);
-        }
+        { bank.giveMoneyToPlayer(player, amount); }
+
         else if ( cornerBox.getSQUARE_NAME() == "restHouse")
-        {
-            //for(Player p: player) { p.earn(amount); }
-        }
+        { for(Player p: players) { player.takeFromPlayer(p,amount); } }
 
         else if ( cornerBox.getSQUARE_NAME() == "PUB")
-        {
-            //for(Player p: player) { player.payToPlayer(player , amount); }
-        }
+        { for(Player p: players) { p.payToPlayer(player , amount); } }
 
     }
 
