@@ -11,13 +11,9 @@ public class Square {
     private final String SQUARE_NAME;
     private final Integer SQUARE_ID;
     private final Pane PANE;
-
-
     List<Player> players;
 
-
     public Square(String squareName, Integer id, Pane pane) {
-
         this.SQUARE_ID = id;
         this.SQUARE_NAME = squareName;
         this.PANE = pane;
@@ -59,4 +55,3 @@ public class Square {
         return PANE;
     }
 }
-
