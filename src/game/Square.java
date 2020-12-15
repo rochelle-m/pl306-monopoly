@@ -4,10 +4,14 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
+import java.util.List;
+
 public class Square {
     private final String SQUARE_NAME;
     private final Integer SQUARE_ID;
     private final Pane PANE;
+
+    List<Player> players;
 
     public Square(String squareName, Integer id, Pane pane){
         this.SQUARE_ID = id;
