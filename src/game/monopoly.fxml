@@ -283,9 +283,7 @@
               style="-fx-background-color: navy blue; -fx-border-color: black;" GridPane.columnIndex="6">
             <ImageView fitHeight="39.0" fitWidth="65.0" layoutX="13.0" layoutY="18.0" pickOnBounds="true"
                        preserveRatio="true">
-                <image>
-                    <Image url="@../images/cities/jaipur.jpg" />
-                </image>
+                <Image url="@../images/cities/jaipur.jpg"/>
             </ImageView>
             <Label layoutX="19.0" layoutY="1.0" text="Jaipur" textAlignment="CENTER" textFill="WHITE">
                 <font>
