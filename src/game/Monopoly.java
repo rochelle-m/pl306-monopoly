@@ -13,6 +13,8 @@ public class Monopoly {
                 p9Cchest1, p10Kolkata, p11Pune, p12luxuryTax, p13Patna, p14Pub, p15Waterways, p16Chennai, p17Delhi,
                 p18Chance2, p20Jaipur, p19roadways, p21Resthouse, p27railroad, p22Community2, p24Electricity,
                 p23Chandigarh, p25Indore, p26Kanpur;
+    public Pane resultPane;
+    public Label textLabel;
 
     List<Player> players;
     private Integer numOfPlayers;
@@ -87,10 +89,14 @@ public class Monopoly {
         }
         displayNamesInListView();
 
+
+
         // TODO new method passing control to players based on task & very basic UI / logging for player decisions
         // TODO generic type trial
         // TODO Display square property in a little popup
         currentPlayer.setTurn(true);
+
+
         currentPlayerIndex = nextMove(currentPlayer);
     }
 
@@ -100,8 +106,14 @@ public class Monopoly {
         board[currPos].removePlayerToSquare(currentPlayer);
 
         Integer newPos = (currPos+ roll) % 28;
+        //There's a bug here
+        System.out.println(newPos);
         board[newPos].addPlayerToSquare(currentPlayer);
         currentPlayer.setPosition(newPos);
+
+        textLabel.setText(currentPlayer.getName() + "! You've landed in "+ board[newPos].getSQUARE_NAME());
+        textLabel.setTextFill(Color.MAROON);
+        textLabel.setStyle("-fx-padding: 2;" +"-fx-font-size: 16px;");
 
         board[newPos].task(currentPlayer, bank);
 
@@ -113,7 +125,7 @@ public class Monopoly {
         for (Player p : this.players) {
             Label l = new Label(p.getName() + "\t\t\t"+ initialRolls.get(i++));
             l.setTextFill(Color.WHITE);
-            l.setStyle("-fx-background-color :"+p.getTokenColor()+";" + " -fx-padding: 10;" +"-fx-font-size: 18px;");
+            l.setStyle("-fx-background-color :"+p.getTokenColor()+";" + " -fx-padding: 10;" +"-fx-font-size: 16px;");
             l.setLayoutX(40.0);
             l.setMinWidth(200);
             l.setLayoutY(p.getId() * 50);
