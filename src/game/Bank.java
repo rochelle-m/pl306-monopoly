@@ -22,9 +22,12 @@ public class Bank {
         this.bankMoney -= amount;
     }
 
-    public void takeMoneyFromPlayer(Player player, float amount){
-        if(player.pay(amount))
+    public boolean takeMoneyFromPlayer(Player player, float amount){
+        if(player.pay(amount)){
             this.bankMoney += amount;
+            return true;
+        }
+        return false;
     }
 
     public float getBankMoney() {
