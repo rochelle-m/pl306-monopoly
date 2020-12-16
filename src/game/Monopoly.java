@@ -4,6 +4,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.control.Button;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +17,7 @@ public class Monopoly {
     public Pane resultPane;
     public Label textLabel;
     public Boolean gameOver = false;
+    public Button rollbtn;
 
     List<Player> players;
     private Integer numOfPlayers;
@@ -25,6 +27,8 @@ public class Monopoly {
     Square[] board;
     Dice d1, d2;
     Bank bank;
+
+
 
     public void start() {
         d1 = new Dice();
@@ -92,9 +96,14 @@ public class Monopoly {
         // TODO new method passing control to players based on task & very basic UI / logging for player decisions
         // TODO generic type trial
         // TODO Display square property in a little popup
-        currentPlayer.setTurn(true);
+      //  currentPlayer.setTurn(true);
 
-        currentPlayerIndex = nextMove(currentPlayer);
+       // currentPlayerIndex = nextMove(currentPlayer);
+
+        rollbtn.setOnAction(event -> {
+            nextMove(currentPlayer);
+
+        });
     }
 
     private Integer nextMove(Player currentPlayer) {

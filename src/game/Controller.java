@@ -17,6 +17,7 @@ public class Controller {
     public Button btnPlay;
     public Spinner spinner;
 
+
     public void play() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("monopoly.fxml"));
         Parent parent = loader.load();
