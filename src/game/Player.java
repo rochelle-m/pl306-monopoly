@@ -1,5 +1,8 @@
 package game;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Player {
     private Integer id;
     private String name;
@@ -8,6 +11,7 @@ public class Player {
     private Boolean turn;
     private Integer position;
     private final String TOKEN_COLOR;
+    private List<City> citiesOwned;
     // list of cards -- TODO check for colors
 
     public Player(Integer id, String name, String tokenColor) {
@@ -18,6 +22,7 @@ public class Player {
         this.isInJail = false;
         this.turn = false;
         this.TOKEN_COLOR = tokenColor;
+        citiesOwned = new ArrayList<>();
     }
 
     public boolean pay(float amountToPay){
@@ -91,5 +96,17 @@ public class Player {
 
     public String getTokenColor() {
         return TOKEN_COLOR;
+    }
+
+    public List<City> getCitiesOwned() {
+        return citiesOwned;
+    }
+
+    public void setCitiesOwned(List<City> citiesOwned) {
+        this.citiesOwned = citiesOwned;
+    }
+
+    public void addNewlyBoughtCity(City cityBought) {
+        this.citiesOwned.add(cityBought);
     }
 }
