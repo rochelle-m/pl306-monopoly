@@ -15,6 +15,7 @@ public class Monopoly {
                 p23Chandigarh, p25Indore, p26Kanpur;
     public Pane resultPane;
     public Label textLabel;
+    public Boolean gameOver = false;
 
     List<Player> players;
     private Integer numOfPlayers;
@@ -89,13 +90,10 @@ public class Monopoly {
         }
         displayNamesInListView();
 
-
-
         // TODO new method passing control to players based on task & very basic UI / logging for player decisions
         // TODO generic type trial
         // TODO Display square property in a little popup
         currentPlayer.setTurn(true);
-
 
         currentPlayerIndex = nextMove(currentPlayer);
     }
@@ -112,7 +110,7 @@ public class Monopoly {
         currentPlayer.setPosition(newPos);
 
         textLabel.setText(currentPlayer.getName() + "! You've landed in "+ board[newPos].getSQUARE_NAME());
-        textLabel.setTextFill(Color.MAROON);
+        textLabel.setTextFill(Color.DARKSLATEBLUE);
         textLabel.setStyle("-fx-padding: 2;" +"-fx-font-size: 16px;");
 
         board[newPos].task(currentPlayer, bank);
@@ -126,7 +124,7 @@ public class Monopoly {
             Label l = new Label(p.getName() + "\t\t\t"+ initialRolls.get(i++));
             l.setTextFill(Color.WHITE);
             l.setStyle("-fx-background-color :"+p.getTokenColor()+";" + " -fx-padding: 10;" +"-fx-font-size: 16px;");
-            l.setLayoutX(40.0);
+            l.setLayoutX(68.0);
             l.setMinWidth(200);
             l.setLayoutY(p.getId() * 50);
             l.setId(String.valueOf(p.getId()));

@@ -12,7 +12,6 @@ public class Player {
     private Integer position;
     private final String TOKEN_COLOR;
     private List<City> citiesOwned;
-    // list of cards -- TODO check for colors
 
     public Player(Integer id, String name, String tokenColor) {
         this.id = id;
