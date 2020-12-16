@@ -72,15 +72,15 @@ public class Monopoly {
         Square chance1 = new Chance("chance1", 2, p2Chance1);
         Square chance2 = new Chance("chance2",18 ,p18Chance2);
 
-        Square cchest1 = new CommunityChest("cchest1", 9,p9Cchest1);
-        Square cchest2 = new CommunityChest("cchest2",22 ,p22Community2);
+        Square communityChest1 = new CommunityChest("cchest1", 9,p9Cchest1);
+        Square communityChest2 = new CommunityChest("cchest2",22 ,p22Community2);
 
         Square incomeTax= new Square("Income Tax",4,p4IncomeTax);
         Square luxuryTax= new Square("Luxury Tax",12,p12luxuryTax);
 
-        board = new Square[]{go, bangalore, chance1, hyderabad, incomeTax, waterworks, mumbai, jail, airways, cchest1,
+        board = new Square[]{go, bangalore, chance1, hyderabad, incomeTax, waterworks, mumbai, jail, airways, communityChest1,
                 kolkata, pune, luxuryTax, patna, pub, waterways, chennai, delhi, chance2, roadways, jaipur,
-                resthouse, cchest2, chandigarh, electricity, indore, kanpur, railways};
+                resthouse, communityChest2, chandigarh, electricity, indore, kanpur, railways};
 
         currentPlayerIndex = getFirstPlayerIndex(players, d1, d2);
         currentPlayer = players.get(currentPlayerIndex);
