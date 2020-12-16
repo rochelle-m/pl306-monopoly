@@ -8,16 +8,18 @@ import java.util.List;
 public class City extends Square{
     private String color;
     private float buyingAmount;
-    private float[] rents;
+    private float[] rents; // array of 4 [rent for 1 Houses, rent for 2, rent for 3, rent for Hotel]
     private Player owner;
     private Hotel hotel;
     private List<House> houses;
+    private float[] costBuilding;
 
-    public City(String squareName, Integer squareId,  String color, float buyingAmount, float[] rents, Pane pane) {
+    public City(String squareName, Integer squareId,  String color, float buyingAmount, float[] rents, Pane pane, float[] costBuilding) {
         super(squareName, squareId, pane);
         this.buyingAmount = buyingAmount;
         this.color = color;
         this.rents = rents;
+        this.costBuilding = costBuilding;
         this.owner = null;
         this.hotel =  null;
         this.houses = new ArrayList<>();
