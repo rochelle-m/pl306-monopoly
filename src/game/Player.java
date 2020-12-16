@@ -17,7 +17,7 @@ public class Player {
         this.id = id;
         this.name = name;
         this.position = 0;
-        this.playerMoney = (float) 1500;
+        this.playerMoney = (float) 0;
         this.isInJail = false;
         this.turn = false;
         this.TOKEN_COLOR = tokenColor;
