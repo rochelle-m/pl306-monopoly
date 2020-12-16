@@ -82,6 +82,7 @@ public class Monopoly {
                 kolkata, pune, luxuryTax, patna, pub, waterways, chennai, delhi, chance2, roadways, jaipur,
                 resthouse, communityChest2, chandigarh, electricity, indore, kanpur, railways};
 
+        // initially
         currentPlayerIndex = getFirstPlayerIndex(players, d1, d2);
         currentPlayer = players.get(currentPlayerIndex);
 
@@ -90,12 +91,13 @@ public class Monopoly {
         }
         displayNamesInListView();
 
-        // TODO new method passing control to players based on task & very basic UI / logging for player decisions
-        // TODO generic type trial
-        // TODO Display square property in a little popup
-        currentPlayer.setTurn(true);
+        while(!gameOver){
+            currentPlayerIndex = nextMove(currentPlayer);
 
-        currentPlayerIndex = nextMove(currentPlayer);
+
+            // temp
+            gameOver = true;
+        }
     }
 
     private Integer nextMove(Player currentPlayer) {
@@ -104,7 +106,7 @@ public class Monopoly {
         board[currPos].removePlayerToSquare(currentPlayer);
 
         Integer newPos = (currPos+ roll) % 28;
-        //There's a bug here
+        //There's a bug here - pos 9
         System.out.println(newPos);
         board[newPos].addPlayerToSquare(currentPlayer);
         currentPlayer.setPosition(newPos);
