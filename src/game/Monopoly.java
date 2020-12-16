@@ -76,7 +76,7 @@ public class Monopoly {
         Square chance2 = new Chance("Chance",18 ,p18Chance2);
 
         Square communityChest1 = new CommunityChest("Community Chest", 9,p9Cchest1);
-        Square communityChest2 = new CommunityChest("Commuinity Chest",22 ,p22Community2);
+        Square communityChest2 = new CommunityChest("Community Chest",22 ,p22Community2);
 
         Square incomeTax= new Square("Income Tax",4,p4IncomeTax);
         Square luxuryTax= new Square("Luxury Tax",12,p12luxuryTax);

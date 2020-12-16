@@ -301,9 +301,9 @@
         </Pane>
     </GridPane>
 
-    <Pane fx:id="resultPane" layoutX="40.0" layoutY="263.0" prefHeight="200.0" prefWidth="363.0" style="-fx-background-color: aliceblue; -fx-border-color: grey;">
+    <Pane fx:id="resultPane" layoutX="40.0" layoutY="263.0" prefHeight="200.0" prefWidth="519.0" style="-fx-background-color: aliceblue; -fx-border-color: grey;">
         <children>
-            <Label fx:id="textLabel" layoutX="10.0" layoutY="12.0" text="Task" />
+            <Label fx:id="textLabel" layoutX="10.0" layoutY="12.0" />
         </children>
 
     </Pane>

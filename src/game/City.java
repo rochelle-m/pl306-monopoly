@@ -29,7 +29,7 @@ public class City extends Square{
 
     int task(Player player, Bank bank, Pane pane){
         if(this.owner == null){
-            Label l = new Label("Would you like to buy this property? (Y/N)");
+            Label l = new Label("Would you like to purchase this property? Cost: "+ this.buyingAmount);
             l.setTextFill(Color.DARKSLATEBLUE);
             l.setStyle("-fx-padding: 10;" +"-fx-font-size: 16px;");
             l.setLayoutY(40.0);
@@ -50,6 +50,11 @@ public class City extends Square{
             pane.getChildren().add(no);
 
             yes.setOnAction(event -> {
+                System.out.println(player.getPlayerMoney() + " "+ this.buyingAmount);
+
+                player.pay(this.buyingAmount);
+
+
                 System.out.println(player.getPlayerMoney() + " "+ this.buyingAmount);
 //                this.owner = player;
 //                return 1; // 1
