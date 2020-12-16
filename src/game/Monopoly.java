@@ -116,7 +116,7 @@ public class Monopoly {
         textLabel.setTextFill(Color.DARKSLATEBLUE);
         textLabel.setStyle("-fx-padding: 2;" +"-fx-font-size: 16px;");
 
-        board[newPos].task(currentPlayer, bank);
+        board[newPos].task(currentPlayer, bank, resultPane);
 
         return (currentPlayerIndex + 1) % numOfPlayers;
     }
