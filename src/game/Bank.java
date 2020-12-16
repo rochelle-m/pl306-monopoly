@@ -18,14 +18,13 @@ public class Bank {
     }
 
     public void giveMoneyToPlayer(Player player, float amount) {
-        player.setPlayerMoney(amount);
+        player.earn(amount);
         this.bankMoney -= amount;
     }
 
-    //s
     public void takeMoneyFromPlayer(Player player, float amount){
-        player.setPlayerMoney(-amount);
-        this.bankMoney += amount;
+        if(player.pay(amount))
+            this.bankMoney += amount;
     }
 
     public float getBankMoney() {
