@@ -33,6 +33,7 @@ public class City extends Square{
 
     int task(Player player, Bank bank, Pane pane){
         if(this.owner == null){
+            l.setText("");
             l.setText("Would you like to purchase this property? Cost: "+ this.buyingAmount);
             l.setTextFill(Color.DARKSLATEBLUE);
             l.setStyle("-fx-padding: 10;" +"-fx-font-size: 16px;");
