@@ -15,7 +15,49 @@ public class City extends Square{
     }
 
     void task(Player player, Bank bank){
+
+        // TODO 001
+        // parties imvolved - Owmer/ Buyer(Player) Bank, Payee(Player),
         System.out.println("You're in " + this.getSQUARE_NAME());
+        // check owner of property
+        // ask player rent
+
+        // if property is not owned by any other player enter switch
+
+        switch(this.getColor()){
+            case "Red": {
+                System.out.println("f"); break;
+            }
+            case "Blue":{
+                System.out.println("b"); break;
+            }
+            case "Green": {
+                System.out.println("g"); break;
+            }
+            case "Yellow":{
+                switch(this.getSQUARE_NAME()){
+                    case "Pune": {
+                        System.out.println("");
+                        // show title card of city
+                        // pose qt: would you like to buy it?
+                        // Button Y/N
+                        // if res -> YES
+                        // check player account balance
+                        //  if OK
+                        //      add City to Player's Owned Property, collect rent etc whenever another player lands
+                        //       in prop
+
+                    }
+                    case "Patna": {
+
+                    }
+                    case "Kolkata": {
+
+                    }
+                }
+            }
+
+        }
     }
 
     public String getColor() {

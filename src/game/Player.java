@@ -8,7 +8,6 @@ public class Player {
     private Boolean turn;
     private Integer position;
     private final String TOKEN_COLOR;
-    // add current pos
     // list of cards -- TODO check for colors
 
     public Player(Integer id, String name, String tokenColor) {
@@ -21,14 +20,13 @@ public class Player {
         this.TOKEN_COLOR = tokenColor;
     }
 
-    public void pay(float amountToPay){
-        if(amountToPay > playerMoney){
-            // not enough money
+    public boolean pay(float amountToPay){
+        // return boolean for payment status
+        if(amountToPay < playerMoney){
+            playerMoney -= amountToPay;
+            return true;
         }
-        else{
-            // deduct money
-            playerMoney =  playerMoney - amountToPay;
-        }
+        return false;
     }
 
     public void earn(float amount){

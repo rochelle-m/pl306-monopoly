@@ -87,7 +87,9 @@ public class Monopoly {
         }
         displayNamesInListView();
 
-        // TODO
+        // TODO new method passing control to players based on task & very basic UI / logging for player decisions
+        // TODO generic type trial
+        // TODO Display square property in a little popup
         currentPlayer.setTurn(true);
         currentPlayerIndex = nextMove(currentPlayer);
     }
@@ -101,7 +103,6 @@ public class Monopoly {
         board[newPos].addPlayerToSquare(currentPlayer);
         currentPlayer.setPosition(newPos);
 
-        // TODO tasks
         board[newPos].task(currentPlayer, bank);
 
         return (currentPlayerIndex + 1) % numOfPlayers;

@@ -5,7 +5,6 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<!--TODO Shruti refactor-->
 
 <Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
       prefHeight="725.0" prefWidth="1312.0" stylesheets="/styles/monopoly.css" xmlns="http://javafx.com/javafx/11.0.1"
