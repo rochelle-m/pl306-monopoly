@@ -4,9 +4,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-
-import java.awt.event.ActionEvent;
-import java.beans.EventHandler;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +14,7 @@ public class City extends Square{
     private Player owner;
     private Hotel hotel;
     private List<House> houses;
-    private float[] costBuilding;
+    private float[] costBuilding; // building prices; 0 -> House, 1-> Hotel
 
     public City(String squareName, Integer squareId,  String color, float buyingAmount, float[] rents, Pane pane, float[] costBuilding) {
         super(squareName, squareId, pane);
@@ -30,7 +27,7 @@ public class City extends Square{
         this.houses = new ArrayList<>();
     }
 
-    void task(Player player, Bank bank, Pane pane){
+    int task(Player player, Bank bank, Pane pane){
         if(this.owner == null){
             Label l = new Label("Would you like to buy this property? (Y/N)");
             l.setTextFill(Color.DARKSLATEBLUE);
@@ -53,17 +50,15 @@ public class City extends Square{
             pane.getChildren().add(no);
 
             yes.setOnAction(event -> {
-                /*this.owner = player and send back some response so that this city is added to the cities owned by the player
-                 [ condition ] if player owns all the cities of the same color, ask whether they'd wanna build a hotel or a house
-                and have them pay the amount for building the house/hotel if yes
-                limit check -  3 houses and 1 hotel*/
+                System.out.println(player.getPlayerMoney() + " "+ this.buyingAmount);
+//                this.owner = player;
+//                return 1; // 1
             });
 
             no.setOnAction(event1 -> {
                 System.out.println("Well bye then");
+
             });
-
-
 
         }
         else{
@@ -76,6 +71,7 @@ public class City extends Square{
                 // if hotels or houses exist - accordingly calculate the rent amount and have the player pay it
             }
         }
+        return 1;
     }
 
     public String getColor() {
