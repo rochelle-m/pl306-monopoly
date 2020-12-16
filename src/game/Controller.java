@@ -24,11 +24,12 @@ public class Controller {
         Monopoly monopoly = loader.getController();
         Integer numOfPlayers = (Integer) spinner.getValue();
         monopoly.setNumOfPlayers(numOfPlayers);
-        monopoly.setPlayers(Arrays.copyOfRange(names, 0, numOfPlayers), Arrays.copyOfRange(colorsS, 0, numOfPlayers));
+        monopoly.setPlayersAndBank(Arrays.copyOfRange(names, 0, numOfPlayers), Arrays.copyOfRange(colorsS, 0, numOfPlayers));
         monopoly.start();
 
         Stage stage = (Stage) btnPlay.getScene().getWindow();
         stage.setScene(new Scene(parent));
+        stage.setMaximized(true);
         stage.show();
     }
 }
