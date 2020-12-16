@@ -40,7 +40,24 @@ public class Square {
         this.PANE.getChildren().removeIf(p -> player.getName().equals(p.getId()));
     }
 
-    void task(Player player, Bank bank, Pane resPane) {
+
+    //c
+    public void payIncomeTax(Player currentPlayer, Bank bank){
+        System.out.println("pay income tax of RS.150");
+       bank.takeMoneyFromPlayer(currentPlayer, 150);
+
+    }
+    public void payLuxuryTax(Player currentPlayer, Bank bank){
+        System.out.println("pay luxury tax of RS.200");
+        bank.takeMoneyFromPlayer(currentPlayer, 200);
+
+    }
+
+   
+
+    int task(Player player, Bank bank, Pane pane ) {
+        return 1;
+
     }
 
     public String getSQUARE_NAME() {

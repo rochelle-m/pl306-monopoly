@@ -1,7 +1,7 @@
 package game;
 
 public class Bank {
-    private int bankMoney;
+    private float bankMoney;
     final static int PAYMENT_FOR_JAIL = 1000;
     final int MAXIMUM_HOUSE_NUMBER = 24;
     final int MAXIMUM_HOTEL_NUMBER = 12;
@@ -17,18 +17,18 @@ public class Bank {
         this.bankMoney = bankMoney;
     }
 
-    public void giveMoneyToPlayer(Player player, int amount) {
+    public void giveMoneyToPlayer(Player player, float amount) {
         player.setPlayerMoney(amount);
         this.bankMoney -= amount;
     }
 
     //s
-    public void takeMoneyFromPlayer(Player player, int amount){
+    public void takeMoneyFromPlayer(Player player, float amount){
         player.setPlayerMoney(-amount);
         this.bankMoney += amount;
     }
 
-    public int getBankMoney() {
+    public float getBankMoney() {
         return bankMoney;
     }
 

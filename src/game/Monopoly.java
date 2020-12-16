@@ -34,7 +34,6 @@ public class Monopoly {
         d1 = new Dice();
         d2 = new Dice();
 
-        bank = new Bank(numOfPlayers * 10000);
 
         Square go = new CornerBox("GO", 0, 200, p0GO);
         Square jail = new CornerBox("JAIL", 7, 100, p7Jail);
@@ -180,12 +179,14 @@ public class Monopoly {
         return numOfPlayers;
     }
 
-    public void setPlayers(String[] names, String[] colors) {
+    public void setPlayersAndBank(String[] names, String[] colors) {
+        bank = new Bank(numOfPlayers * 10000);
         this.players = new ArrayList<>();
         int i = 0;
         for (String name: names) {
             Player p = new Player((i+1), name, colors[i]);
             players.add(p);
+            bank.giveMoneyToPlayer(p, p.getPlayerMoney());
             i++;
         }
     }
