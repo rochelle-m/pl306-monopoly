@@ -76,4 +76,22 @@ public class City extends Square{
     public void setOwner(Player owner) {
         this.owner = owner;
     }
+
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
+
+    public List<House> getHouses() {
+        return houses;
+    }
+
+    public void addHouse(House house) {
+        if(this.houses.size() < 3)
+            this.houses.add(house);
+    }
+
 }
