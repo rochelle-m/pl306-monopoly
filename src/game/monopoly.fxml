@@ -302,7 +302,8 @@
     </GridPane>
     <Pane fx:id="resultPane" layoutX="40.0" layoutY="263.0" prefHeight="200.0" prefWidth="363.0" style="-fx-background-color: aliceblue; -fx-border-color: grey;">
         <children>
-            <Label layoutX="10.0" layoutY="12.0" text="Task" fx:id="textLabel"/>
+            <Label fx:id="textLabel" layoutX="10.0" layoutY="12.0" text="Task" />
         </children>
     </Pane>
+   <Button layoutX="468.0" layoutY="227.0" mnemonicParsing="false" style="-fx-background-color: #B93B8F;" text="ROLL" textFill="WHITE" />
 </Pane>
