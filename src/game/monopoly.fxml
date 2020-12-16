@@ -307,5 +307,6 @@
         </children>
 
     </Pane>
+   <Button layoutX="430.0" layoutY="135.0" mnemonicParsing="false" onAction="#start" style="-fx-background-color: maroon;" text="ROLL" textFill="WHITE" />
 
 </Pane>

@@ -4,6 +4,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.control.Button;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +26,8 @@ public class Monopoly {
     Square[] board;
     Dice d1, d2;
     Bank bank;
+
+    public Button btnroll;
 
     public void start() {
         d1 = new Dice();
