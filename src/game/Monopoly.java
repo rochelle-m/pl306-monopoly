@@ -195,7 +195,7 @@ public class Monopoly {
         for (String name: names) {
             Player p = new Player((i+1), name, colors[i]);
             players.add(p);
-            bank.giveMoneyToPlayer(p, p.getPlayerMoney());
+            bank.giveMoneyToPlayer(p, 1500);
             i++;
         }
     }
