@@ -90,7 +90,7 @@ public class City extends Square{
     }
 
     public void addHouse(House house) {
-        if(this.houses.size() < 3)
+        if(this.houses.size() < 3) //additional check
             this.houses.add(house);
     }
 
