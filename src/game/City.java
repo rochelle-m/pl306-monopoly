@@ -50,13 +50,19 @@ public class City extends Square{
             pane.getChildren().add(no);
 
             yes.setOnAction(event -> {
-                System.out.println(player.getPlayerMoney() + " "+ this.buyingAmount);
-
-                player.pay(this.buyingAmount);
-
-
-                System.out.println(player.getPlayerMoney() + " "+ this.buyingAmount);
-//                this.owner = player;
+                System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                if(bank.takeMoneyFromPlayer(player, this.buyingAmount)){
+                    this.owner = player;
+                    l.setText("SOLD!");
+                    yes.setDisable(true);
+                    no.setDisable(true);
+                }
+                else{
+                    l.setText("Not enough funds ^.^");
+                    yes.setDisable(true);
+                    no.setDisable(true);
+                }
+                System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
 //                return 1; // 1
             });
 

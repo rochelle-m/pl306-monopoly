@@ -18,6 +18,7 @@ public class Monopoly {
     public Label textLabel;
     public Boolean gameOver = false;
     public Button rollbtn;
+    public Label currentPlayerLabel;
 
     List<Player> players;
     private Integer numOfPlayers;
@@ -27,8 +28,6 @@ public class Monopoly {
     Square[] board;
     Dice d1, d2;
     Bank bank;
-
-
 
     public void start() {
         d1 = new Dice();
@@ -88,6 +87,8 @@ public class Monopoly {
         currentPlayerIndex = getFirstPlayerIndex(players, d1, d2);
         currentPlayer = players.get(currentPlayerIndex);
 
+
+
         for(Player p: players){
             board[0].addPlayerToSquare(p);
         }
@@ -100,13 +101,20 @@ public class Monopoly {
 
        // currentPlayerIndex = nextMove(currentPlayer);
 
+        currentPlayerLabel.setText(currentPlayer.getName());
+        currentPlayerLabel.setTextFill(Color.DARKSLATEBLUE);
+        currentPlayerLabel.setStyle("-fx-padding: 2;" +"-fx-font-size: 16px;");
+
         rollbtn.setOnAction(event -> {
-            nextMove(currentPlayer);
+            currentPlayerIndex = nextMove(currentPlayer);
+            currentPlayer = players.get(currentPlayerIndex);
+            currentPlayerLabel.setText(currentPlayer.getName());
 
         });
     }
 
     private Integer nextMove(Player currentPlayer) {
+
         Integer roll = currentPlayer.roll(d1, d2);
         Integer currPos = currentPlayer.getPosition();
         board[currPos].removePlayerToSquare(currentPlayer);
@@ -122,6 +130,7 @@ public class Monopoly {
         textLabel.setStyle("-fx-padding: 2;" +"-fx-font-size: 16px;");
 
         board[newPos].task(currentPlayer, bank, resultPane);
+
 
         return (currentPlayerIndex + 1) % numOfPlayers;
     }
