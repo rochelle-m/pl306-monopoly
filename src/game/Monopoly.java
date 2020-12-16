@@ -38,7 +38,7 @@ public class Monopoly {
         Square go = new CornerBox("GO", 0, 200, p0GO);
         Square jail = new CornerBox("JAIL", 7, 100, p7Jail);
         Square pub = new CornerBox("PUB", 14, 250, p14Pub);
-        Square resthouse = new CornerBox("restHouse", 21, 200, p21Resthouse);
+        Square resthouse = new CornerBox("Rest House", 21, 200, p21Resthouse);
 
         Square waterworks = new Company("WATERWORKS", 5, 150, 80, p5WaterWorks);
         Square airways = new Company("AIRWAYS", 8, 320, 190, p8Airways);
@@ -72,11 +72,11 @@ public class Monopoly {
         Square kanpur = new City("Kanpur", 26, "Green",
                 260, new float[]{90, 190, 290, 180}, p26Kanpur, new float[]{200, 300});
 
-        Square chance1 = new Chance("chance1", 2, p2Chance1);
-        Square chance2 = new Chance("chance2",18 ,p18Chance2);
+        Square chance1 = new Chance("Chance", 2, p2Chance1);
+        Square chance2 = new Chance("Chance",18 ,p18Chance2);
 
-        Square communityChest1 = new CommunityChest("cchest1", 9,p9Cchest1);
-        Square communityChest2 = new CommunityChest("cchest2",22 ,p22Community2);
+        Square communityChest1 = new CommunityChest("Community Chest", 9,p9Cchest1);
+        Square communityChest2 = new CommunityChest("Commuinity Chest",22 ,p22Community2);
 
         Square incomeTax= new Square("Income Tax",4,p4IncomeTax);
         Square luxuryTax= new Square("Luxury Tax",12,p12luxuryTax);
