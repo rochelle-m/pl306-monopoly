@@ -15,6 +15,7 @@ public class Monopoly {
                 p23Chandigarh, p25Indore, p26Kanpur;
     public Pane resultPane;
     public Label textLabel;
+    public Boolean gameOver = false;
 
     List<Player> players;
     private Integer numOfPlayers;
@@ -44,42 +45,42 @@ public class Monopoly {
         Square railways = new Company("RAILWAYS", 27, 210, 90, p27railroad);
 
         Square bangalore = new City("Bangalore", 1, "Red",
-                300, new float[]{0, 0, 0, 0 }, p1Bangalore);
+                300, new float[]{150, 350, 550, 300}, p1Bangalore, new float[]{500, 350});
         Square hyderabad = new City("Hyderabad", 3, "Red",
-                220, new float[]{0, 0, 0, 0 }, p3Hyderabad);
+                220, new float[]{100, 220, 450, 250}, p3Hyderabad, new float[]{300, 450});
         Square mumbai = new City("Mumbai", 6, "Red",
-                500, new float[]{0, 0, 0, 0}, p6Mumbai);
+                500, new float[]{140, 290, 440, 310}, p6Mumbai, new float[]{300, 200});
         Square kolkata = new City("Kolkata", 10, "Yellow",
-                200, new float[]{0, 0, 0, 0}, p10Kolkata);
+                200, new float[]{140, 290, 440, 310}, p10Kolkata, new float[]{300, 280});
         Square pune = new City("Pune", 11, "Yellow",
-                400, new float[]{0, 0, 0, 0 }, p11Pune);
+                400, new float[]{140, 290, 440, 320 }, p11Pune, new float[]{200, 170});
         Square patna = new City("Patna", 13, "Yellow",
-                230, new float[]{0, 0, 0, 0}, p13Patna);
+                230, new float[]{100, 210, 320, 210}, p13Patna, new float[]{200, 100});
         Square chennai = new City("Chennai", 16, "Blue",
-                300, new float[]{0, 0, 0, 0}, p16Chennai);
+                300, new float[]{140, 300, 440, 310}, p16Chennai, new float[]{400, 250});
         Square delhi = new City("Delhi", 17, "Blue",
-                450, new float[]{0, 0, 0, 0 }, p17Delhi);
+                450, new float[]{120, 270, 420, 290 }, p17Delhi, new float[]{300, 150});
         Square jaipur = new City("Jaipur", 20, "Blue",
-                260, new float[]{0, 0, 0, 0}, p20Jaipur);
+                260, new float[]{0, 0, 0, 0}, p20Jaipur, new float[]{400, 125});
         Square chandigarh = new City("Chandigarh", 23, "Green",
-                290, new float[]{0, 0, 0, 0}, p23Chandigarh);
+                290, new float[]{140, 290, 440, 310}, p23Chandigarh, new float[]{400, 250});
         Square indore = new City("Indore", 25, "Green",
-                420, new float[]{0, 0, 0, 0 }, p25Indore);
+                420, new float[]{140, 290, 440, 310 }, p25Indore, new float[]{400, 250});
         Square kanpur = new City("Kanpur", 26, "Green",
-                260, new float[]{0, 0, 0, 0}, p26Kanpur);
+                260, new float[]{90, 190, 290, 180}, p26Kanpur, new float[]{200, 300});
 
         Square chance1 = new Chance("chance1", 2, p2Chance1);
         Square chance2 = new Chance("chance2",18 ,p18Chance2);
 
-        Square cchest1 = new CommunityChest("cchest1", 9,p9Cchest1);
-        Square cchest2 = new CommunityChest("cchest2",22 ,p22Community2);
+        Square communityChest1 = new CommunityChest("cchest1", 9,p9Cchest1);
+        Square communityChest2 = new CommunityChest("cchest2",22 ,p22Community2);
 
         Square incomeTax= new Square("Income Tax",4,p4IncomeTax);
         Square luxuryTax= new Square("Luxury Tax",12,p12luxuryTax);
 
-        board = new Square[]{go, bangalore, chance1, hyderabad, incomeTax, waterworks, mumbai, jail, airways, cchest1,
+        board = new Square[]{go, bangalore, chance1, hyderabad, incomeTax, waterworks, mumbai, jail, airways, communityChest1,
                 kolkata, pune, luxuryTax, patna, pub, waterways, chennai, delhi, chance2, roadways, jaipur,
-                resthouse, cchest2, chandigarh, electricity, indore, kanpur, railways};
+                resthouse, communityChest2, chandigarh, electricity, indore, kanpur, railways};
 
         currentPlayerIndex = getFirstPlayerIndex(players, d1, d2);
         currentPlayer = players.get(currentPlayerIndex);
@@ -89,13 +90,10 @@ public class Monopoly {
         }
         displayNamesInListView();
 
-
-
         // TODO new method passing control to players based on task & very basic UI / logging for player decisions
         // TODO generic type trial
         // TODO Display square property in a little popup
         currentPlayer.setTurn(true);
-
 
         currentPlayerIndex = nextMove(currentPlayer);
     }
@@ -112,7 +110,7 @@ public class Monopoly {
         currentPlayer.setPosition(newPos);
 
         textLabel.setText(currentPlayer.getName() + "! You've landed in "+ board[newPos].getSQUARE_NAME());
-        textLabel.setTextFill(Color.MAROON);
+        textLabel.setTextFill(Color.DARKSLATEBLUE);
         textLabel.setStyle("-fx-padding: 2;" +"-fx-font-size: 16px;");
 
         board[newPos].task(currentPlayer, bank);
@@ -126,7 +124,7 @@ public class Monopoly {
             Label l = new Label(p.getName() + "\t\t\t"+ initialRolls.get(i++));
             l.setTextFill(Color.WHITE);
             l.setStyle("-fx-background-color :"+p.getTokenColor()+";" + " -fx-padding: 10;" +"-fx-font-size: 16px;");
-            l.setLayoutX(40.0);
+            l.setLayoutX(68.0);
             l.setMinWidth(200);
             l.setLayoutY(p.getId() * 50);
             l.setId(String.valueOf(p.getId()));
