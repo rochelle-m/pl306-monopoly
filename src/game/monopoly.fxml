@@ -307,6 +307,7 @@
         </children>
 
     </Pane>
-   <Button fx:id="rollbtn" layoutX="430.0" layoutY="135.0" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="ROLL" textFill="#685e5e" />
+   <Button fx:id="rollbtn" layoutX="446.0" layoutY="135.0" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="ROLL" textFill="#685e5e" />
+   <Label fx:id="currentPlayerLabel" layoutX="438.0" layoutY="88.0" prefHeight="29.0" prefWidth="111.0" />
 
 </Pane>
