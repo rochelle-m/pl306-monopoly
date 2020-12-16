@@ -4,6 +4,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +16,9 @@ public class City extends Square{
     private Hotel hotel;
     private List<House> houses;
     private float[] costBuilding; // building prices; 0 -> House, 1-> Hotel
+
+    Label l = new Label();
+    Button yes, no;
 
     public City(String squareName, Integer squareId,  String color, float buyingAmount, float[] rents, Pane pane, float[] costBuilding) {
         super(squareName, squareId, pane);
@@ -29,20 +33,20 @@ public class City extends Square{
 
     int task(Player player, Bank bank, Pane pane){
         if(this.owner == null){
-            Label l = new Label("Would you like to purchase this property? Cost: "+ this.buyingAmount);
+            l.setText("Would you like to purchase this property? Cost: "+ this.buyingAmount);
             l.setTextFill(Color.DARKSLATEBLUE);
             l.setStyle("-fx-padding: 10;" +"-fx-font-size: 16px;");
             l.setLayoutY(40.0);
             pane.getChildren().add(l);
 
-            Button yes = new Button("YES");
+            yes = new Button("YES");
             yes.setTextFill(Color.WHITE);
             yes.setStyle("-fx-background-color: green;");
             yes.setLayoutY(80.0);
             yes.setLayoutX(10.0);
             pane.getChildren().add(yes);
 
-            Button no = new Button("NO");
+            no = new Button("NO");
             no.setTextFill(Color.WHITE);
             no.setStyle("-fx-background-color: blue;");
             no.setLayoutY(80.0);
@@ -68,13 +72,19 @@ public class City extends Square{
 
             no.setOnAction(event1 -> {
                 System.out.println("Well bye then");
+                l.setText("Let's move on then! Next roll");
+                yes.setDisable(true);
+                no.setDisable(true);
 
             });
+
 
         }
         else{
             // comparing objects!? -.-
             if(this.owner == player){
+                //option to sell - take input as player id -- perform transation
+
                 // [ condition ] if player owns all the cities of the same color, ask whether they'd wanna build a hotel or a house
                 // and have them pay the amount for building the house/hotel if yes
             }
