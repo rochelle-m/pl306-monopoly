@@ -43,7 +43,6 @@ public class Square {
     }
 
 
-    //c
     public void payIncomeTax(Player currentPlayer, Bank bank){
         System.out.println("pay income tax of RS.150");
        bank.takeMoneyFromPlayer(currentPlayer, 150);

@@ -307,13 +307,13 @@
         </Pane>
     </GridPane>
 
-    <Pane fx:id="resultPane" layoutX="40.0" layoutY="263.0" prefHeight="200.0" prefWidth="519.0" style="-fx-background-color: aliceblue; -fx-border-color: grey;">
+    <Pane fx:id="resultPane" layoutX="40.0" layoutY="263.0" prefHeight="247.0" prefWidth="519.0" style="-fx-background-color: aliceblue; -fx-border-color: grey;">
         <children>
             <Label fx:id="textLabel" layoutX="10.0" layoutY="12.0" />
         </children>
 
     </Pane>
-   <Button fx:id="rollbtn" layoutX="446.0" layoutY="135.0" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="ROLL" textFill="#685e5e" />
+   <Button fx:id="rollbtn" layoutX="438.0" layoutY="135.0" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="ROLL" textFill="#685e5e" />
    <Label fx:id="currentPlayerLabel" layoutX="438.0" layoutY="88.0" prefHeight="29.0" prefWidth="111.0" />
 
 </Pane>
