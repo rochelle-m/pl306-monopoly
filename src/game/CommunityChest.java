@@ -9,67 +9,109 @@ public class CommunityChest extends Square{
         super(squareName, id, pane);
     }
 
-    public void task(Player currentPlayer, Bank bank, Pane resPane, int roll) {
+    public void task(Player player, Bank bank, Pane resPane, int roll) {
         Label l1 = (Label) resPane.getChildren().get(0);
         Label l = (Label) resPane.getChildren().get(1);
         Button yes = (Button) resPane.getChildren().get(2);
         Button no = (Button) resPane.getChildren().get(3);
-        int squareNext = currentPlayer.getPosition();
+        int squareNext = player.getPosition();
         switch (roll) {
 
             case 2:
-                // set message in label
-                l.setText("You're sent to GO");
-                currentPlayer.setPosition(0);
-                System.out.println("");
 
-                squareNext = 0;
+                l.setText("You're sent to GO");
+                yes.setOnAction(event -> {
+
+                    player.setPosition(0);
+
+                });
                 break;
             case 3:
-                System.out.println("Hospital fee. Pay rs.100");
-
-                bank.takeMoneyFromPlayer(currentPlayer, 100);
+                l.setText("Hospital fee. Pay rs.100");
+                yes.setOnAction(event -> {
+                    System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                    bank.takeMoneyFromPlayer(player, 100);
+                    System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                });
                 break;
             case 4:
-                System.out.println("Bank in ur favour, collect RS.200");
-                bank.giveMoneyToPlayer(currentPlayer,200);
+               l.setText("Bank in ur favour, collect RS.200");
+                yes.setOnAction(event -> {
+                    System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                bank.giveMoneyToPlayer(player,200);
+                    System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                });
                 break;
             case 5:
-                System.out.println("School fees. pay Rs.150");
-                bank.takeMoneyFromPlayer(currentPlayer, 150);
+                l.setText("School fees. pay Rs.150");
+                yes.setOnAction(event -> {
+                    System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                    bank.takeMoneyFromPlayer(player, 150);
+                    System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                });
                 break;
             case 6:
-                System.out.println("Holiday fund. collect Rs.100");
-                bank.giveMoneyToPlayer(currentPlayer,100);
+                l.setText("Holiday fund. collect Rs.100");
+                yes.setOnAction(event -> {
+                    System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                    bank.giveMoneyToPlayer(player,100);
+                    System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                });
                 break;
             case 7:
-                System.out.println("You were fined dumping garbage. Pay RS.120");
-                bank.takeMoneyFromPlayer(currentPlayer, 120);
+                l.setText("You were fined dumping garbage. Pay RS.120");
+                yes.setOnAction(event -> {
+                    System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                    bank.takeMoneyFromPlayer(player, 120);
+                    System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                });
                 break;
             case 8:
-                System.out.println("Go 2 spaces forward");
 
+                l.setText("Go 2 spaces forward");
+                yes.setOnAction(event -> {
+                    Integer currPos = player.getPosition();
+                    Integer newPos = (currPos+ 2) % 28;
+                    player.setPosition(newPos);
+
+                });
                 break;
             case 9:
-                System.out.println("You did not wear a mask. Pay fine worth rs200");
-                bank.takeMoneyFromPlayer(currentPlayer, 200);
+                l.setText("You did not wear a mask. Pay fine worth rs200");
+                yes.setOnAction(event -> {
+                    System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                bank.takeMoneyFromPlayer(player, 200);
+                    System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                });
                 break;
             case 10:
-                System.out.println("You got third place in dance competition. Collect Rs.200");
-                bank.giveMoneyToPlayer(currentPlayer,200);
+                yes.setOnAction(event -> {
+                    System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                l.setText("You got third place in dance competition. Collect Rs.200");
+                bank.giveMoneyToPlayer(player,200);
+                    System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                });
                 break;
             case 11:
-                System.out.println("Go to Pub");
-                 squareNext=14;
+                l.setText("Go to Pub");
+                yes.setOnAction(event -> {
+
+                    player.setPosition(14);
+
+                });
 
                 break;
             case 12:
-                System.out.println("You won a lottery. Collect Rs.150");
-                bank.giveMoneyToPlayer(currentPlayer,150);
+                l.setText("You won a lottery. Collect Rs.150");
+                yes.setOnAction(event -> {
+                    System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                bank.giveMoneyToPlayer(player,150);
+                    System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                });
                 break;
 
         }
-        // set msg in label
+
 
     }
 }
