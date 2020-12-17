@@ -17,35 +17,24 @@ public class Company extends Square {
         this.owner = null;
     }
 
-    //s
-
-    int rentOrBuyCompany(Player player, Bank bank,Company company, Pane pane) {
+    int task(Player player, Bank bank, Pane pane) {
+        Label l1 = (Label) pane.getChildren().get(0);
+        Label l = (Label) pane.getChildren().get(1);
+        Button yes = (Button) pane.getChildren().get(2);
+        Button no = (Button) pane.getChildren().get(3);
         if (this.owner == null) {
-            Label l = new Label("Would you like to buy this company? (Y/N)");
-            l.setTextFill(Color.DARKSLATEBLUE);
-            l.setStyle("-fx-padding: 10;" + "-fx-font-size: 16px;");
-            l.setLayoutY(40.0);
-            pane.getChildren().add(l);
+            l.setText("Would you like to buy this company? (Y/N)");
 
-            Button yes = new Button("YES");
-            yes.setTextFill(Color.WHITE);
-            yes.setStyle("-fx-background-color: green;");
-            yes.setLayoutY(80.0);
-            yes.setLayoutX(10.0);
-            pane.getChildren().add(yes);
+            yes.setText("YES");
 
-            Button no = new Button("NO");
-            no.setTextFill(Color.WHITE);
-            no.setStyle("-fx-background-color: blue;");
-            no.setLayoutY(80.0);
-            no.setLayoutX(60.0);
-            pane.getChildren().add(no);
+            no.setText("NO");
 
             yes.setOnAction(event -> {
                 System.out.println( player.getName() + " pay to bank $"+ this.cost);
                 this.owner = player;
 //                return 1; // 1
-                bank.takeMoneyFromPlayer(player,company.cost);
+                bank.takeMoneyFromPlayer(player,this.cost);
+
             });
 
             no.setOnAction(event1 -> {
@@ -54,7 +43,9 @@ public class Company extends Square {
             });
         }
         else{
-            player.takeFromPlayer(player,company.rent);
+
+            player.takeFromPlayer(player,this.rent);
+
 
            /* if( company.getSQUARE_NAME() == "WATERWORKS" ){player.takeFromPlayer(player,company.rent); }
             else if (company.getSQUARE_NAME() == " AIRWAYS"){}

@@ -1,4 +1,6 @@
-# Monopoly
+# PL306 OOP Project
+
+A game of Monopoly using [JavaFX](https://www.oracle.com/java/technologies/javase/javafx-docs.html)
 
 [Project Proposal](https://youtu.be/geBF1JrwKsQ)
 
@@ -19,7 +21,7 @@ The objective of the game is to become the wealthiest player through buying, ren
 ## PREPARATION
 
 -	Each player chooses one token to represent him/her while traveling around the board.
--	Each player is given $1500 divided as follows: 2 each of $500’s,$100’s and $50’s; 6 $20’s; 5 each of $10’s, $5’s and $1’s.
+-	Each player is given $1500 at the start of the game.
 -	All remaining money and other equipment go to the Bank.
 
 

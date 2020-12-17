@@ -83,12 +83,16 @@ public class Monopoly {
                 kolkata, pune, luxuryTax, patna, pub, waterways, chennai, delhi, chance2, roadways, jaipur,
                 resthouse, communityChest2, chandigarh, electricity, indore, kanpur, railways};
 
+        // initially
         currentPlayerIndex = getFirstPlayerIndex(players, d1, d2);
         currentPlayer = players.get(currentPlayerIndex);
 
-        for(Player p: players){
-            board[0].addPlayerToSquare(p);
-        }
+        players.forEach(p-> board[0].addPlayerToSquare(p));
+
+//        for(Player p: players){
+//            board[0].addPlayerToSquare(p);
+//        }
+
         displayNamesInListView();
 
         currentPlayerLabel.setText(currentPlayer.getName());
@@ -111,7 +115,6 @@ public class Monopoly {
         board[currPos].removePlayerToSquare(currentPlayer);
 
         Integer newPos = (currPos+ roll) % 28;
-        //There's a bug here
         System.out.println(newPos);
         board[newPos].addPlayerToSquare(currentPlayer);
         currentPlayer.setPosition(newPos);
@@ -119,6 +122,29 @@ public class Monopoly {
         textLabel.setText(currentPlayer.getName() + "! You've landed in "+ board[newPos].getSQUARE_NAME());
         textLabel.setTextFill(Color.DARKSLATEBLUE);
         textLabel.setStyle("-fx-padding: 2;" +"-fx-font-size: 16px;");
+
+        Label l = new Label();
+        l.setId("q");
+        l.setTextFill(Color.DARKSLATEBLUE);
+        l.setStyle("-fx-padding: 10;" +"-fx-font-size: 16px;");
+        l.setLayoutY(40.0);
+        resultPane.getChildren().add(l);
+
+        Button yes = new Button();
+        yes.setTextFill(Color.WHITE);
+        yes.setId("btnYes");
+        yes.setStyle("-fx-background-color: green;");
+        yes.setLayoutY(80.0);
+        yes.setLayoutX(10.0);
+        resultPane.getChildren().add(yes);
+
+        Button no = new Button();
+        no.setTextFill(Color.WHITE);
+        no.setId("btn");
+        no.setStyle("-fx-background-color: blue;");
+        no.setLayoutY(80.0);
+        no.setLayoutX(60.0);
+        resultPane.getChildren().add(no);
 
         board[newPos].task(currentPlayer, bank, resultPane);
 
@@ -128,8 +154,8 @@ public class Monopoly {
 
     private void displayNamesInListView() {
         int i = 0;
-        for (Player p : this.players) {
-            Label l = new Label(p.getName() + "\t\t\t"+ initialRolls.get(i++));
+        this.players.forEach(p -> {
+            Label l = new Label(p.getName());
             l.setTextFill(Color.WHITE);
             l.setStyle("-fx-background-color :"+p.getTokenColor()+";" + " -fx-padding: 10;" +"-fx-font-size: 16px;");
             l.setLayoutX(68.0);
@@ -137,7 +163,8 @@ public class Monopoly {
             l.setLayoutY(p.getId() * 50);
             l.setId(String.valueOf(p.getId()));
             pane.getChildren().add(l);
-        }
+        });
+        initialRolls.forEach(System.out::println);
     }
 
     private Integer getFirstPlayerIndex(List<Player> players, Dice d1, Dice d2) {
