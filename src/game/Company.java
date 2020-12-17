@@ -1,38 +1,58 @@
 package game;
 
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 
 public class Company extends Square {
     private Integer cost;
     private Integer rent;
+    private Player owner;
 
     public Company(String squareName, Integer id, Integer cost, Integer rent, Pane pane) {
         super(squareName, id, pane);
         this.cost = cost;
         this.rent = rent;
+        this.owner = null;
     }
 
-    //s
-    public void totalRent( Company company, Player player){
-        if( company.getSQUARE_NAME() == "WATERWORKS" ){
+    int task(Player player, Bank bank, Pane pane) {
+        Label l1 = (Label) pane.getChildren().get(0);
+        Label l = (Label) pane.getChildren().get(1);
+        Button yes = (Button) pane.getChildren().get(2);
+        Button no = (Button) pane.getChildren().get(3);
+        if (this.owner == null) {
+            l.setText("Would you like to buy this company? (Y/N)");
 
+            yes.setText("YES");
+
+            no.setText("NO");
+
+
+            yes.setOnAction(event -> {
+                System.out.println( player.getName() + " pay to bank $"+ this.cost);
+                this.owner = player;
+//                return 1; // 1
+                bank.takeMoneyFromPlayer(player,this.cost);
+            });
+
+            no.setOnAction(event1 -> {
+                System.out.println("Well bye then");
+
+            });
         }
-        else if (company.getSQUARE_NAME() == " AIRWAYS"){
+        else{
+            player.takeFromPlayer(player,this.rent);
 
+           /* if( company.getSQUARE_NAME() == "WATERWORKS" ){player.takeFromPlayer(player,company.rent); }
+            else if (company.getSQUARE_NAME() == " AIRWAYS"){}
+            else if (company.getSQUARE_NAME() == " WATERWAYS"){}
+            else if (company.getSQUARE_NAME() == " ROADWAYS"){}
+            else if (company.getSQUARE_NAME() == " ELECTRICITY"){}
+            else if (company.getSQUARE_NAME() == " RAILWAYS"){}*/
         }
-        else if (company.getSQUARE_NAME() == " WATERWAYS"){
-
-        }
-        else if (company.getSQUARE_NAME() == " ROADWAYS"){
-
-        }
-        else if (company.getSQUARE_NAME() == " ELECTRICITY"){
-
-        }
-        else if (company.getSQUARE_NAME() == " RAILWAYS"){
-
-        }
-
+        return 1;
     }
 
 
