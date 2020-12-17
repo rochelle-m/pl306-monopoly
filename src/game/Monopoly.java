@@ -96,21 +96,12 @@ public class Monopoly {
         currentPlayerLabel.setTextFill(Color.DARKSLATEBLUE);
         currentPlayerLabel.setStyle("-fx-padding: 2;" +"-fx-font-size: 16px;");
 
-
-        while(!gameOver){
+        rollbtn.setOnAction(event -> {
             currentPlayerIndex = nextMove(currentPlayer);
+            currentPlayer = players.get(currentPlayerIndex);
+            currentPlayerLabel.setText(currentPlayer.getName());
 
-
-            rollbtn.setOnAction(event -> {
-                currentPlayerIndex = nextMove(currentPlayer);
-                currentPlayer = players.get(currentPlayerIndex);
-                currentPlayerLabel.setText(currentPlayer.getName());
-
-            });
-            // temp
-//            gameOver = true;
-        }
-
+        });
     }
 
     private Integer nextMove(Player currentPlayer) {
@@ -129,6 +120,30 @@ public class Monopoly {
         textLabel.setText(currentPlayer.getName() + "! You've landed in "+ board[newPos].getSQUARE_NAME());
         textLabel.setTextFill(Color.DARKSLATEBLUE);
         textLabel.setStyle("-fx-padding: 2;" +"-fx-font-size: 16px;");
+
+        Label l = new Label();
+        l.setId("q");
+        l.setTextFill(Color.DARKSLATEBLUE);
+        l.setStyle("-fx-padding: 10;" +"-fx-font-size: 16px;");
+        l.setLayoutY(40.0);
+        resultPane.getChildren().add(l);
+
+        Button yes = new Button();
+        yes.setTextFill(Color.WHITE);
+        yes.setId("btnYes");
+        yes.setStyle("-fx-background-color: green;");
+        yes.setLayoutY(80.0);
+        yes.setLayoutX(10.0);
+        resultPane.getChildren().add(yes);
+
+        Button no = new Button();
+        no.setTextFill(Color.WHITE);
+        no.setId("btn");
+        no.setStyle("-fx-background-color: blue;");
+        no.setLayoutY(80.0);
+        no.setLayoutX(60.0);
+        resultPane.getChildren().add(no);
+
 
         board[newPos].task(currentPlayer, bank, resultPane);
 
