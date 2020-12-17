@@ -18,7 +18,7 @@ public class CornerBox extends Square {
         else
          deduct from payee bal, and give to remaining*/
 
-        //s
+        //--!
         if( cornerBox.getSQUARE_NAME() == "JAIL")
         { bank.takeMoneyFromPlayer(player, amount); }
 

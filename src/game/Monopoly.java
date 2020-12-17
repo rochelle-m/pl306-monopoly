@@ -108,7 +108,7 @@ public class Monopoly {
     }
 
     private Integer nextMove(Player currentPlayer) {
-        rollbtn.setDisable(true);
+//        rollbtn.setDisable(true);
 
         Integer roll = currentPlayer.roll(d1, d2);
         Integer currPos = currentPlayer.getPosition();
@@ -146,16 +146,19 @@ public class Monopoly {
         no.setLayoutX(60.0);
         resultPane.getChildren().add(no);
 
+        // TODO @R if !new Pos is either of indices of commun or chance
         board[newPos].task(currentPlayer, bank, resultPane);
+       // else board[newPos].task(currentPlayer, bank, resultPane, roll);
 
-        rollbtn.setDisable(false);
+        // TODO @C check if pos is same somehow if its not remove from old, move to new
+
+//        rollbtn.setDisable(false);
         return (currentPlayerIndex + 1) % numOfPlayers;
     }
 
     private void displayNamesInListView() {
-        int i = 0;
         this.players.forEach(p -> {
-            Label l = new Label(p.getName());
+            Label l = new Label(p.getName() + "\t\t\t" + initialRolls.get(p.getId() - 1));
             l.setTextFill(Color.WHITE);
             l.setStyle("-fx-background-color :"+p.getTokenColor()+";" + " -fx-padding: 10;" +"-fx-font-size: 16px;");
             l.setLayoutX(68.0);
@@ -164,7 +167,6 @@ public class Monopoly {
             l.setId(String.valueOf(p.getId()));
             pane.getChildren().add(l);
         });
-        initialRolls.forEach(System.out::println);
     }
 
     private Integer getFirstPlayerIndex(List<Player> players, Dice d1, Dice d2) {
