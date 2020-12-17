@@ -31,7 +31,8 @@ public class Square {
         c.setLayoutX(player.getId() * 18.0);
         c.setLayoutY(24.0);
         c.toFront();
-        // something might break here
+        // something might break here -- [fixed] [still might break]
+        System.out.println(player.getId());
         this.PANE.getChildren().add(player.getId(), c);
         Tooltip.install(c, new Tooltip(player.getName()));
     }

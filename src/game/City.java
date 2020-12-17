@@ -67,6 +67,7 @@ public class City extends Square{
                     yes.setDisable(true);
                     no.setDisable(true);
                 }
+
                 System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
 //                return 1; // 1
             });
@@ -78,7 +79,6 @@ public class City extends Square{
                 no.setDisable(true);
 
             });
-
 
         }
         else{

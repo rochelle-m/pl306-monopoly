@@ -33,7 +33,6 @@ public class Monopoly {
         d1 = new Dice();
         d2 = new Dice();
 
-
         Square go = new CornerBox("GO", 0, 200, p0GO);
         Square jail = new CornerBox("JAIL", 7, 100, p7Jail);
         Square pub = new CornerBox("PUB", 14, 250, p14Pub);
@@ -87,19 +86,10 @@ public class Monopoly {
         currentPlayerIndex = getFirstPlayerIndex(players, d1, d2);
         currentPlayer = players.get(currentPlayerIndex);
 
-
-
         for(Player p: players){
             board[0].addPlayerToSquare(p);
         }
         displayNamesInListView();
-
-        // TODO new method passing control to players based on task & very basic UI / logging for player decisions
-        // TODO generic type trial
-        // TODO Display square property in a little popup
-      //  currentPlayer.setTurn(true);
-
-       // currentPlayerIndex = nextMove(currentPlayer);
 
         currentPlayerLabel.setText(currentPlayer.getName());
         currentPlayerLabel.setTextFill(Color.DARKSLATEBLUE);
@@ -114,6 +104,7 @@ public class Monopoly {
     }
 
     private Integer nextMove(Player currentPlayer) {
+        rollbtn.setDisable(true);
 
         Integer roll = currentPlayer.roll(d1, d2);
         Integer currPos = currentPlayer.getPosition();
@@ -131,7 +122,7 @@ public class Monopoly {
 
         board[newPos].task(currentPlayer, bank, resultPane);
 
-
+        rollbtn.setDisable(false);
         return (currentPlayerIndex + 1) % numOfPlayers;
     }
 
