@@ -33,7 +33,8 @@ public class Square {
         c.toFront();
         // something might break here -- [fixed] [still might break]
         System.out.println(player.getId());
-        this.PANE.getChildren().add(player.getId(), c);
+
+        this.PANE.getChildren().add(c);
         Tooltip.install(c, new Tooltip(player.getName()));
     }
 
