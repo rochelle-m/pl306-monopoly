@@ -87,9 +87,12 @@ public class Monopoly {
         currentPlayerIndex = getFirstPlayerIndex(players, d1, d2);
         currentPlayer = players.get(currentPlayerIndex);
 
-        for(Player p: players){
-            board[0].addPlayerToSquare(p);
-        }
+        players.forEach(p-> board[0].addPlayerToSquare(p));
+
+//        for(Player p: players){
+//            board[0].addPlayerToSquare(p);
+//        }
+
         displayNamesInListView();
 
         currentPlayerLabel.setText(currentPlayer.getName());
@@ -112,7 +115,6 @@ public class Monopoly {
         board[currPos].removePlayerToSquare(currentPlayer);
 
         Integer newPos = (currPos+ roll) % 28;
-        //There's a bug here - pos 9
         System.out.println(newPos);
         board[newPos].addPlayerToSquare(currentPlayer);
         currentPlayer.setPosition(newPos);
@@ -144,7 +146,6 @@ public class Monopoly {
         no.setLayoutX(60.0);
         resultPane.getChildren().add(no);
 
-
         board[newPos].task(currentPlayer, bank, resultPane);
 
         rollbtn.setDisable(false);
@@ -153,8 +154,8 @@ public class Monopoly {
 
     private void displayNamesInListView() {
         int i = 0;
-        for (Player p : this.players) {
-            Label l = new Label(p.getName() + "\t\t\t"+ initialRolls.get(i++));
+        this.players.forEach(p -> {
+            Label l = new Label(p.getName());
             l.setTextFill(Color.WHITE);
             l.setStyle("-fx-background-color :"+p.getTokenColor()+";" + " -fx-padding: 10;" +"-fx-font-size: 16px;");
             l.setLayoutX(68.0);
@@ -162,7 +163,8 @@ public class Monopoly {
             l.setLayoutY(p.getId() * 50);
             l.setId(String.valueOf(p.getId()));
             pane.getChildren().add(l);
-        }
+        });
+        initialRolls.forEach(System.out::println);
     }
 
     private Integer getFirstPlayerIndex(List<Player> players, Dice d1, Dice d2) {

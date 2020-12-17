@@ -8,6 +8,7 @@ import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class City extends Square{
     private String color;
@@ -31,14 +32,12 @@ public class City extends Square{
 
     int task(Player player, Bank bank, Pane pane){
         System.out.println(this.owner);
+        Label l1 = (Label) pane.getChildren().get(0);
+        Label l = (Label) pane.getChildren().get(1);
+        Button yes = (Button) pane.getChildren().get(2);
+        Button no = (Button) pane.getChildren().get(3);
         if(this.owner == null){
-
-            Label l1 = (Label) pane.getChildren().get(0);
-            Label l = (Label) pane.getChildren().get(1);
             l.setText("Would you like to purchase this property? Cost: "+ this.buyingAmount);
-
-            Button yes = (Button) pane.getChildren().get(2);
-            Button no = (Button) pane.getChildren().get(3);
 
             yes.setText("Yes");
             no.setText("No");
@@ -49,7 +48,6 @@ public class City extends Square{
                     this.owner = player;
                     l1.setText("Congratulations "+player.getName() + "! You now own "+ this.getSQUARE_NAME());
                     l.setText("SOLD!");
-
                 }
                 else{
                     l.setText("Not enough funds ^.^");
@@ -66,13 +64,42 @@ public class City extends Square{
         }
         else{
             // comparing objects!? -.-
+            System.out.println(this.owner == player);
             if(this.owner == player){
                 //option to sell - take input as player id -- perform transation
+                l1.setText("Hello again! " + this.owner.getName());
+                l.setText("Would you like to sell this property?");
+                yes.setText("Yes");
+                no.setText("No, I'm keeping it");
+
+                yes.setOnAction(event -> {
+                    // find eligible buyer
+                });
+
+                no.setOnAction(event -> {
+                    //ok
+                });
+
+
+                // wont work
+                Boolean ownsAllOfSameColorGrp = this.owner.getCitiesOwned().stream().anyMatch(city ->
+                        city.getColor().equals(this.color)
+                );
+
+                // if this size is 3
+                Stream<City> s = this.owner.getCitiesOwned().stream().filter(city ->
+                   city.getColor().equals(this.color)
+                );
+
+                s.forEach(System.out::println);
 
                 // [ condition ] if player owns all the cities of the same color, ask whether they'd wanna build a hotel or a house
                 // and have them pay the amount for building the house/hotel if yes
             }
             else{
+                l1.setText(player.getName() + " Pay rent amount to "+ this.owner.getName());
+                yes.setText("Pay Up");
+                no.setText("Well you gotta pay");
                 // if hotels or houses exist - accordingly calculate the rent amount and have the player pay it
             }
         }
