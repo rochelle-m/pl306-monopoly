@@ -97,9 +97,13 @@ public class City extends Square{
                 // and have them pay the amount for building the house/hotel if yes
             }
             else{
-                l1.setText(player.getName() + " Pay rent amount to "+ this.owner.getName());
-                yes.setText("Pay Up");
-                no.setText("Well you gotta pay");
+                // if any houses exist
+                if(houses.size() > 0 && hotel != null){
+                    l1.setText(player.getName() + " Pay rent amount to "+ this.owner.getName());
+                    yes.setText("Pay Up");
+                    no.setText("Well you gotta pay");
+                }
+
                 // if hotels or houses exist - accordingly calculate the rent amount and have the player pay it
             }
         }
