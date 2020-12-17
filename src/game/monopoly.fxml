@@ -130,6 +130,7 @@
             <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                 <Image url="@../images/community.jpg" />
             </ImageView>
+         <Label layoutX="6.0" layoutY="64.0" text="Community " />
         </Pane>
         <Pane fx:id="p10Kolkata" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: orange; -fx-border-color: black;" GridPane.rowIndex="4">
             <ImageView fitHeight="37.0" fitWidth="66.0" layoutX="13.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
@@ -178,11 +179,13 @@
             <ImageView fitHeight="67.0" fitWidth="81.0" layoutX="1.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                 <Image url="@../images/pub.jpg" />
             </ImageView>
+         <Label layoutX="26.0" layoutY="57.0" text="Label" />
         </Pane>
         <Pane fx:id="p15Waterways" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-color: cornflowerblue;" GridPane.columnIndex="1">
             <ImageView fitHeight="66.0" fitWidth="80.0" layoutX="1.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                 <Image url="@../images/boat2.jpg" />
             </ImageView>
+         <Label layoutX="26.0" layoutY="47.0" text="Marina" />
         </Pane>
         <Pane fx:id="p16Chennai" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: navy blue; -fx-border-color: black;" GridPane.columnIndex="2">
             <ImageView fitHeight="37.0" fitWidth="49.0" layoutX="16.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
@@ -248,6 +251,7 @@
                     <Image url="@../images/resthouse.jpg" />
                 </image>
             </ImageView>
+         <Label layoutX="12.0" layoutY="57.0" text="Resthouse" />
         </Pane>
         <Pane fx:id="p22Community2" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="7" GridPane.rowIndex="1">
             <ImageView fitHeight="105.0" fitWidth="81.0" layoutX="1.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
@@ -255,6 +259,7 @@
                     <Image url="@../images/community.jpg" />
                 </image>
             </ImageView>
+         <Label layoutX="26.0" layoutY="47.0" text="Comm" />
         </Pane>
         <Pane fx:id="p23Chandigarh" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green; -fx-border-color: black;" GridPane.columnIndex="7" GridPane.rowIndex="2">
             <ImageView fitHeight="37.0" fitWidth="56.0" layoutX="14.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
@@ -273,6 +278,7 @@
             <ImageView fitHeight="82.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true">
                 <Image url="@../images/electricity.jpg" />
             </ImageView>
+         <Label layoutX="21.0" layoutY="48.0" text="Label" />
         </Pane>
         <Pane fx:id="p25Indore" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green; -fx-border-color: black;" GridPane.columnIndex="7" GridPane.rowIndex="4">
             <ImageView fitHeight="39.0" fitWidth="57.0" layoutX="13.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
