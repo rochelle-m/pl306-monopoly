@@ -1,6 +1,9 @@
 package game;
 
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +15,10 @@ public class City extends Square{
     private Player owner;
     private Hotel hotel;
     private List<House> houses;
-    private float[] costBuilding;
+    private float[] costBuilding; // building prices; 0 -> House, 1-> Hotel
+
+    Label l = new Label();
+    Button yes, no;
 
     public City(String squareName, Integer squareId,  String color, float buyingAmount, float[] rents, Pane pane, float[] costBuilding) {
         super(squareName, squareId, pane);
@@ -25,19 +31,61 @@ public class City extends Square{
         this.houses = new ArrayList<>();
     }
 
-    void task(Player player, Bank bank){
+    int task(Player player, Bank bank, Pane pane){
         if(this.owner == null){
-            System.out.println("Would you like to buy this property? (Y/N)");
-            // if yes -> this.owner = player and send back some response so that this city is added to the cities owned by the player
-            // [ condition ] if player owns all the cities of the same color, ask whether they'd wanna build a hotel or a house
-            // and have them pay the amount for building the house/hotel if yes
-            // limit check -  3 houses and 1 hotel
+            l.setText("");
+            l.setText("Would you like to purchase this property? Cost: "+ this.buyingAmount);
+            l.setTextFill(Color.DARKSLATEBLUE);
+            l.setStyle("-fx-padding: 10;" +"-fx-font-size: 16px;");
+            l.setLayoutY(40.0);
+            pane.getChildren().add(l);
 
-            // else early return
+            yes = new Button("YES");
+            yes.setTextFill(Color.WHITE);
+            yes.setStyle("-fx-background-color: green;");
+            yes.setLayoutY(80.0);
+            yes.setLayoutX(10.0);
+            pane.getChildren().add(yes);
+
+            no = new Button("NO");
+            no.setTextFill(Color.WHITE);
+            no.setStyle("-fx-background-color: blue;");
+            no.setLayoutY(80.0);
+            no.setLayoutX(60.0);
+            pane.getChildren().add(no);
+
+            yes.setOnAction(event -> {
+                System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                if(bank.takeMoneyFromPlayer(player, this.buyingAmount)){
+                    this.owner = player;
+                    l.setText("SOLD!");
+                    yes.setDisable(true);
+                    no.setDisable(true);
+                }
+                else{
+                    l.setText("Not enough funds ^.^");
+                    yes.setDisable(true);
+                    no.setDisable(true);
+                }
+
+                System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+//                return 1; // 1
+            });
+
+            no.setOnAction(event1 -> {
+                System.out.println("Well bye then");
+                l.setText("Let's move on then! Next roll");
+                yes.setDisable(true);
+                no.setDisable(true);
+
+            });
+
         }
         else{
             // comparing objects!? -.-
             if(this.owner == player){
+                //option to sell - take input as player id -- perform transation
+
                 // [ condition ] if player owns all the cities of the same color, ask whether they'd wanna build a hotel or a house
                 // and have them pay the amount for building the house/hotel if yes
             }
@@ -45,6 +93,7 @@ public class City extends Square{
                 // if hotels or houses exist - accordingly calculate the rent amount and have the player pay it
             }
         }
+        return 1;
     }
 
     public String getColor() {

@@ -8,11 +8,12 @@ public class CommunityChest extends Square{
     }
 
     public void ComChestConditions( int x,  Player curretPlayer, Bank bank) {
-
+        int squareNext = curretPlayer.getPosition();
         switch (x) {
 
             case 2:
                 System.out.println("Advance to GO");
+                squareNext = 0;
                 break;
             case 3:
                 System.out.println("Hospital fee. Pay rs.100");
@@ -27,7 +28,7 @@ public class CommunityChest extends Square{
                 bank.takeMoneyFromPlayer(curretPlayer, 150);
                 break;
             case 6:
-                System.out.println("Holiday fund. collect rs.100");
+                System.out.println("Holiday fund. collect Rs.100");
                 bank.giveMoneyToPlayer(curretPlayer,100);
                 break;
             case 7:
@@ -36,23 +37,27 @@ public class CommunityChest extends Square{
                 break;
             case 8:
                 System.out.println("Go 2 spaces forward");
+
                 break;
             case 9:
                 System.out.println("You did not wear a mask. Pay fine worth rs200");
                 bank.takeMoneyFromPlayer(curretPlayer, 200);
                 break;
             case 10:
-                System.out.println("You got third place in dance competition. collect rs200");
+                System.out.println("You got third place in dance competition. Collect Rs.200");
                 bank.giveMoneyToPlayer(curretPlayer,200);
                 break;
             case 11:
-                System.out.println("go 5 spaces backward");
+                System.out.println("Go to Pub");
+                 squareNext=14;
+
                 break;
             case 12:
-                System.out.println("You won a lottery. collect rs150");
+                System.out.println("You won a lottery. Collect Rs.150");
                 bank.giveMoneyToPlayer(curretPlayer,150);
                 break;
 
         }
+
     }
 }

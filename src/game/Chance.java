@@ -10,50 +10,51 @@ public class Chance extends Square{
     }
 
     public void chanceConditions(int x, Player curretPlayer, Bank bank ) {
-
+        int squareNext = curretPlayer.getPosition();
         switch (x) {
 
             case 2:
-                System.out.println("You won beauty contest. collect Rs.200 from bank");
+                System.out.println("You won beauty contest. Collect Rs.200 from bank");
                bank.giveMoneyToPlayer(curretPlayer,200);
 
                 break;
             case 3:
-                System.out.println("Get out of the jail free");
-                break;
-            case 4:
-                System.out.println("you donated rs.100 to the orphanage. pay Rs.100");
+                System.out.println("You did not maintain social distancing. Pay fine worth Rs.100");
                 bank.takeMoneyFromPlayer(curretPlayer, 100);
                 break;
+            case 4:
+                System.out.println("You won quiz competition. Collect Rs.100");
+                bank.giveMoneyToPlayer(curretPlayer,100);
+                break;
             case 5:
-                System.out.println("You crossed the signal. pay fine RS.200");
+                System.out.println("You crossed the red signal. Pay fine RS.200");
                 bank.takeMoneyFromPlayer(curretPlayer, 200);
                 break;
             case 6:
                 System.out.println("Go to jail");
-                curretPlayer.getPosition();
+                squareNext= 7;
                 break;
             case 7:
-                System.out.println("General repair for properties. pay rs.100");
+                System.out.println("General repair for properties. Pay Rs.100");
                 bank.takeMoneyFromPlayer(curretPlayer, 100);
                 break;
             case 8:
-                System.out.println("You won the debate. collect RS.100");
+                System.out.println("You won the debate. Collect RS.100");
                 bank.giveMoneyToPlayer(curretPlayer,100);
                 break;
             case 9:
-                System.out.println("Go back 3 spaces");
+                System.out.println("Go back 2 spaces");
 
                 break;
             case 10:
-                System.out.println("Its ur birthday. collect rs.150");
+                System.out.println("Its ur Birthday. Collect Rs.150");
                 bank.giveMoneyToPlayer(curretPlayer,150);
                 break;
             case 11:
                 System.out.println("Go 4 spaces forward");
                 break;
             case 12:
-                System.out.println("You met with an accident. pay rs.150 as hospital charges");
+                System.out.println("You met with an accident. Pay Rs.150 as hospital charges");
                 bank.takeMoneyFromPlayer(curretPlayer, 150);
                 break;
 

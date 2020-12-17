@@ -17,7 +17,7 @@ public class Player {
         this.id = id;
         this.name = name;
         this.position = 0;
-        this.playerMoney = (float) 1000;
+        this.playerMoney = (float) 0;
         this.isInJail = false;
         this.turn = false;
         this.TOKEN_COLOR = tokenColor;
@@ -37,7 +37,6 @@ public class Player {
         playerMoney += amount;
     }
 
-    //s
     public void takeFromPlayer(Player player, int amount){ playerMoney += amount; }
     public void payToPlayer(Player player, int amount){ playerMoney -= amount; }
 

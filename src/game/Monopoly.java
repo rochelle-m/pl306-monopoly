@@ -4,6 +4,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.control.Button;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +17,8 @@ public class Monopoly {
     public Pane resultPane;
     public Label textLabel;
     public Boolean gameOver = false;
+    public Button rollbtn;
+    public Label currentPlayerLabel;
 
     List<Player> players;
     private Integer numOfPlayers;
@@ -30,12 +33,10 @@ public class Monopoly {
         d1 = new Dice();
         d2 = new Dice();
 
-        bank = new Bank(numOfPlayers * 10000);
-
         Square go = new CornerBox("GO", 0, 200, p0GO);
         Square jail = new CornerBox("JAIL", 7, 100, p7Jail);
         Square pub = new CornerBox("PUB", 14, 250, p14Pub);
-        Square resthouse = new CornerBox("restHouse", 21, 200, p21Resthouse);
+        Square resthouse = new CornerBox("Rest House", 21, 200, p21Resthouse);
 
         Square waterworks = new Company("WATERWORKS", 5, 150, 80, p5WaterWorks);
         Square airways = new Company("AIRWAYS", 8, 320, 190, p8Airways);
@@ -69,11 +70,11 @@ public class Monopoly {
         Square kanpur = new City("Kanpur", 26, "Green",
                 260, new float[]{90, 190, 290, 180}, p26Kanpur, new float[]{200, 300});
 
-        Square chance1 = new Chance("chance1", 2, p2Chance1);
-        Square chance2 = new Chance("chance2",18 ,p18Chance2);
+        Square chance1 = new Chance("Chance", 2, p2Chance1);
+        Square chance2 = new Chance("Chance",18 ,p18Chance2);
 
-        Square communityChest1 = new CommunityChest("cchest1", 9,p9Cchest1);
-        Square communityChest2 = new CommunityChest("cchest2",22 ,p22Community2);
+        Square communityChest1 = new CommunityChest("Community Chest", 9,p9Cchest1);
+        Square communityChest2 = new CommunityChest("Community Chest",22 ,p22Community2);
 
         Square incomeTax= new Square("Income Tax",4,p4IncomeTax);
         Square luxuryTax= new Square("Luxury Tax",12,p12luxuryTax);
@@ -91,16 +92,30 @@ public class Monopoly {
         }
         displayNamesInListView();
 
+        currentPlayerLabel.setText(currentPlayer.getName());
+        currentPlayerLabel.setTextFill(Color.DARKSLATEBLUE);
+        currentPlayerLabel.setStyle("-fx-padding: 2;" +"-fx-font-size: 16px;");
+
+
         while(!gameOver){
             currentPlayerIndex = nextMove(currentPlayer);
 
 
+            rollbtn.setOnAction(event -> {
+                currentPlayerIndex = nextMove(currentPlayer);
+                currentPlayer = players.get(currentPlayerIndex);
+                currentPlayerLabel.setText(currentPlayer.getName());
+
+            });
             // temp
-            gameOver = true;
+//            gameOver = true;
         }
+
     }
 
     private Integer nextMove(Player currentPlayer) {
+        rollbtn.setDisable(true);
+
         Integer roll = currentPlayer.roll(d1, d2);
         Integer currPos = currentPlayer.getPosition();
         board[currPos].removePlayerToSquare(currentPlayer);
@@ -115,8 +130,9 @@ public class Monopoly {
         textLabel.setTextFill(Color.DARKSLATEBLUE);
         textLabel.setStyle("-fx-padding: 2;" +"-fx-font-size: 16px;");
 
-        board[newPos].task(currentPlayer, bank);
+        board[newPos].task(currentPlayer, bank, resultPane);
 
+        rollbtn.setDisable(false);
         return (currentPlayerIndex + 1) % numOfPlayers;
     }
 
@@ -173,12 +189,14 @@ public class Monopoly {
         return numOfPlayers;
     }
 
-    public void setPlayers(String[] names, String[] colors) {
+    public void setPlayersAndBank(String[] names, String[] colors) {
+        bank = new Bank(numOfPlayers * 10000);
         this.players = new ArrayList<>();
         int i = 0;
         for (String name: names) {
             Player p = new Player((i+1), name, colors[i]);
             players.add(p);
+            bank.giveMoneyToPlayer(p, 1500);
             i++;
         }
     }

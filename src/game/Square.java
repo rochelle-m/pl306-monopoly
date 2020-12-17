@@ -31,8 +31,10 @@ public class Square {
         c.setLayoutX(player.getId() * 18.0);
         c.setLayoutY(24.0);
         c.toFront();
-        // something might break here
-        this.PANE.getChildren().add(player.getId(), c);
+        // something might break here -- [fixed] [still might break]
+        System.out.println(player.getId());
+
+        this.PANE.getChildren().add(c);
         Tooltip.install(c, new Tooltip(player.getName()));
     }
 
@@ -40,7 +42,23 @@ public class Square {
         this.PANE.getChildren().removeIf(p -> player.getName().equals(p.getId()));
     }
 
-    void task(Player player, Bank bank) {
+
+    public void payIncomeTax(Player currentPlayer, Bank bank){
+        System.out.println("pay income tax of RS.150");
+       bank.takeMoneyFromPlayer(currentPlayer, 150);
+
+    }
+    public void payLuxuryTax(Player currentPlayer, Bank bank){
+        System.out.println("pay luxury tax of RS.200");
+        bank.takeMoneyFromPlayer(currentPlayer, 200);
+
+    }
+
+   
+
+    int task(Player player, Bank bank, Pane pane ) {
+        return 1;
+
     }
 
     public String getSQUARE_NAME() {
