@@ -34,51 +34,51 @@ public class Monopoly {
         d1 = new Dice();
         d2 = new Dice();
 
-        Square init = new CornerBox("INIT", 0, 200, p0GO);
-        Square ddos = new CornerBox("DDOS", 7, 100, p7Jail);
-        Square gitpub = new CornerBox("GITPUB", 14, 250, p14Pub);
-        Square resthouse = new CornerBox("Rest House", 21, 200, p21Resthouse);
+        Square init = new CornerBox("init", 0, 200, p0GO, "");
+        Square ddos = new CornerBox("DDOS", 7, 100, p7Jail, "");
+        Square gitpub = new CornerBox("GitPub", 14, 250, p14Pub, "");
+        Square resthouse = new CornerBox("Rest House", 21, 200, p21Resthouse, "");
 
-        Square ram = new Company("RAM", 5, 150, 80, p5WaterWorks);
-        Square gpu = new Company("GPU", 8, 320, 190, p8Airways);
-        Square processor = new Company("PROCESSOR", 15, 280, 110, p15Waterways);
-        Square monitor = new Company("MONITOR", 19, 170, 50, p19roadways);
-        Square ssd = new Company("SSD", 24, 180, 60, p24Electricity);
-        Square io = new Company("I/O", 27, 210, 90, p27railroad);
+        Square ram = new Company("RAM", 5, 150, 80, p5WaterWorks, "");
+        Square gpu = new Company("GPU", 8, 320, 190, p8Airways, "");
+        Square processor = new Company("Processor", 15, 280, 110, p15Waterways, "");
+        Square monitor = new Company("Monitor", 19, 170, 50, p19roadways, "");
+        Square ssd = new Company("SSD", 24, 180, 60, p24Electricity, "");
+        Square io = new Company("I/O", 27, 210, 90, p27railroad, "");
 
-        Square bangalore = new City("Apple", 1, "Red",
-                300, new float[]{150, 350, 550, 300}, p1Bangalore, new float[]{500, 350});
-        Square hyderabad = new City("Microsoft", 3, "Red",
-                220, new float[]{100, 220, 450, 250}, p3Hyderabad, new float[]{300, 450});
-        Square mumbai = new City("Google", 6, "Red",
-                500, new float[]{140, 290, 440, 310}, p6Mumbai, new float[]{300, 200});
+        Square bangalore = new City("Apple", 1, "#FF3139",
+                300, new float[]{150, 350, 550, 300}, p1Bangalore, new float[]{500, 350}, "");
+        Square hyderabad = new City("Microsoft", 3, "#FF3139",
+                220, new float[]{100, 220, 450, 250}, p3Hyderabad, new float[]{300, 450}, "");
+        Square mumbai = new City("Google", 6, "#FF3139",
+                500, new float[]{140, 290, 440, 310}, p6Mumbai, new float[]{300, 200}, "");
         Square kolkata = new City("Tencent", 10, "Yellow",
-                200, new float[]{140, 290, 440, 310}, p10Kolkata, new float[]{300, 280});
+                200, new float[]{140, 290, 440, 310}, p10Kolkata, new float[]{300, 280}, "");
         Square pune = new City("Facebook", 11, "Yellow",
-                400, new float[]{140, 290, 440, 320 }, p11Pune, new float[]{200, 170});
+                400, new float[]{140, 290, 440, 320 }, p11Pune, new float[]{200, 170}, "");
         Square patna = new City("IBM", 13, "Yellow",
-                230, new float[]{100, 210, 320, 210}, p13Patna, new float[]{200, 100});
+                230, new float[]{100, 210, 320, 210}, p13Patna, new float[]{200, 100}, "");
         Square chennai = new City("Accenture", 16, "Blue",
-                300, new float[]{140, 300, 440, 310}, p16Chennai, new float[]{400, 250});
+                300, new float[]{140, 300, 440, 310}, p16Chennai, new float[]{400, 250}, "");
         Square delhi = new City("Intel", 17, "Blue",
-                450, new float[]{120, 270, 420, 290 }, p17Delhi, new float[]{300, 150});
+                450, new float[]{120, 270, 420, 290 }, p17Delhi, new float[]{300, 150}, "");
         Square jaipur = new City("Adobe", 20, "Blue",
-                260, new float[]{0, 0, 0, 0}, p20Jaipur, new float[]{400, 125});
+                260, new float[]{0, 0, 0, 0}, p20Jaipur, new float[]{400, 125}, "");
         Square chandigarh = new City("Oracle", 23, "Green",
-                290, new float[]{140, 290, 440, 310}, p23Chandigarh, new float[]{400, 250});
+                290, new float[]{140, 290, 440, 310}, p23Chandigarh, new float[]{400, 250}, "");
         Square indore = new City("Amazon", 25, "Green",
-                420, new float[]{140, 290, 440, 310 }, p25Indore, new float[]{400, 250});
+                420, new float[]{140, 290, 440, 310 }, p25Indore, new float[]{400, 250}, "");
         Square kanpur = new City("SpaceX", 26, "Green",
-                260, new float[]{90, 190, 290, 180}, p26Kanpur, new float[]{200, 300});
+                260, new float[]{90, 190, 290, 180}, p26Kanpur, new float[]{200, 300}, "");
 
-        Square chance1 = new Chance("Chance", 2, p2Chance1);
-        Square chance2 = new Chance("Chance",18 ,p18Chance2);
+        Square chance1 = new Chance("Chance", 2, p2Chance1, "");
+        Square chance2 = new Chance("Chance",18 ,p18Chance2,"");
 
-        Square communityChest1 = new CommunityChest("Community Chest", 9,p9Cchest1);
-        Square communityChest2 = new CommunityChest("Community Chest",22 ,p22Community2);
+        Square communityChest1 = new CommunityChest("Comm. Chest", 9,p9Cchest1, "");
+        Square communityChest2 = new CommunityChest("Comm. Chest",22 ,p22Community2, "");
 
-        Square incomeTax= new Square("Income Tax",4,p4IncomeTax);
-        Square luxuryTax= new Square("Luxury Tax",12,p12luxuryTax);
+        Square incomeTax= new Square("Income Tax",4,p4IncomeTax, "");
+        Square luxuryTax= new Square("Luxury Tax",12,p12luxuryTax, "");
 
         board = new Square[]{init, bangalore, chance1, hyderabad, incomeTax, ram, mumbai, ddos, gpu, communityChest1,
                 kolkata, pune, luxuryTax, patna, gitpub, processor, chennai, delhi, chance2, monitor, jaipur,
@@ -146,7 +146,6 @@ public class Monopoly {
 
         board[newPos].task(currentPlayer, bank, resultPane);
 
-
         // TODO @C check if pos is same somehow if its not remove from old, move to new
 
 //        rollbtn.setDisable(false);
@@ -154,6 +153,7 @@ public class Monopoly {
     }
 
     private void displayNamesInListView() {
+        // TODO set static pane
         this.players.forEach(p -> {
             Label l = new Label(p.getName() + "\t\t\t" + p.getCurrentRoll());
             l.setTextFill(Color.WHITE);
@@ -167,7 +167,6 @@ public class Monopoly {
     }
 
     private Integer getFirstPlayerIndex(List<Player> players, Dice d1, Dice d2) {
-        // each player rolls
         players.forEach(player -> {
             player.roll(d1, d2);
         });

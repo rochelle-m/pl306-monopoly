@@ -1,22 +1,35 @@
 package game;
 
+import javafx.geometry.Pos;
+import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.text.TextAlignment;
 
+import javax.swing.text.html.ImageView;
+import java.awt.*;
+import java.io.File;
 import java.util.List;
 
 public class Square {
     private final String SQUARE_NAME;
     private final Integer SQUARE_ID;
     private final Pane PANE;
+    private final String IMG_PATH;
     List<Player> players;
 
-    public Square(String squareName, Integer id, Pane pane) {
+    public Square(String squareName, Integer id, Pane pane, String _imgPath) {
         this.SQUARE_ID = id;
         this.SQUARE_NAME = squareName;
         this.PANE = pane;
+        this.IMG_PATH = _imgPath;
+        Label title = new Label(squareName);
+        title.setLayoutY(3);
+        title.setLayoutX(3);
+        this.PANE.getChildren().add(title);
+
     }
 
     public void addPlayerToSquare(Player player) {
@@ -27,12 +40,16 @@ public class Square {
         int b = Integer.parseInt(color.substring(5, 7), 16);
         c.setFill(Color.rgb(r, g, b));
         c.setId(player.getName());
-        c.setRadius(8.0);
-        c.setLayoutX(player.getId() * 18.0);
-        c.setLayoutY(24.0);
+        c.setRadius(9.0);
+
+        String appendZero = "0"+Integer.toBinaryString(player.getId() - 1);
+        String idStrBin = appendZero.substring(appendZero.length() - 2);
+
+        c.setLayoutX(Integer.parseInt(String.valueOf(idStrBin.charAt(0))) * 25 + 30);
+        c.setLayoutY(Integer.parseInt(String.valueOf(idStrBin.charAt(1))) * 25 + 30);
+
         c.toFront();
         // something might break here -- [fixed] [still might break]
-        System.out.println(player.getId());
 
         this.PANE.getChildren().add(c);
         Tooltip.install(c, new Tooltip(player.getName()));

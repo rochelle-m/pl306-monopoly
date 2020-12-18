@@ -19,8 +19,8 @@ public class City extends Square{
     private List<House> houses;
     private float[] costBuilding; // building prices; 0 -> House, 1-> Hotel
 
-    public City(String squareName, Integer squareId,  String color, float buyingAmount, float[] rents, Pane pane, float[] costBuilding) {
-        super(squareName, squareId, pane);
+    public City(String squareName, Integer squareId,  String color, float buyingAmount, float[] rents, Pane pane, float[] costBuilding, String _imgPath) {
+        super(squareName, squareId, pane, _imgPath);
         this.buyingAmount = buyingAmount;
         this.color = color;
         this.rents = rents;

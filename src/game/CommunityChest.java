@@ -5,8 +5,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
 public class CommunityChest extends Square {
-    public CommunityChest(String squareName, Integer id, Pane pane) {
-        super(squareName, id, pane);
+    public CommunityChest(String squareName, Integer id, Pane pane, String _imgPath) {
+        super(squareName, id, pane, _imgPath);
     }
 
 

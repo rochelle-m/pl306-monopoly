@@ -7,8 +7,8 @@ import javafx.scene.layout.Pane;
 public class Chance extends Square {
 
 
-    public Chance(String squareName, Integer id, Pane pane) {
-        super(squareName, id, pane);
+    public Chance(String squareName, Integer id, Pane pane, String _imgPath) {
+        super(squareName, id, pane, _imgPath);
     }
 
     public int task(Player player, Bank bank, Pane resPane) {

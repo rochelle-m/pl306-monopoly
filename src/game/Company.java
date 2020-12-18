@@ -10,8 +10,8 @@ public class Company extends Square {
     private Integer rent;
     private Player owner;
 
-    public Company(String squareName, Integer id, Integer cost, Integer rent, Pane pane) {
-        super(squareName, id, pane);
+    public Company(String squareName, Integer id, Integer cost, Integer rent, Pane pane, String _imgPath) {
+        super(squareName, id, pane, _imgPath);
         this.cost = cost;
         this.rent = rent;
         this.owner = null;

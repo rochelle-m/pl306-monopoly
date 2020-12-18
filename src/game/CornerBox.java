@@ -8,8 +8,8 @@ public class CornerBox extends Square {
 
     private Integer amount;
 
-    public CornerBox(String squareName, Integer id, Integer amount, Pane pane) {
-        super(squareName, id, pane);
+    public CornerBox(String squareName, Integer id, Integer amount, Pane pane, String _imgPath) {
+        super(squareName, id, pane, _imgPath);
         this.setAmount(amount);
     }
 
