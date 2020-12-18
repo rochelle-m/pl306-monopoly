@@ -4,7 +4,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
-public class Chance extends Square{
+public class Chance extends Square {
 
 
     public Chance(String squareName, Integer id, Pane pane) {
@@ -19,61 +19,61 @@ public class Chance extends Square{
         int squareNext = player.getPosition();
         switch (player.getCurrentRoll()) {
             case 2:
-                l.setText("You won beauty contest. Collect Rs.200 from bank");
+                l.setText("You won a gaming competition. Collect Rs.200 from bank");
                 yes.setOnAction(event -> {
-                    System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
-               bank.giveMoneyToPlayer(player,200);
-                    System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                    System.out.println("Before: player" + player.getPlayerMoney() + " bank:" + bank.getBankMoney());
+                    bank.giveMoneyToPlayer(player, 200);
+                    System.out.println("After: player" + player.getPlayerMoney() + " bank:" + bank.getBankMoney());
                 });
                 break;
             case 3:
                 l.setText("You did not maintain social distancing. Pay fine worth Rs.100");
                 yes.setOnAction(event -> {
-                    System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
-                bank.takeMoneyFromPlayer(player, 100);
-                    System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                    System.out.println("Before: player" + player.getPlayerMoney() + " bank:" + bank.getBankMoney());
+                    bank.takeMoneyFromPlayer(player, 100);
+                    System.out.println("After: player" + player.getPlayerMoney() + " bank:" + bank.getBankMoney());
                 });
                 break;
             case 4:
-                l.setText("You won quiz competition. Collect Rs.100");
+                l.setText("You won coding competition. Collect Rs.100");
                 yes.setOnAction(event -> {
-                    System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
-                bank.giveMoneyToPlayer(player,100);
-                System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
-                 });
+                    System.out.println("Before: player" + player.getPlayerMoney() + " bank:" + bank.getBankMoney());
+                    bank.giveMoneyToPlayer(player, 100);
+                    System.out.println("After: player" + player.getPlayerMoney() + " bank:" + bank.getBankMoney());
+                });
                 break;
             case 5:
-               l.setText("You crossed the red signal. Pay fine RS.200");
+                l.setText("You've been hacked. Pay Rs.200 to recover");
                 yes.setOnAction(event -> {
-                    System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
-                bank.takeMoneyFromPlayer(player, 200);
-                 System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                    System.out.println("Before: player" + player.getPlayerMoney() + " bank:" + bank.getBankMoney());
+                    bank.takeMoneyFromPlayer(player, 200);
+                    System.out.println("After: player" + player.getPlayerMoney() + " bank:" + bank.getBankMoney());
                 });
                 break;
             case 6:
-                l.setText("Go to jail");
+                l.setText("DDOS attack incoming");
                 yes.setOnAction(event -> {
                     player.setPosition(7);
                 });
                 break;
             case 7:
-                l.setText("General repair for properties. Pay Rs.100");
+                l.setText("Learn Python. Course Fees Rs.100");
                 yes.setOnAction(event -> {
-                    System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
-                bank.takeMoneyFromPlayer(player, 100);
-                System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                    System.out.println("Before: player" + player.getPlayerMoney() + " bank:" + bank.getBankMoney());
+                    bank.takeMoneyFromPlayer(player, 100);
+                    System.out.println("After: player" + player.getPlayerMoney() + " bank:" + bank.getBankMoney());
                 });
                 break;
             case 8:
                 l.setText("You won the debate. Collect RS.100");
                 yes.setOnAction(event -> {
-                    System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
-                bank.giveMoneyToPlayer(player,100);
-                 System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                    System.out.println("Before: player" + player.getPlayerMoney() + " bank:" + bank.getBankMoney());
+                    bank.giveMoneyToPlayer(player, 100);
+                    System.out.println("After: player" + player.getPlayerMoney() + " bank:" + bank.getBankMoney());
                 });
                 break;
             case 9:
-                l.setText("Go back 2 spaces");
+                l.setText("Go back 2 spaces. Oh life is such");
                 yes.setOnAction(event -> {
                     Integer currPos = player.getPosition();
                     Integer newPos = (currPos - 2) % 28;
@@ -82,29 +82,29 @@ public class Chance extends Square{
                 });
                 break;
             case 10:
-                l.setText("Its ur Birthday. Collect Rs.150");
+                l.setText("It's your birthday! Collect Rs.150 and enjoy");
                 yes.setOnAction(event -> {
-                    System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
-                bank.giveMoneyToPlayer(player,150);
-                System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
-                 });
+                    System.out.println("Before: player" + player.getPlayerMoney() + " bank:" + bank.getBankMoney());
+                    bank.giveMoneyToPlayer(player, 150);
+                    System.out.println("After: player" + player.getPlayerMoney() + " bank:" + bank.getBankMoney());
+                });
                 break;
             case 11:
                 l.setText("Go 4 spaces forward");
                 yes.setOnAction(event -> {
                     Integer currPos = player.getPosition();
-                    Integer newPos = (currPos+ 4) % 28;
+                    Integer newPos = (currPos + 4) % 28;
                     player.setPosition(newPos);
 
                 });
                 break;
             case 12:
-                l.setText("You met with an accident. Pay Rs.150 as hospital charges");
+                l.setText("Sponsor for a tech event. Pay Rs. 150");
                 yes.setOnAction(event -> {
-                    System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
-                bank.takeMoneyFromPlayer(player, 150);
-                 System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
-                 });
+                    System.out.println("Before: player" + player.getPlayerMoney() + " bank:" + bank.getBankMoney());
+                    bank.takeMoneyFromPlayer(player, 150);
+                    System.out.println("After: player" + player.getPlayerMoney() + " bank:" + bank.getBankMoney());
+                });
                 break;
 
 

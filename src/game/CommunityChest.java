@@ -4,14 +4,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
-public class CommunityChest extends Square{
+public class CommunityChest extends Square {
     public CommunityChest(String squareName, Integer id, Pane pane) {
         super(squareName, id, pane);
     }
 
 
     public int task(Player player, Bank bank, Pane resPane) {
-        Label l1 = (Label) resPane.getChildren().get(0);    
+        Label l1 = (Label) resPane.getChildren().get(0);
         Label l = (Label) resPane.getChildren().get(1);
         Button yes = (Button) resPane.getChildren().get(2);
         Button no = (Button) resPane.getChildren().get(3);
@@ -19,7 +19,7 @@ public class CommunityChest extends Square{
         switch (player.getCurrentRoll()) {
             case 2:
 
-                l.setText("You're sent to GO");
+                l.setText("> monopoly init");
                 yes.setOnAction(event -> {
 
                     player.setPosition(0);
@@ -27,43 +27,43 @@ public class CommunityChest extends Square{
                 });
                 break;
             case 3:
-                l.setText("Hospital fee. Pay rs.100");
+                l.setText("PC repairs. Pay Rs. 100");
                 yes.setOnAction(event -> {
-                    System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                    System.out.println("Before: player" + player.getPlayerMoney() + " bank:" + bank.getBankMoney());
                     bank.takeMoneyFromPlayer(player, 100);
-                    System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                    System.out.println("After: player" + player.getPlayerMoney() + " bank:" + bank.getBankMoney());
                 });
                 break;
             case 4:
-               l.setText("Bank in ur favour, collect RS.200");
+                l.setText("You win bonus. Collect Rs. 200");
                 yes.setOnAction(event -> {
-                    System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
-                bank.giveMoneyToPlayer(player,200);
-                    System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                    System.out.println("Before: player" + player.getPlayerMoney() + " bank:" + bank.getBankMoney());
+                    bank.giveMoneyToPlayer(player, 200);
+                    System.out.println("After: player" + player.getPlayerMoney() + " bank:" + bank.getBankMoney());
                 });
                 break;
             case 5:
-                l.setText("School fees. pay Rs.150");
+                l.setText("Course Fees. Pay Rs.150");
                 yes.setOnAction(event -> {
-                    System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                    System.out.println("Before: player" + player.getPlayerMoney() + " bank:" + bank.getBankMoney());
                     bank.takeMoneyFromPlayer(player, 150);
-                    System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                    System.out.println("After: player" + player.getPlayerMoney() + " bank:" + bank.getBankMoney());
                 });
                 break;
             case 6:
-                l.setText("Holiday fund. collect Rs.100");
+                l.setText("Go take some time off you little nerd. Holiday fund. Collect Rs.100");
                 yes.setOnAction(event -> {
-                    System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
-                    bank.giveMoneyToPlayer(player,100);
-                    System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                    System.out.println("Before: player" + player.getPlayerMoney() + " bank:" + bank.getBankMoney());
+                    bank.giveMoneyToPlayer(player, 100);
+                    System.out.println("After: player" + player.getPlayerMoney() + " bank:" + bank.getBankMoney());
                 });
                 break;
             case 7:
-                l.setText("You were fined dumping garbage. Pay RS.120");
+                l.setText("Merge Conflict. Pay RS.120");
                 yes.setOnAction(event -> {
-                    System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                    System.out.println("Before: player" + player.getPlayerMoney() + " bank:" + bank.getBankMoney());
                     bank.takeMoneyFromPlayer(player, 120);
-                    System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                    System.out.println("After: player" + player.getPlayerMoney() + " bank:" + bank.getBankMoney());
                 });
                 break;
             case 8:
@@ -71,29 +71,29 @@ public class CommunityChest extends Square{
                 l.setText("Go 2 spaces forward");
                 yes.setOnAction(event -> {
                     Integer currPos = player.getPosition();
-                    Integer newPos = (currPos+ 2) % 28;
+                    Integer newPos = (currPos + 2) % 28;
                     player.setPosition(newPos);
 
                 });
                 break;
             case 9:
-                l.setText("You did not wear a mask. Pay fine worth rs200");
+                l.setText("Didn't show up at a sprint meeting. Pay fine Rs. 200");
                 yes.setOnAction(event -> {
-                    System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
-                bank.takeMoneyFromPlayer(player, 200);
-                    System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                    System.out.println("Before: player" + player.getPlayerMoney() + " bank:" + bank.getBankMoney());
+                    bank.takeMoneyFromPlayer(player, 200);
+                    System.out.println("After: player" + player.getPlayerMoney() + " bank:" + bank.getBankMoney());
                 });
                 break;
             case 10:
                 yes.setOnAction(event -> {
-                    System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
-                l.setText("You got third place in dance competition. Collect Rs.200");
-                bank.giveMoneyToPlayer(player,200);
-                    System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                    System.out.println("Before: player" + player.getPlayerMoney() + " bank:" + bank.getBankMoney());
+                    l.setText("You got 3rd place in a Hackathon. Collect Rs.200");
+                    bank.giveMoneyToPlayer(player, 200);
+                    System.out.println("After: player" + player.getPlayerMoney() + " bank:" + bank.getBankMoney());
                 });
                 break;
             case 11:
-                l.setText("Go to Pub");
+                l.setText("Go to the Pub");
                 yes.setOnAction(event -> {
 
                     player.setPosition(14);
@@ -102,11 +102,11 @@ public class CommunityChest extends Square{
 
                 break;
             case 12:
-                l.setText("You won a lottery. Collect Rs.150");
+                l.setText("PManager is happy. Collect Rs.150");
                 yes.setOnAction(event -> {
-                    System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
-                bank.giveMoneyToPlayer(player,150);
-                    System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                    System.out.println("Before: player" + player.getPlayerMoney() + " bank:" + bank.getBankMoney());
+                    bank.giveMoneyToPlayer(player, 150);
+                    System.out.println("After: player" + player.getPlayerMoney() + " bank:" + bank.getBankMoney());
                 });
                 break;
 
