@@ -2,13 +2,14 @@ package game;
 
 import javafx.scene.layout.Pane;
 
+import java.io.FileNotFoundException;
 import java.util.stream.Stream;
 
 public class CornerBox extends Square {
 
     private Integer amount;
 
-    public CornerBox(String squareName, Integer id, Integer amount, Pane pane, String _imgPath) {
+    public CornerBox(String squareName, Integer id, Integer amount, Pane pane, String _imgPath) throws FileNotFoundException {
         super(squareName, id, pane, _imgPath);
         this.setAmount(amount);
     }

@@ -3,14 +3,17 @@ package game;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.TextAlignment;
 
-import javax.swing.text.html.ImageView;
 import java.awt.*;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.List;
 
 public class Square {
@@ -20,11 +23,23 @@ public class Square {
     private final String IMG_PATH;
     List<Player> players;
 
-    public Square(String squareName, Integer id, Pane pane, String _imgPath) {
+    public Square(String squareName, Integer id, Pane pane, String _imgPath) throws FileNotFoundException {
         this.SQUARE_ID = id;
         this.SQUARE_NAME = squareName;
         this.PANE = pane;
+        ImageView imageView = new ImageView();
+        FileInputStream f = new FileInputStream(_imgPath);
+
+        Image image = new Image(f);
         this.IMG_PATH = _imgPath;
+        imageView.setImage(image);
+        imageView.setFitWidth(50);
+        imageView.setFitHeight(50);
+        imageView.setLayoutX(20);
+        imageView.setLayoutY(20);
+
+        this.PANE.getChildren().add(imageView);
+
         Label title = new Label(squareName);
         title.setLayoutY(3);
         title.setLayoutX(3);

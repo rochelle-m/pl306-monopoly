@@ -5,12 +5,14 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 
+import java.io.FileNotFoundException;
+
 public class Company extends Square {
     private Integer cost;
     private Integer rent;
     private Player owner;
 
-    public Company(String squareName, Integer id, Integer cost, Integer rent, Pane pane, String _imgPath) {
+    public Company(String squareName, Integer id, Integer cost, Integer rent, Pane pane, String _imgPath) throws FileNotFoundException {
         super(squareName, id, pane, _imgPath);
         this.cost = cost;
         this.rent = rent;

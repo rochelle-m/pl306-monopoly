@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
@@ -19,7 +20,7 @@ public class City extends Square{
     private List<House> houses;
     private float[] costBuilding; // building prices; 0 -> House, 1-> Hotel
 
-    public City(String squareName, Integer squareId,  String color, float buyingAmount, float[] rents, Pane pane, float[] costBuilding, String _imgPath) {
+    public City(String squareName, Integer squareId,  String color, float buyingAmount, float[] rents, Pane pane, float[] costBuilding, String _imgPath) throws FileNotFoundException {
         super(squareName, squareId, pane, _imgPath);
         this.buyingAmount = buyingAmount;
         this.color = color;

@@ -4,10 +4,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
+import java.io.FileNotFoundException;
+
 public class Chance extends Square {
 
 
-    public Chance(String squareName, Integer id, Pane pane, String _imgPath) {
+    public Chance(String squareName, Integer id, Pane pane, String _imgPath) throws FileNotFoundException {
         super(squareName, id, pane, _imgPath);
     }
 

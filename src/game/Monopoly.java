@@ -1,10 +1,16 @@
 package game;
 
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.control.Button;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -30,60 +36,62 @@ public class Monopoly {
     Dice d1, d2;
     Bank bank;
 
-    public void start() {
+    public void start() throws FileNotFoundException {
         d1 = new Dice();
         d2 = new Dice();
 
-        Square init = new CornerBox("init", 0, 200, p0GO, "");
-        Square ddos = new CornerBox("DDOS", 7, 100, p7Jail, "");
-        Square gitpub = new CornerBox("GitPub", 14, 250, p14Pub, "");
-        Square resthouse = new CornerBox("Rest House", 21, 200, p21Resthouse, "");
+        Square init = new CornerBox("init", 0, 200, p0GO, "images/init.jpg");
+//        Square ddos = new CornerBox("DDOS", 7, 100, p7Jail, "");
+//        Square gitpub = new CornerBox("GitPub", 14, 250, p14Pub, "");
+//        Square resthouse = new CornerBox("Rest House", 21, 200, p21Resthouse, "");
 
-        Square ram = new Company("RAM", 5, 150, 80, p5WaterWorks, "");
-        Square gpu = new Company("GPU", 8, 320, 190, p8Airways, "");
-        Square processor = new Company("Processor", 15, 280, 110, p15Waterways, "");
-        Square monitor = new Company("Monitor", 19, 170, 50, p19roadways, "");
-        Square ssd = new Company("SSD", 24, 180, 60, p24Electricity, "");
-        Square io = new Company("I/O", 27, 210, 90, p27railroad, "");
+//        Square ram = new Company("RAM", 5, 150, 80, p5WaterWorks, "");
+//        Square gpu = new Company("GPU", 8, 320, 190, p8Airways, "");
+//        Square processor = new Company("Processor", 15, 280, 110, p15Waterways, "");
+//        Square monitor = new Company("Monitor", 19, 170, 50, p19roadways, "");
+//        Square ssd = new Company("SSD", 24, 180, 60, p24Electricity, "");
+//        Square io = new Company("I/O", 27, 210, 90, p27railroad, "");
 
-        Square bangalore = new City("Apple", 1, "#FF3139",
-                300, new float[]{150, 350, 550, 300}, p1Bangalore, new float[]{500, 350}, "");
-        Square hyderabad = new City("Microsoft", 3, "#FF3139",
-                220, new float[]{100, 220, 450, 250}, p3Hyderabad, new float[]{300, 450}, "");
-        Square mumbai = new City("Google", 6, "#FF3139",
-                500, new float[]{140, 290, 440, 310}, p6Mumbai, new float[]{300, 200}, "");
-        Square kolkata = new City("Tencent", 10, "Yellow",
-                200, new float[]{140, 290, 440, 310}, p10Kolkata, new float[]{300, 280}, "");
-        Square pune = new City("Facebook", 11, "Yellow",
-                400, new float[]{140, 290, 440, 320 }, p11Pune, new float[]{200, 170}, "");
-        Square patna = new City("IBM", 13, "Yellow",
-                230, new float[]{100, 210, 320, 210}, p13Patna, new float[]{200, 100}, "");
-        Square chennai = new City("Accenture", 16, "Blue",
-                300, new float[]{140, 300, 440, 310}, p16Chennai, new float[]{400, 250}, "");
-        Square delhi = new City("Intel", 17, "Blue",
-                450, new float[]{120, 270, 420, 290 }, p17Delhi, new float[]{300, 150}, "");
-        Square jaipur = new City("Adobe", 20, "Blue",
-                260, new float[]{0, 0, 0, 0}, p20Jaipur, new float[]{400, 125}, "");
-        Square chandigarh = new City("Oracle", 23, "Green",
-                290, new float[]{140, 290, 440, 310}, p23Chandigarh, new float[]{400, 250}, "");
-        Square indore = new City("Amazon", 25, "Green",
-                420, new float[]{140, 290, 440, 310 }, p25Indore, new float[]{400, 250}, "");
-        Square kanpur = new City("SpaceX", 26, "Green",
-                260, new float[]{90, 190, 290, 180}, p26Kanpur, new float[]{200, 300}, "");
+//        Square apple = new City("Apple", 1, "#FF3139",
+//                300, new float[]{150, 350, 550, 300}, p1Bangalore, new float[]{500, 350}, "");
+        Square microsoft = new City("Microsoft", 3, "#FF3139",
+                220, new float[]{100, 220, 450, 250}, p3Hyderabad, new float[]{300, 450}, "images/microsoft.jpg");
+        Square google = new City("Google", 6, "#FF3139",
+                500, new float[]{140, 290, 440, 310}, p6Mumbai, new float[]{300, 200}, "images/google.jpg");
+        Square tencent = new City("Tencent", 10, "Yellow",
+                200, new float[]{140, 290, 440, 310}, p10Kolkata, new float[]{300, 280}, "images/tencent.png");
+//        Square pune = new City("Facebook", 11, "Yellow",
+//                400, new float[]{140, 290, 440, 320 }, p11Pune, new float[]{200, 170}, "");
+//        Square patna = new City("IBM", 13, "Yellow",
+//                230, new float[]{100, 210, 320, 210}, p13Patna, new float[]{200, 100}, "");
+//        Square chennai = new City("Accenture", 16, "Blue",
+//                300, new float[]{140, 300, 440, 310}, p16Chennai, new float[]{400, 250}, "");
+//        Square delhi = new City("Intel", 17, "Blue",
+//                450, new float[]{120, 270, 420, 290 }, p17Delhi, new float[]{300, 150}, "");
+//        Square jaipur = new City("Adobe", 20, "Blue",
+//                260, new float[]{0, 0, 0, 0}, p20Jaipur, new float[]{400, 125}, "");
+//        Square chandigarh = new City("Oracle", 23, "Green",
+//                290, new float[]{140, 290, 440, 310}, p23Chandigarh, new float[]{400, 250}, "");
+//        Square indore = new City("Amazon", 25, "Green",
+//                420, new float[]{140, 290, 440, 310 }, p25Indore, new float[]{400, 250}, "");
+//        Square kanpur = new City("SpaceX", 26, "Green",
+//                260, new float[]{90, 190, 290, 180}, p26Kanpur, new float[]{200, 300}, "");
+//
+//        Square chance1 = new Chance("Chance", 2, p2Chance1, "");
+//        Square chance2 = new Chance("Chance",18 ,p18Chance2,"");
+//
+//        Square communityChest1 = new CommunityChest("Comm. Chest", 9,p9Cchest1, "");
+//        Square communityChest2 = new CommunityChest("Comm. Chest",22 ,p22Community2, "");
+//
+//        Square incomeTax= new Square("Income Tax",4,p4IncomeTax, "");
+//        Square luxuryTax= new Square("Luxury Tax",12,p12luxuryTax, "");
 
-        Square chance1 = new Chance("Chance", 2, p2Chance1, "");
-        Square chance2 = new Chance("Chance",18 ,p18Chance2,"");
+//        board = new Square[]{init, apple, chance1, microsoft, incomeTax, ram, google, ddos, gpu, communityChest1,
+//                kolkata, pune, luxuryTax, patna, gitpub, processor, chennai, delhi, chance2, monitor, jaipur,
+//                resthouse, communityChest2, chandigarh, ssd, indore, kanpur, io};
 
-        Square communityChest1 = new CommunityChest("Comm. Chest", 9,p9Cchest1, "");
-        Square communityChest2 = new CommunityChest("Comm. Chest",22 ,p22Community2, "");
 
-        Square incomeTax= new Square("Income Tax",4,p4IncomeTax, "");
-        Square luxuryTax= new Square("Luxury Tax",12,p12luxuryTax, "");
-
-        board = new Square[]{init, bangalore, chance1, hyderabad, incomeTax, ram, mumbai, ddos, gpu, communityChest1,
-                kolkata, pune, luxuryTax, patna, gitpub, processor, chennai, delhi, chance2, monitor, jaipur,
-                resthouse, communityChest2, chandigarh, ssd, indore, kanpur, io};
-
+        board = new Square[]{init, google};
         Label l = new Label();
         l.setId("q");
         l.setTextFill(Color.DARKSLATEBLUE);
