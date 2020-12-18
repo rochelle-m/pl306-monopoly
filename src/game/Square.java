@@ -72,4 +72,5 @@ public class Square {
     public Pane getPANE() {
         return PANE;
     }
+
 }

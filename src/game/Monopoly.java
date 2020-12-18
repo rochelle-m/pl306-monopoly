@@ -7,6 +7,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.control.Button;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 public class Monopoly {
     public GridPane monopoly;
@@ -24,7 +26,6 @@ public class Monopoly {
     private Integer numOfPlayers;
     Integer currentPlayerIndex;
     Player currentPlayer;
-    List<Integer> initialRolls;
     Square[] board;
     Dice d1, d2;
     Bank bank;
@@ -109,6 +110,7 @@ public class Monopoly {
 
     private Integer nextMove(Player currentPlayer) {
 //        rollbtn.setDisable(true);
+        removePlayer();
 
         Integer roll = currentPlayer.roll(d1, d2);
         Integer currPos = currentPlayer.getPosition();
@@ -146,9 +148,8 @@ public class Monopoly {
         no.setLayoutX(60.0);
         resultPane.getChildren().add(no);
 
-        // TODO @R if !new Pos is either of indices of commun or chance
         board[newPos].task(currentPlayer, bank, resultPane);
-       // else board[newPos].task(currentPlayer, bank, resultPane, roll);
+
 
         // TODO @C check if pos is same somehow if its not remove from old, move to new
 
@@ -158,7 +159,7 @@ public class Monopoly {
 
     private void displayNamesInListView() {
         this.players.forEach(p -> {
-            Label l = new Label(p.getName() + "\t\t\t" + initialRolls.get(p.getId() - 1));
+            Label l = new Label(p.getName() + "\t\t\t" + p.getCurrentRoll());
             l.setTextFill(Color.WHITE);
             l.setStyle("-fx-background-color :"+p.getTokenColor()+";" + " -fx-padding: 10;" +"-fx-font-size: 16px;");
             l.setLayoutX(68.0);
@@ -170,16 +171,19 @@ public class Monopoly {
     }
 
     private Integer getFirstPlayerIndex(List<Player> players, Dice d1, Dice d2) {
-        initialRolls = new ArrayList<>();
+        // each player rolls
         players.forEach(player -> {
-            Integer roll1 = player.roll(d1, d2);
-            initialRolls.add(roll1);
+            player.roll(d1, d2);
         });
 
-        // TODO refactor @Chetana
-        Integer max = findMaxSum(initialRolls);
-//        Integer max = Collections.max(initialRolls)
-        return initialRolls.indexOf(max);
+        // get max roll
+        Optional<Integer> max1 = players.stream().map(Player::getCurrentRoll).max(Integer::compare);
+        Integer max = max1.get();
+
+        // get player matching max roll
+        Stream<Player> player = players.stream().filter(player1 -> player1.getCurrentRoll().equals(max));
+
+        return player.findFirst().get().getId() - 1;
     }
 
     public Integer findMaxSum(List <Integer> initialRolls) {

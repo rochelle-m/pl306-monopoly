@@ -12,6 +12,7 @@ public class Player {
     private Integer position;
     private final String TOKEN_COLOR;
     private List<City> citiesOwned;
+    private Integer currentRoll;
 
     public Player(Integer id, String name, String tokenColor) {
         this.id = id;
@@ -22,6 +23,7 @@ public class Player {
         this.turn = false;
         this.TOKEN_COLOR = tokenColor;
         citiesOwned = new ArrayList<>();
+        currentRoll = null;
     }
 
     public boolean pay(float amountToPay){
@@ -41,7 +43,8 @@ public class Player {
     public void payToPlayer(Player player, int amount){ playerMoney -= amount; }
 
     public Integer roll(Dice d1, Dice d2){
-        return d1.diceOperation() + d2.diceOperation();
+        this.currentRoll = d1.diceOperation() + d2.diceOperation();
+        return currentRoll;
     }
 
     public Integer getId() {
@@ -106,5 +109,9 @@ public class Player {
 
     public void addNewlyBoughtCity(City cityBought) {
         this.citiesOwned.add(cityBought);
+    }
+
+    public Integer getCurrentRoll() {
+        return currentRoll;
     }
 }

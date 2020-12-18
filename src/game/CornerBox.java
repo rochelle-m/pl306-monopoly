@@ -2,39 +2,39 @@ package game;
 
 import javafx.scene.layout.Pane;
 
+import java.util.stream.Stream;
+
 public class CornerBox extends Square {
 
     private Integer amount;
 
-    public CornerBox(String squareName, Integer id, Integer amount, Pane pane){
+    public CornerBox(String squareName, Integer id, Integer amount, Pane pane) {
         super(squareName, id, pane);
         this.setAmount(amount);
     }
 
 
-    public void pay(Player player, CornerBox cornerBox, Bank bank){
-/*        if cornerbox = resthouse
-        deduct from other players, add pa
-        else
-         deduct from payee bal, and give to remaining*/
+    public int task(Player player, Bank bank, Pane pane) {
+        if (this.getSQUARE_NAME().equals("JAIL")) {
+            bank.takeMoneyFromPlayer(player, amount);
+        } else if (this.getSQUARE_NAME().equals("GO")) {
+            bank.giveMoneyToPlayer(player, amount);
 
-        //--!
-        if( cornerBox.getSQUARE_NAME() == "JAIL")
-        { bank.takeMoneyFromPlayer(player, amount); }
+        } else if (this.getSQUARE_NAME().equals("restHouse")) {
 
-        else if( cornerBox.getSQUARE_NAME() == "GO")
-        { bank.giveMoneyToPlayer(player, amount); }
+            Stream<Player> temp =  players.stream().filter(p-> p.getName().equals(player.getName()));
 
-        else if ( cornerBox.getSQUARE_NAME() == "restHouse")
-        { for(Player p: players) { player.takeFromPlayer(p,amount); } }
-
-        else if ( cornerBox.getSQUARE_NAME() == "PUB")
-        { for(Player p: players) { p.payToPlayer(player , amount); } }
-
+            temp.forEach(System.out::println);
+            for (Player p : players) {
+                player.takeFromPlayer(p, amount);
+            }
+        } else if (this.getSQUARE_NAME().equals("PUB")) {
+            for (Player p : players) {
+                p.payToPlayer(player, amount);
+            }
+        }
+        return 0;
     }
-
-
-
 
 
     public Integer getAmount() {

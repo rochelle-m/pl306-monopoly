@@ -9,13 +9,13 @@ public class CommunityChest extends Square{
         super(squareName, id, pane);
     }
 
-    public void task(Player currentPlayer, Bank bank, Pane resPane, int roll) {
+    public int task(Player currentPlayer, Bank bank, Pane resPane) {
         Label l1 = (Label) resPane.getChildren().get(0);
         Label l = (Label) resPane.getChildren().get(1);
         Button yes = (Button) resPane.getChildren().get(2);
         Button no = (Button) resPane.getChildren().get(3);
         int squareNext = currentPlayer.getPosition();
-        switch (roll) {
+        switch (currentPlayer.getCurrentRoll()) {
 
             case 2:
                 // set message in label
@@ -69,7 +69,6 @@ public class CommunityChest extends Square{
                 break;
 
         }
-        // set msg in label
-
+        return squareNext;
     }
 }
