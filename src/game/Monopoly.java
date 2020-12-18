@@ -194,6 +194,7 @@ public class Monopoly {
 
     void removePlayer() {
         players.removeIf(p -> p.getPlayerMoney() == (float) 0.0);
+        displayNamesInListView();
     }
 
     public List<Player> getPlayers() {

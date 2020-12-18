@@ -46,7 +46,7 @@
                        preserveRatio="true">
                 <Image url="@../images/cities/bangalore.jpg"/>
             </ImageView>
-            <Label layoutX="6.0" prefHeight="16.0" prefWidth="76.0" text="Bangalore" textFill="WHITE">
+            <Label layoutX="6.0" prefHeight="16.0" prefWidth="76.0" text="Apple" textFill="WHITE">
                 <font>
                     <Font name="Bookman Old Style" size="14.0"/>
                 </font>
