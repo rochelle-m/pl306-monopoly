@@ -1,10 +1,11 @@
 package game;
 
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.control.Button;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -12,10 +13,10 @@ import java.util.stream.Stream;
 
 public class Monopoly {
     public GridPane monopoly;
-    public Pane p0GO, p1Bangalore, p2Chance1, pane, p3Hyderabad, p4IncomeTax,p5WaterWorks, p6Mumbai, p7Jail, p8Airways,
-                p9Cchest1, p10Kolkata, p11Pune, p12luxuryTax, p13Patna, p14Pub, p15Waterways, p16Chennai, p17Delhi,
-                p18Chance2, p20Jaipur, p19roadways, p21Resthouse, p27railroad, p22Community2, p24Electricity,
-                p23Chandigarh, p25Indore, p26Kanpur;
+    public Pane p0GO, p1Bangalore, p2Chance1, pane, p3Hyderabad, p4IncomeTax, p5WaterWorks, p6Mumbai, p7Jail, p8Airways,
+            p9Cchest1, p10Kolkata, p11Pune, p12luxuryTax, p13Patna, p14Pub, p15Waterways, p16Chennai, p17Delhi,
+            p18Chance2, p20Jaipur, p19roadways, p21Resthouse, p27railroad, p22Community2, p24Electricity,
+            p23Chandigarh, p25Indore, p26Kanpur;
     public Pane resultPane;
     public Label textLabel;
     public Boolean gameOver = false;
@@ -24,12 +25,12 @@ public class Monopoly {
     public Pane playerPane;
 
     List<Player> players;
-    private Integer numOfPlayers;
     Integer currentPlayerIndex;
     Player currentPlayer;
     Square[] board;
     Dice d1, d2;
     Bank bank;
+    private Integer numOfPlayers;
 
     public void start() {
         d1 = new Dice();
@@ -56,30 +57,30 @@ public class Monopoly {
         Square kolkata = new City("Kolkata", 10, "Yellow",
                 200, new float[]{140, 290, 440, 310}, p10Kolkata, new float[]{300, 280});
         Square pune = new City("Pune", 11, "Yellow",
-                400, new float[]{140, 290, 440, 320 }, p11Pune, new float[]{200, 170});
+                400, new float[]{140, 290, 440, 320}, p11Pune, new float[]{200, 170});
         Square patna = new City("Patna", 13, "Yellow",
                 230, new float[]{100, 210, 320, 210}, p13Patna, new float[]{200, 100});
         Square chennai = new City("Chennai", 16, "Blue",
                 300, new float[]{140, 300, 440, 310}, p16Chennai, new float[]{400, 250});
         Square delhi = new City("Delhi", 17, "Blue",
-                450, new float[]{120, 270, 420, 290 }, p17Delhi, new float[]{300, 150});
+                450, new float[]{120, 270, 420, 290}, p17Delhi, new float[]{300, 150});
         Square jaipur = new City("Jaipur", 20, "Blue",
                 260, new float[]{0, 0, 0, 0}, p20Jaipur, new float[]{400, 125});
         Square chandigarh = new City("Chandigarh", 23, "Green",
                 290, new float[]{140, 290, 440, 310}, p23Chandigarh, new float[]{400, 250});
         Square indore = new City("Indore", 25, "Green",
-                420, new float[]{140, 290, 440, 310 }, p25Indore, new float[]{400, 250});
+                420, new float[]{140, 290, 440, 310}, p25Indore, new float[]{400, 250});
         Square kanpur = new City("Kanpur", 26, "Green",
                 260, new float[]{90, 190, 290, 180}, p26Kanpur, new float[]{200, 300});
 
         Square chance1 = new Chance("Chance", 2, p2Chance1);
-        Square chance2 = new Chance("Chance",18 ,p18Chance2);
+        Square chance2 = new Chance("Chance", 18, p18Chance2);
 
-        Square communityChest1 = new CommunityChest("Community Chest", 9,p9Cchest1);
-        Square communityChest2 = new CommunityChest("Community Chest",22 ,p22Community2);
+        Square communityChest1 = new CommunityChest("Community Chest", 9, p9Cchest1);
+        Square communityChest2 = new CommunityChest("Community Chest", 22, p22Community2);
 
-        Square incomeTax= new Square("Income Tax",4,p4IncomeTax);
-        Square luxuryTax= new Square("Luxury Tax",12,p12luxuryTax);
+        Square incomeTax = new Square("Income Tax", 4, p4IncomeTax);
+        Square luxuryTax = new Square("Luxury Tax", 12, p12luxuryTax);
 
         board = new Square[]{go, bangalore, chance1, hyderabad, incomeTax, waterworks, mumbai, jail, airways, communityChest1,
                 kolkata, pune, luxuryTax, patna, pub, waterways, chennai, delhi, chance2, roadways, jaipur,
@@ -88,7 +89,7 @@ public class Monopoly {
         Label l = new Label();
         l.setId("q");
         l.setTextFill(Color.DARKSLATEBLUE);
-        l.setStyle("-fx-padding: 10;" +"-fx-font-size: 16px;");
+        l.setStyle("-fx-padding: 10;" + "-fx-font-size: 16px;");
         l.setLayoutY(40.0);
         resultPane.getChildren().add(l);
 
@@ -109,22 +110,24 @@ public class Monopoly {
         resultPane.getChildren().add(no);
 
         // initially
-        currentPlayerIndex = getFirstPlayerIndex(players, d1, d2);
-        currentPlayer = players.get(currentPlayerIndex);
+        players.forEach(p -> {
+            board[0].addPlayerToSquare(p);
+            p.roll(d1, d2);
+        });
 
-        players.forEach(p-> board[0].addPlayerToSquare(p));
+        currentPlayerIndex = getFirstPlayerIndex();
+        currentPlayer = players.get(currentPlayerIndex);
 
         displayNamesInListView();
 
         currentPlayerLabel.setText(currentPlayer.getName());
         currentPlayerLabel.setTextFill(Color.DARKSLATEBLUE);
-        currentPlayerLabel.setStyle("-fx-padding: 2;" +"-fx-font-size: 16px;");
+        currentPlayerLabel.setStyle("-fx-padding: 2;" + "-fx-font-size: 16px;");
 
         rollbtn.setOnAction(event -> {
             currentPlayerIndex = nextMove(currentPlayer);
             currentPlayer = players.get(currentPlayerIndex);
             currentPlayerLabel.setText(currentPlayer.getName());
-
         });
     }
 
@@ -132,22 +135,21 @@ public class Monopoly {
 //        rollbtn.setDisable(true);
         removePlayer();
 
+        updateNameInListView(currentPlayer);
         Integer roll = currentPlayer.roll(d1, d2);
         Integer currPos = currentPlayer.getPosition();
         board[currPos].removePlayerToSquare(currentPlayer);
 
-        Integer newPos = (currPos+ roll) % 28;
-        System.out.println(newPos);
+        Integer newPos = (currPos + roll) % 28;
         board[newPos].addPlayerToSquare(currentPlayer);
         currentPlayer.setPosition(newPos);
 
-        textLabel.setText(currentPlayer.getName() + "! You've landed in "+ board[newPos].getSQUARE_NAME());
+        textLabel.setText(currentPlayer.getName() + "! You've landed in " + board[newPos].getSQUARE_NAME());
         textLabel.setTextFill(Color.DARKSLATEBLUE);
-        textLabel.setStyle("-fx-padding: 2;" +"-fx-font-size: 16px;");
+        textLabel.setStyle("-fx-padding: 2;" + "-fx-font-size: 16px;");
 
-        board[newPos].task(currentPlayer, bank, resultPane);
-        updateNameInListView(currentPlayer);
-
+        if(board[newPos].task(currentPlayer, bank, resultPane) > 0)
+            updateNameInListView(currentPlayer);
 
         // TODO @C check if pos is same somehow if its not remove from old, move to new
 
@@ -158,13 +160,13 @@ public class Monopoly {
 
     private void displayNamesInListView() {
         this.players.forEach(p -> {
-            Label l = new Label(p.getName() + "\t\t\uD83C\uDFB2 " + p.getCurrentRoll() + "\t\uD83D\uDCB0 "+p.getPlayerMoney());
+            Label l = new Label(p.getName() + "\t\t\uD83C\uDFB2 " + p.getCurrentRoll() + "\t\t\uD83D\uDCB0 " + p.getPlayerMoney());
             l.setTextFill(Color.WHITE);
             l.setId(p.getName());
-            l.setStyle("-fx-background-color :"+p.getTokenColor()+";" + " -fx-padding: 10;" +"-fx-font-size: 16px;");
+            l.setStyle("-fx-background-color :" + p.getTokenColor() + ";" + " -fx-padding: 10;" + "-fx-font-size: 16px;");
             l.setLayoutX(8.0);
-            l.setMinWidth(250);
-            l.setLayoutY((p.getId()-1) * 50 + 10);
+            l.setPrefWidth(300);
+            l.setLayoutY((p.getId() - 1) * 50 + 10);
 
             playerPane.getChildren().add(l);
         });
@@ -172,19 +174,14 @@ public class Monopoly {
 
     private void updateNameInListView(Player player) {
         playerPane.getChildren().forEach(node -> {
-            if(player.getName().equals(node.getId())){
+            if (player.getName().equals(node.getId())) {
                 Label n = (Label) node;
-                n.setText(player.getName() + "\t\t\uD83C\uDFB2 " + player.getCurrentRoll() + "\t\uD83D\uDCB0 "+player.getPlayerMoney());
+                n.setText(player.getName() + "\t\t\uD83C\uDFB2 " + player.getCurrentRoll() + "\t\t\uD83D\uDCB0 " + player.getPlayerMoney());
             }
         });
     }
 
-    private Integer getFirstPlayerIndex(List<Player> players, Dice d1, Dice d2) {
-        // each player rolls
-        players.forEach(player -> {
-            player.roll(d1, d2);
-        });
-
+    private Integer getFirstPlayerIndex() {
         // get max roll
         Optional<Integer> max1 = players.stream().map(Player::getCurrentRoll).max(Integer::compare);
         Integer max = max1.get();
@@ -195,7 +192,7 @@ public class Monopoly {
         return player.findFirst().get().getId() - 1;
     }
 
-    public Integer findMaxSum(List <Integer> initialRolls) {
+    public Integer findMaxSum(List<Integer> initialRolls) {
         int MaxVal = initialRolls.get(0);
         for (Integer initialRoll : initialRolls) {
             if (initialRoll > MaxVal) {
@@ -206,27 +203,30 @@ public class Monopoly {
     }
 
     void removePlayer() {
-        players.removeIf(p -> p.getPlayerMoney() == (float) 0.0);
+        players.removeIf(p -> p.getPlayerMoney() <= (float) 0.0);
+        if(players.size() == 1){
+            // we have a winner
+        }
     }
 
     public List<Player> getPlayers() {
         return players;
     }
 
-    public void setNumOfPlayers(Integer numOfPlayers) {
-        this.numOfPlayers = numOfPlayers;
-    }
-
     public Integer getNumOfPlayers() {
         return numOfPlayers;
+    }
+
+    public void setNumOfPlayers(Integer numOfPlayers) {
+        this.numOfPlayers = numOfPlayers;
     }
 
     public void setPlayersAndBank(String[] names, String[] colors) {
         bank = new Bank(numOfPlayers * 10000);
         this.players = new ArrayList<>();
         int i = 0;
-        for (String name: names) {
-            Player p = new Player((i+1), name, colors[i]);
+        for (String name : names) {
+            Player p = new Player((i + 1), name, colors[i]);
             players.add(p);
             bank.giveMoneyToPlayer(p, 1500);
             i++;
