@@ -21,6 +21,7 @@ public class Monopoly {
     public Boolean gameOver = false;
     public Button rollbtn;
     public Label currentPlayerLabel;
+    public Pane playerPane;
 
     List<Player> players;
     private Integer numOfPlayers;
@@ -145,24 +146,36 @@ public class Monopoly {
         textLabel.setStyle("-fx-padding: 2;" +"-fx-font-size: 16px;");
 
         board[newPos].task(currentPlayer, bank, resultPane);
+        updateNameInListView(currentPlayer);
 
 
         // TODO @C check if pos is same somehow if its not remove from old, move to new
 
 //        rollbtn.setDisable(false);
+        // if player is asked to move spaces in task do not inc
         return (currentPlayerIndex + 1) % numOfPlayers;
     }
 
     private void displayNamesInListView() {
         this.players.forEach(p -> {
-            Label l = new Label(p.getName() + "\t\t\t" + p.getCurrentRoll());
+            Label l = new Label(p.getName() + "\t\t\uD83C\uDFB2 " + p.getCurrentRoll() + "\t\uD83D\uDCB0 "+p.getPlayerMoney());
             l.setTextFill(Color.WHITE);
+            l.setId(p.getName());
             l.setStyle("-fx-background-color :"+p.getTokenColor()+";" + " -fx-padding: 10;" +"-fx-font-size: 16px;");
-            l.setLayoutX(68.0);
-            l.setMinWidth(200);
-            l.setLayoutY(p.getId() * 50);
-            l.setId(String.valueOf(p.getId()));
-            pane.getChildren().add(l);
+            l.setLayoutX(8.0);
+            l.setMinWidth(250);
+            l.setLayoutY((p.getId()-1) * 50 + 10);
+
+            playerPane.getChildren().add(l);
+        });
+    }
+
+    private void updateNameInListView(Player player) {
+        playerPane.getChildren().forEach(node -> {
+            if(player.getName().equals(node.getId())){
+                Label n = (Label) node;
+                n.setText(player.getName() + "\t\t\uD83C\uDFB2 " + player.getCurrentRoll() + "\t\uD83D\uDCB0 "+player.getPlayerMoney());
+            }
         });
     }
 
