@@ -48,9 +48,10 @@ public class Square {
         int r = Integer.parseInt(color.substring(1, 3), 16);
         int g = Integer.parseInt(color.substring(3, 5), 16);
         int b = Integer.parseInt(color.substring(5, 7), 16);
-        c.setFill(Color.rgb(r, g, b, 0.8));
+        c.setFill(Color.rgb(r, g, b, 0.9));
         c.setId(player.getName());
-        c.setRadius(9.0);
+        c.setRadius(10.0);
+        c.setStroke(Color.DARKGRAY);
 
         String appendZero = "0"+Integer.toBinaryString(player.getId() - 1);
         String idStrBin = appendZero.substring(appendZero.length() - 2);

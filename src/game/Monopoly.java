@@ -167,7 +167,7 @@ public class Monopoly {
             l.setTextFill(Color.WHITE);
             l.setStyle("-fx-background-color :"+p.getTokenColor()+";" + " -fx-padding: 10;" +"-fx-font-size: 16px;");
             l.setLayoutX(68.0);
-            l.setMinWidth(200);
+            l.setMinWidth(150);
             l.setLayoutY(p.getId() * 50);
             l.setId(String.valueOf(p.getId()));
             pane.getChildren().add(l);

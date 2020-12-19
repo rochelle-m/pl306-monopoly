@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 public class Controller {
 
-    final String[] names = {"Chetana", "Shruti", "Rochelle", "Jane Doe"};
+    final String[] names = {"Mike", "Lily", "Ross", "Jack"};
     final String[] colorsS = {"#800080", "#800000", "#404040", "#008080"};
 
     public Button btnPlay;
