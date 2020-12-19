@@ -33,18 +33,13 @@ public class Square {
         Image image = new Image(f);
         this.IMG_PATH = _imgPath;
         imageView.setImage(image);
-        imageView.setFitWidth(50);
-        imageView.setFitHeight(50);
-        imageView.setLayoutX(20);
-        imageView.setLayoutY(20);
+        imageView.setFitWidth(74);
+        imageView.setFitHeight(74);
+        imageView.setLayoutX(5);
+        imageView.setLayoutY(5);
+        Tooltip.install(imageView, new Tooltip(SQUARE_NAME));
 
         this.PANE.getChildren().add(imageView);
-
-        Label title = new Label(squareName);
-        title.setLayoutY(3);
-        title.setLayoutX(3);
-        this.PANE.getChildren().add(title);
-
     }
 
     public void addPlayerToSquare(Player player) {
@@ -53,18 +48,16 @@ public class Square {
         int r = Integer.parseInt(color.substring(1, 3), 16);
         int g = Integer.parseInt(color.substring(3, 5), 16);
         int b = Integer.parseInt(color.substring(5, 7), 16);
-        c.setFill(Color.rgb(r, g, b));
+        c.setFill(Color.rgb(r, g, b, 0.8));
         c.setId(player.getName());
         c.setRadius(9.0);
 
         String appendZero = "0"+Integer.toBinaryString(player.getId() - 1);
         String idStrBin = appendZero.substring(appendZero.length() - 2);
 
-        c.setLayoutX(Integer.parseInt(String.valueOf(idStrBin.charAt(0))) * 25 + 30);
-        c.setLayoutY(Integer.parseInt(String.valueOf(idStrBin.charAt(1))) * 25 + 30);
-
+        c.setLayoutX(Integer.parseInt(String.valueOf(idStrBin.charAt(0))) * 30 + 30);
+        c.setLayoutY(Integer.parseInt(String.valueOf(idStrBin.charAt(1))) * 30 + 30);
         c.toFront();
-        // something might break here -- [fixed] [still might break]
 
         this.PANE.getChildren().add(c);
         Tooltip.install(c, new Tooltip(player.getName()));
@@ -83,14 +76,10 @@ public class Square {
     public void payLuxuryTax(Player currentPlayer, Bank bank){
         System.out.println("pay luxury tax of RS.200");
         bank.takeMoneyFromPlayer(currentPlayer, 200);
-
     }
-
-   
 
     int task(Player player, Bank bank, Pane pane ) {
         return 1;
-
     }
 
     public String getSQUARE_NAME() {

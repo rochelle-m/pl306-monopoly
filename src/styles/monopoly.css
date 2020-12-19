@@ -1,2 +1,7 @@
 .button{
 -fx-cursor: hand;}
+
+.pane{
+-fx-cursor: hand;
+-fx-border-style: hidden solid hidden solid;
+}

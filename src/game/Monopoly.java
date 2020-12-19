@@ -41,7 +41,7 @@ public class Monopoly {
         d2 = new Dice();
 
         Square init = new CornerBox("init", 0, 200, p0GO, "images/init.jpg");
-//        Square ddos = new CornerBox("DDOS", 7, 100, p7Jail, "");
+        Square ddos = new CornerBox("DDOS", 7, 100, p7Jail, "images/ddos.jpg");
 //        Square gitpub = new CornerBox("GitPub", 14, 250, p14Pub, "");
 //        Square resthouse = new CornerBox("Rest House", 21, 200, p21Resthouse, "");
 
@@ -52,8 +52,8 @@ public class Monopoly {
 //        Square ssd = new Company("SSD", 24, 180, 60, p24Electricity, "");
 //        Square io = new Company("I/O", 27, 210, 90, p27railroad, "");
 
-//        Square apple = new City("Apple", 1, "#FF3139",
-//                300, new float[]{150, 350, 550, 300}, p1Bangalore, new float[]{500, 350}, "");
+        Square apple = new City("Apple", 1, "#FF3139",
+                300, new float[]{150, 350, 550, 300}, p1Bangalore, new float[]{500, 350}, "images/apple.png");
         Square microsoft = new City("Microsoft", 3, "#FF3139",
                 220, new float[]{100, 220, 450, 250}, p3Hyderabad, new float[]{300, 450}, "images/microsoft.jpg");
         Square google = new City("Google", 6, "#FF3139",
@@ -64,8 +64,8 @@ public class Monopoly {
 //                400, new float[]{140, 290, 440, 320 }, p11Pune, new float[]{200, 170}, "");
 //        Square patna = new City("IBM", 13, "Yellow",
 //                230, new float[]{100, 210, 320, 210}, p13Patna, new float[]{200, 100}, "");
-//        Square chennai = new City("Accenture", 16, "Blue",
-//                300, new float[]{140, 300, 440, 310}, p16Chennai, new float[]{400, 250}, "");
+        Square chennai = new City("Netflix", 16, "Blue",
+                300, new float[]{140, 300, 440, 310}, p16Chennai, new float[]{400, 250}, "images/netflix.jpg");
 //        Square delhi = new City("Intel", 17, "Blue",
 //                450, new float[]{120, 270, 420, 290 }, p17Delhi, new float[]{300, 150}, "");
 //        Square jaipur = new City("Adobe", 20, "Blue",
@@ -74,7 +74,7 @@ public class Monopoly {
 //                290, new float[]{140, 290, 440, 310}, p23Chandigarh, new float[]{400, 250}, "");
 //        Square indore = new City("Amazon", 25, "Green",
 //                420, new float[]{140, 290, 440, 310 }, p25Indore, new float[]{400, 250}, "");
-//        Square kanpur = new City("SpaceX", 26, "Green",
+//        Square kanpur = new City("Cisco", 26, "Green",
 //                260, new float[]{90, 190, 290, 180}, p26Kanpur, new float[]{200, 300}, "");
 //
 //        Square chance1 = new Chance("Chance", 2, p2Chance1, "");
