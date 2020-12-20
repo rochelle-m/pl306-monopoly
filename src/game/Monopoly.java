@@ -1,15 +1,10 @@
 package game;
 
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.control.Button;
-
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,23 +13,24 @@ import java.util.stream.Stream;
 
 public class Monopoly {
     public GridPane monopoly;
-    public Pane p0GO, p1Bangalore, p2Chance1, pane, p3Hyderabad, p4IncomeTax,p5WaterWorks, p6Mumbai, p7Jail, p8Airways,
-                p9Cchest1, p10Kolkata, p11Pune, p12luxuryTax, p13Patna, p14Pub, p15Waterways, p16Chennai, p17Delhi,
-                p18Chance2, p20Jaipur, p19roadways, p21Resthouse, p27railroad, p22Community2, p24Electricity,
-                p23Chandigarh, p25Indore, p26Kanpur;
+    public Pane p0GO, p1Bangalore, p2Chance1, pane, p3Hyderabad, p4IncomeTax, p5WaterWorks, p6Mumbai, p7Jail, p8Airways,
+            p9Cchest1, p10Kolkata, p11Pune, p12luxuryTax, p13Patna, p14Pub, p15Waterways, p16Chennai, p17Delhi,
+            p18Chance2, p20Jaipur, p19roadways, p21Resthouse, p27railroad, p22Community2, p24Electricity,
+            p23Chandigarh, p25Indore, p26Kanpur;
     public Pane resultPane;
     public Label textLabel;
     public Boolean gameOver = false;
     public Button rollbtn;
     public Label currentPlayerLabel;
+    public Pane playerPane;
 
     List<Player> players;
-    private Integer numOfPlayers;
     Integer currentPlayerIndex;
     Player currentPlayer;
     Square[] board;
     Dice d1, d2;
     Bank bank;
+    private Integer numOfPlayers;
 
     public void start() throws FileNotFoundException {
         d1 = new Dice();
@@ -95,7 +91,7 @@ public class Monopoly {
         Label l = new Label();
         l.setId("q");
         l.setTextFill(Color.DARKSLATEBLUE);
-        l.setStyle("-fx-padding: 10;" +"-fx-font-size: 16px;");
+        l.setStyle("-fx-padding: 10;" + "-fx-font-size: 16px;");
         l.setLayoutY(40.0);
         resultPane.getChildren().add(l);
 
@@ -116,22 +112,24 @@ public class Monopoly {
         resultPane.getChildren().add(no);
 
         // initially
-        currentPlayerIndex = getFirstPlayerIndex(players, d1, d2);
-        currentPlayer = players.get(currentPlayerIndex);
+        players.forEach(p -> {
+            board[0].addPlayerToSquare(p);
+            p.roll(d1, d2);
+        });
 
-        players.forEach(p-> board[0].addPlayerToSquare(p));
+        currentPlayerIndex = getFirstPlayerIndex();
+        currentPlayer = players.get(currentPlayerIndex);
 
         displayNamesInListView();
 
         currentPlayerLabel.setText(currentPlayer.getName());
         currentPlayerLabel.setTextFill(Color.DARKSLATEBLUE);
-        currentPlayerLabel.setStyle("-fx-padding: 2;" +"-fx-font-size: 16px;");
+        currentPlayerLabel.setStyle("-fx-padding: 2;" + "-fx-font-size: 16px;");
 
         rollbtn.setOnAction(event -> {
             currentPlayerIndex = nextMove(currentPlayer);
             currentPlayer = players.get(currentPlayerIndex);
             currentPlayerLabel.setText(currentPlayer.getName());
-
         });
     }
 
@@ -139,46 +137,50 @@ public class Monopoly {
 //        rollbtn.setDisable(true);
         removePlayer();
 
+        updateNameInListView(currentPlayer);
         Integer roll = currentPlayer.roll(d1, d2);
         Integer currPos = currentPlayer.getPosition();
         board[currPos].removePlayerToSquare(currentPlayer);
 
-        Integer newPos = (currPos+ roll) % 28;
-        System.out.println(newPos);
+        Integer newPos = (currPos + roll) % 28;
         board[newPos].addPlayerToSquare(currentPlayer);
         currentPlayer.setPosition(newPos);
 
-        textLabel.setText(currentPlayer.getName() + "! You've landed in "+ board[newPos].getSQUARE_NAME());
+        textLabel.setText(currentPlayer.getName() + "! You've landed in " + board[newPos].getSQUARE_NAME());
         textLabel.setTextFill(Color.DARKSLATEBLUE);
-        textLabel.setStyle("-fx-padding: 2;" +"-fx-font-size: 16px;");
+        textLabel.setStyle("-fx-padding: 2;" + "-fx-font-size: 16px;");
 
-        board[newPos].task(currentPlayer, bank, resultPane);
-
-        // TODO @C check if pos is same somehow if its not remove from old, move to new
-
-//        rollbtn.setDisable(false);
+        if(board[newPos].task(currentPlayer, bank, resultPane) > 0)
+            updateNameInListView(currentPlayer);
         return (currentPlayerIndex + 1) % numOfPlayers;
     }
 
     private void displayNamesInListView() {
         // TODO set static pane
         this.players.forEach(p -> {
-            Label l = new Label(p.getName() + "\t\t\t" + p.getCurrentRoll());
+            Label l = new Label(p.getName() + "\t\t\uD83C\uDFB2 " + p.getCurrentRoll() + "\t\t\uD83D\uDCB0 " + p.getPlayerMoney());
             l.setTextFill(Color.WHITE);
-            l.setStyle("-fx-background-color :"+p.getTokenColor()+";" + " -fx-padding: 10;" +"-fx-font-size: 16px;");
-            l.setLayoutX(68.0);
-            l.setMinWidth(150);
-            l.setLayoutY(p.getId() * 50);
-            l.setId(String.valueOf(p.getId()));
-            pane.getChildren().add(l);
+            l.setId(p.getName());
+            l.setStyle("-fx-background-color :" + p.getTokenColor() + ";" + " -fx-padding: 10;" + "-fx-font-size: 16px;");
+            l.setLayoutX(8.0);
+            l.setPrefWidth(300);
+            l.setLayoutY((p.getId() - 1) * 50 + 10);
+
+            playerPane.getChildren().add(l);
         });
     }
 
-    private Integer getFirstPlayerIndex(List<Player> players, Dice d1, Dice d2) {
-        players.forEach(player -> {
-            player.roll(d1, d2);
-        });
+    private void updateNameInListView(Player player) {
+        playerPane.getChildren().forEach(node -> {
+            if (player.getName().equals(node.getId())) {
+                Label n = (Label) node;
+                n.setText(player.getName() + "\t\t\uD83C\uDFB2 " + player.getCurrentRoll() + "\t\t\uD83D\uDCB0 " + player.getPlayerMoney());
+            }
 
+        });
+    }
+
+    private Integer getFirstPlayerIndex() {
         // get max roll
         Optional<Integer> max1 = players.stream().map(Player::getCurrentRoll).max(Integer::compare);
         Integer max = max1.get();
@@ -189,39 +191,32 @@ public class Monopoly {
         return player.findFirst().get().getId() - 1;
     }
 
-    public Integer findMaxSum(List <Integer> initialRolls) {
-        int MaxVal = initialRolls.get(0);
-        for (Integer initialRoll : initialRolls) {
-            if (initialRoll > MaxVal) {
-                MaxVal = initialRoll;
-            }
-        }
-        return MaxVal;
-    }
 
     void removePlayer() {
-        players.removeIf(p -> p.getPlayerMoney() == (float) 0.0);
-        displayNamesInListView();
+        players.removeIf(p -> p.getPlayerMoney() <= (float) 0.0);
+        if(players.size() == 1){
+            // we have a winner
+        }
     }
 
     public List<Player> getPlayers() {
         return players;
     }
 
-    public void setNumOfPlayers(Integer numOfPlayers) {
-        this.numOfPlayers = numOfPlayers;
-    }
-
     public Integer getNumOfPlayers() {
         return numOfPlayers;
+    }
+
+    public void setNumOfPlayers(Integer numOfPlayers) {
+        this.numOfPlayers = numOfPlayers;
     }
 
     public void setPlayersAndBank(String[] names, String[] colors) {
         bank = new Bank(numOfPlayers * 10000);
         this.players = new ArrayList<>();
         int i = 0;
-        for (String name: names) {
-            Player p = new Player((i+1), name, colors[i]);
+        for (String name : names) {
+            Player p = new Player((i + 1), name, colors[i]);
             players.add(p);
             bank.giveMoneyToPlayer(p, 1500);
             i++;

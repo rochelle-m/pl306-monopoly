@@ -11,25 +11,26 @@
               prefWidth="660.0" style="-fx-border-color: gray; ">
 
         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-            <RowConstraints maxHeight="80.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES"/>
-            <RowConstraints maxHeight="82.0" minHeight="10.0" prefHeight="86.0" vgrow="SOMETIMES"/>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="80.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="82.0" minHeight="10.0" prefHeight="86.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
+
 
 
         <Pane fx:id="p0GO" prefHeight="67.0" prefWidth="104.0"
@@ -155,18 +156,19 @@
         </Pane>
         <Pane fx:id="p26Kanpur" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: grey;"
               GridPane.columnIndex="7" GridPane.rowIndex="5">
+
         </Pane>
     </GridPane>
 
     <Pane fx:id="resultPane" layoutX="40.0" layoutY="263.0" prefHeight="247.0" prefWidth="519.0"
-          style="-fx-background-color: aliceblue; -fx-border-color: grey;">
-        <children>
-            <Label fx:id="textLabel" layoutX="10.0" layoutY="12.0"/>
-        </children>
+          style="-fx-background-color: aliceblue; -fx-border: grey;">
 
+        <Label fx:id="textLabel" layoutX="10.0" layoutY="12.0"/>
     </Pane>
-    <Button fx:id="rollbtn" layoutX="438.0" layoutY="135.0" mnemonicParsing="false"
-            style="-fx-background-color: lightblue;" text="ROLL" textFill="#685e5e"/>
-    <Label fx:id="currentPlayerLabel" layoutX="438.0" layoutY="88.0" prefHeight="29.0" prefWidth="111.0"/>
+    <Pane layoutX="40.0" layoutY="36.0" prefHeight="200.0" prefWidth="519.0" style="-fx-background-color: aliceblue;" fx:id="playerPane">
+        <Button fx:id="rollbtn" layoutX="410.0" layoutY="118.0" mnemonicParsing="false"
+                style="-fx-background-color: lightblue;" text="ROLL" textFill="#685e5e"/>
+        <Label fx:id="currentPlayerLabel" layoutX="392.0" layoutY="50.0" prefHeight="29.0" prefWidth="111.0"/>
+    </Pane>
 
 </Pane>
