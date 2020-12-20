@@ -56,18 +56,18 @@ public class Monopoly {
                 500, new float[]{140, 290, 440, 310}, p6Mumbai, new float[]{300, 200}, "images/google.jpg");
         Square tencent = new City("Tencent", 10, "Yellow",
                 200, new float[]{140, 290, 440, 310}, p10Kolkata, new float[]{300, 280}, "images/tencent.png");
-//        Square pune = new City("Facebook", 11, "Yellow",
-//                400, new float[]{140, 290, 440, 320 }, p11Pune, new float[]{200, 170}, "");
+        Square pune = new City("Facebook", 11, "Yellow",
+                400, new float[]{140, 290, 440, 320 }, p11Pune, new float[]{200, 170}, "images/facebook.png");
 //        Square patna = new City("IBM", 13, "Yellow",
 //                230, new float[]{100, 210, 320, 210}, p13Patna, new float[]{200, 100}, "");
         Square chennai = new City("Netflix", 16, "Blue",
                 300, new float[]{140, 300, 440, 310}, p16Chennai, new float[]{400, 250}, "images/netflix.jpg");
 //        Square delhi = new City("Intel", 17, "Blue",
 //                450, new float[]{120, 270, 420, 290 }, p17Delhi, new float[]{300, 150}, "");
-//        Square jaipur = new City("Adobe", 20, "Blue",
-//                260, new float[]{0, 0, 0, 0}, p20Jaipur, new float[]{400, 125}, "");
-//        Square chandigarh = new City("Oracle", 23, "Green",
-//                290, new float[]{140, 290, 440, 310}, p23Chandigarh, new float[]{400, 250}, "");
+        Square jaipur = new City("Adobe", 20, "Blue",
+                260, new float[]{0, 0, 0, 0}, p20Jaipur, new float[]{400, 125}, "images/adobe.png");
+        Square chandigarh = new City("Oracle", 23, "Green",
+                290, new float[]{140, 290, 440, 310}, p23Chandigarh, new float[]{400, 250}, "images/oracle.png");
 //        Square indore = new City("Amazon", 25, "Green",
 //                420, new float[]{140, 290, 440, 310 }, p25Indore, new float[]{400, 250}, "");
 //        Square kanpur = new City("Cisco", 26, "Green",
