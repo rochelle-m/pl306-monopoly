@@ -30,10 +30,15 @@ public class Company extends Square {
             no.setText("NO");
 
             yes.setOnAction(event -> {
+                System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
                 System.out.println( player.getName() + " pay to bank $"+ this.cost);
                 this.owner = player;
 //                return 1; // 1
-                bank.takeMoneyFromPlayer(player,this.cost);
+
+                Boolean bought = bank.takeMoneyFromPlayer(player,this.cost);
+                if(bought)
+                    l.setText("Purchased!");
+                System.out.println("A: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
 
             });
 

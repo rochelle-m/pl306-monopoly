@@ -28,3 +28,7 @@ The objective of the game is to become the wealthiest player through buying, ren
 ## Class Diagram
 
 ![Class Diagram](/src/images/readme-pics/classdiagram.png)
+
+## Snapshot
+
+![Snapshot](/src/images/readme-pics/Screenshot.png)

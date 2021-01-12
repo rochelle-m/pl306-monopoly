@@ -48,6 +48,7 @@ public class City extends Square{
                     this.owner = player;
                     l1.setText("Congratulations "+player.getName() + "! You now own "+ this.getSQUARE_NAME());
                     l.setText("SOLD!");
+                    System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
                 }
                 else{
                     l.setText("Not enough funds ^.^");

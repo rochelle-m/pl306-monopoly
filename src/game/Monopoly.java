@@ -19,7 +19,6 @@ public class Monopoly {
             p23Chandigarh, p25Indore, p26Kanpur;
     public Pane resultPane;
     public Label textLabel;
-    public Boolean gameOver = false;
     public Button rollbtn;
     public Label currentPlayerLabel;
     public Pane playerPane;
@@ -31,6 +30,7 @@ public class Monopoly {
     Dice d1, d2;
     Bank bank;
     private Integer numOfPlayers;
+    public Boolean gameOver = false;
 
     public void start() {
         d1 = new Dice();
@@ -122,9 +122,10 @@ public class Monopoly {
 
         currentPlayerLabel.setText(currentPlayer.getName());
         currentPlayerLabel.setTextFill(Color.DARKSLATEBLUE);
-        currentPlayerLabel.setStyle("-fx-padding: 2;" + "-fx-font-size: 16px;");
+        currentPlayerLabel.setStyle("-fx-padding: 2;" + "-fx-font-size: 16px;");   
 
         rollbtn.setOnAction(event -> {
+            updateNameInListView(currentPlayer);
             currentPlayerIndex = nextMove(currentPlayer);
             currentPlayer = players.get(currentPlayerIndex);
             currentPlayerLabel.setText(currentPlayer.getName());
@@ -135,7 +136,6 @@ public class Monopoly {
 //        rollbtn.setDisable(true);
         removePlayer();
 
-        updateNameInListView(currentPlayer);
         Integer roll = currentPlayer.roll(d1, d2);
         Integer currPos = currentPlayer.getPosition();
         board[currPos].removePlayerToSquare(currentPlayer);
@@ -148,8 +148,7 @@ public class Monopoly {
         textLabel.setTextFill(Color.DARKSLATEBLUE);
         textLabel.setStyle("-fx-padding: 2;" + "-fx-font-size: 16px;");
 
-        if(board[newPos].task(currentPlayer, bank, resultPane) > 0)
-            updateNameInListView(currentPlayer);
+        board[newPos].task(currentPlayer, bank, resultPane);
 
         // TODO @C check if pos is same somehow if its not remove from old, move to new
 
@@ -173,6 +172,7 @@ public class Monopoly {
     }
 
     private void updateNameInListView(Player player) {
+        System.out.println("s");
         playerPane.getChildren().forEach(node -> {
             if (player.getName().equals(node.getId())) {
                 Label n = (Label) node;
