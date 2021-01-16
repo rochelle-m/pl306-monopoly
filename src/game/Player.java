@@ -47,6 +47,10 @@ public class Player {
         return currentRoll;
     }
 
+    public void addNewlyBoughtCity(City cityBought) {
+        this.citiesOwned.add(cityBought);
+    }
+
     public Integer getId() {
         return id;
     }
@@ -105,10 +109,6 @@ public class Player {
 
     public void setCitiesOwned(List<City> citiesOwned) {
         this.citiesOwned = citiesOwned;
-    }
-
-    public void addNewlyBoughtCity(City cityBought) {
-        this.citiesOwned.add(cityBought);
     }
 
     public Integer getCurrentRoll() {

@@ -106,7 +106,7 @@ public class Monopoly {
         no.setId("btn");
         no.setStyle("-fx-background-color: blue;");
         no.setLayoutY(80.0);
-        no.setLayoutX(60.0);
+        no.setLayoutX(140.0);
         resultPane.getChildren().add(no);
 
         // initially
@@ -209,6 +209,18 @@ public class Monopoly {
         }
     }
 
+    public void setPlayersAndBank(String[] names, String[] colors) {
+        bank = new Bank(numOfPlayers * 10000);
+        this.players = new ArrayList<>();
+        int i = 0;
+        for (String name : names) {
+            Player p = new Player((i + 1), name, colors[i]);
+            players.add(p);
+            bank.giveMoneyToPlayer(p, 1500);
+            i++;
+        }
+    }
+
     public List<Player> getPlayers() {
         return players;
     }
@@ -221,16 +233,6 @@ public class Monopoly {
         this.numOfPlayers = numOfPlayers;
     }
 
-    public void setPlayersAndBank(String[] names, String[] colors) {
-        bank = new Bank(numOfPlayers * 10000);
-        this.players = new ArrayList<>();
-        int i = 0;
-        for (String name : names) {
-            Player p = new Player((i + 1), name, colors[i]);
-            players.add(p);
-            bank.giveMoneyToPlayer(p, 1500);
-            i++;
-        }
-    }
+
 
 }
