@@ -27,13 +27,10 @@ public class Square {
         int b = Integer.parseInt(color.substring(5, 7), 16);
         c.setFill(Color.rgb(r, g, b));
         c.setId(player.getName());
-        c.setRadius(8.0);
+        c.setRadius(9.0);
         c.setLayoutX(player.getId() * 18.0);
         c.setLayoutY(24.0);
         c.toFront();
-        // something might break here -- [fixed] [still might break]
-        System.out.println(player.getId());
-
         this.PANE.getChildren().add(c);
         Tooltip.install(c, new Tooltip(player.getName()));
     }

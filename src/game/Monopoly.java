@@ -22,7 +22,7 @@ public class Monopoly {
     public Button rollbtn;
     public Label currentPlayerLabel;
     public Pane playerPane;
-
+    public Boolean gameOver = false;
     List<Player> players;
     Integer currentPlayerIndex;
     Player currentPlayer;
@@ -30,7 +30,6 @@ public class Monopoly {
     Dice d1, d2;
     Bank bank;
     private Integer numOfPlayers;
-    public Boolean gameOver = false;
 
     public void start() {
         d1 = new Dice();
@@ -120,20 +119,19 @@ public class Monopoly {
 
         displayNamesInListView();
 
-        currentPlayerLabel.setText(currentPlayer.getName());
+        currentPlayerLabel.setText(currentPlayer.getName() + " \uD83C\uDFB2 " + currentPlayer.getCurrentRoll());
         currentPlayerLabel.setTextFill(Color.DARKSLATEBLUE);
-        currentPlayerLabel.setStyle("-fx-padding: 2;" + "-fx-font-size: 16px;");   
+        currentPlayerLabel.setStyle("-fx-padding: 2;" + "-fx-font-size: 16px;");
 
         rollbtn.setOnAction(event -> {
             updateInListView();
             currentPlayerIndex = nextMove(currentPlayer);
             currentPlayer = players.get(currentPlayerIndex);
-
         });
     }
 
     private Integer nextMove(Player currentPlayer) {
-//        rollbtn.setDisable(true);
+        rollbtn.setDisable(true);
         removePlayer();
 
         Integer roll = currentPlayer.roll(d1, d2);
@@ -147,14 +145,11 @@ public class Monopoly {
 
         textLabel.setText(currentPlayer.getName() + "! You've landed in " + board[newPos].getSQUARE_NAME());
         textLabel.setTextFill(Color.DARKSLATEBLUE);
-        textLabel.setStyle("-fx-padding: 2;" + "-fx-font-size: 16px;");
+        textLabel.setStyle("-fx-padding: 2; -fx-font-size: 16px;");
 
         board[newPos].task(currentPlayer, bank, resultPane);
 
-        // TODO @C check if pos is same somehow if its not remove from old, move to new
-
-//        rollbtn.setDisable(false);
-        // if player is asked to move spaces in task do not inc
+        rollbtn.setDisable(false);
         return (currentPlayerIndex + 1) % numOfPlayers;
     }
 
@@ -174,19 +169,14 @@ public class Monopoly {
 
     private void updateInListView() {
         playerPane.getChildren().forEach(node -> {
-            players.forEach(player -> {
-               if (player.getName().equals(node.getId())){
-                   Label n = (Label) node;
-                   n.setText(player.getName() + "\t\t\uD83C\uDFB2 " + player.getCurrentRoll() + "\t\t\uD83D\uDCB0 " + player.getPlayerMoney());
-               }
-            });
-
+            Stream<Player> pl = players.stream().filter(p -> p.getName().equals(node.getId()));
+            Optional<Player> player = pl.findFirst();
+            if (player.isPresent()) {
+                Label n = (Label) node;
+                n.setText(player.get().getName() + "\t\t\uD83C\uDFB2 " + player.get().getCurrentRoll() + "\t\t\uD83D\uDCB0 " +
+                        player.get().getPlayerMoney());
+            }
         });
-
-
-//                Label n = (Label) node;
-//                n.setText(player.getName() + "\t\t\uD83C\uDFB2 " + player.getCurrentRoll() + "\t\t\uD83D\uDCB0 " + player.getPlayerMoney());
-
     }
 
     private Integer getFirstPlayerIndex() {
@@ -212,35 +202,23 @@ public class Monopoly {
 
     void removePlayer() {
         players.removeIf(p -> p.getPlayerMoney() <= (float) 0.0);
-        if(players.size() == 1){
+        if (players.size() == 1) {
             // we have a winner
+            gameOver = true;
         }
     }
 
-    public void setPlayersAndBank(String[] names, String[] colors) {
+    public void initialise(String[][] playerDetails) {
+        this.numOfPlayers = playerDetails.length;
         bank = new Bank(numOfPlayers * 10000);
         this.players = new ArrayList<>();
         int i = 0;
-        for (String name : names) {
-            Player p = new Player((i + 1), name, colors[i]);
+        for (String[] _players : playerDetails) {
+            Player p = new Player((i + 1), _players[0], _players[1]);
             players.add(p);
             bank.giveMoneyToPlayer(p, 1500);
             i++;
         }
     }
-
-    public List<Player> getPlayers() {
-        return players;
-    }
-
-    public Integer getNumOfPlayers() {
-        return numOfPlayers;
-    }
-
-    public void setNumOfPlayers(Integer numOfPlayers) {
-        this.numOfPlayers = numOfPlayers;
-    }
-
-
 
 }

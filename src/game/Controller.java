@@ -11,12 +11,10 @@ import java.util.Arrays;
 
 public class Controller {
 
-    final String[] names = {"Chetana", "Shruti", "Rochelle", "Jane Doe"};
-    final String[] colorsS = {"#800080", "#800000", "#404040", "#008080"};
+    final String[][] PLAYER_DETAILS = {{"Chetana", "#800080"}, {"Shruti", "#800000"}, {"Rochelle", "#404040"}, {"Jane Doe", "#008080"}};
 
     public Button btnPlay;
     public Spinner spinner;
-
 
     public void play() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("monopoly.fxml"));
@@ -24,8 +22,7 @@ public class Controller {
 
         Monopoly monopoly = loader.getController();
         Integer numOfPlayers = (Integer) spinner.getValue();
-        monopoly.setNumOfPlayers(numOfPlayers);
-        monopoly.setPlayersAndBank(Arrays.copyOfRange(names, 0, numOfPlayers), Arrays.copyOfRange(colorsS, 0, numOfPlayers));
+        monopoly.initialise(Arrays.copyOfRange(PLAYER_DETAILS, 0, numOfPlayers));
         monopoly.start();
 
         Stage stage = (Stage) btnPlay.getScene().getWindow();
