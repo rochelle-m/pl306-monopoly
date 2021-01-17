@@ -125,10 +125,10 @@ public class Monopoly {
         currentPlayerLabel.setStyle("-fx-padding: 2;" + "-fx-font-size: 16px;");   
 
         rollbtn.setOnAction(event -> {
-            updateNameInListView(currentPlayer);
+            updateInListView();
             currentPlayerIndex = nextMove(currentPlayer);
             currentPlayer = players.get(currentPlayerIndex);
-            currentPlayerLabel.setText(currentPlayer.getName());
+
         });
     }
 
@@ -137,6 +137,7 @@ public class Monopoly {
         removePlayer();
 
         Integer roll = currentPlayer.roll(d1, d2);
+        currentPlayerLabel.setText(currentPlayer.getName() + " \uD83C\uDFB2 " + roll);
         Integer currPos = currentPlayer.getPosition();
         board[currPos].removePlayerToSquare(currentPlayer);
 
@@ -171,14 +172,21 @@ public class Monopoly {
         });
     }
 
-    private void updateNameInListView(Player player) {
-        System.out.println("s");
+    private void updateInListView() {
         playerPane.getChildren().forEach(node -> {
-            if (player.getName().equals(node.getId())) {
-                Label n = (Label) node;
-                n.setText(player.getName() + "\t\t\uD83C\uDFB2 " + player.getCurrentRoll() + "\t\t\uD83D\uDCB0 " + player.getPlayerMoney());
-            }
+            players.forEach(player -> {
+               if (player.getName().equals(node.getId())){
+                   Label n = (Label) node;
+                   n.setText(player.getName() + "\t\t\uD83C\uDFB2 " + player.getCurrentRoll() + "\t\t\uD83D\uDCB0 " + player.getPlayerMoney());
+               }
+            });
+
         });
+
+
+//                Label n = (Label) node;
+//                n.setText(player.getName() + "\t\t\uD83C\uDFB2 " + player.getCurrentRoll() + "\t\t\uD83D\uDCB0 " + player.getPlayerMoney());
+
     }
 
     private Integer getFirstPlayerIndex() {
