@@ -23,7 +23,7 @@ public class CommunityChest extends Square{
                 yes.setOnAction(event -> {
 
                     player.setPosition(0);
-
+                    l.setText("You landed in Go");
                 });
                 break;
             case 3:
@@ -32,7 +32,9 @@ public class CommunityChest extends Square{
                     System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
                     bank.takeMoneyFromPlayer(player, 100);
                     System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                    l.setText("You paid the amount");
                 });
+
                 break;
             case 4:
                l.setText("Bank in ur favour, collect RS.200");
@@ -40,6 +42,7 @@ public class CommunityChest extends Square{
                     System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
                 bank.giveMoneyToPlayer(player,200);
                     System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                    l.setText("You received the amount");
                 });
                 break;
             case 5:
@@ -48,6 +51,7 @@ public class CommunityChest extends Square{
                     System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
                     bank.takeMoneyFromPlayer(player, 150);
                     System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                    l.setText("You paid the amount");
                 });
                 break;
             case 6:
@@ -56,6 +60,7 @@ public class CommunityChest extends Square{
                     System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
                     bank.giveMoneyToPlayer(player,100);
                     System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                    l.setText("You received the amount");
                 });
                 break;
             case 7:
@@ -64,6 +69,7 @@ public class CommunityChest extends Square{
                     System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
                     bank.takeMoneyFromPlayer(player, 120);
                     System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                    l.setText("You paid the amount");
                 });
                 break;
             case 8:
@@ -73,7 +79,7 @@ public class CommunityChest extends Square{
                     Integer currPos = player.getPosition();
                     Integer newPos = (currPos+ 2) % 28;
                     player.setPosition(newPos);
-
+                    l.setText("You went 2 spaces forward");
                 });
                 break;
             case 9:
@@ -82,6 +88,7 @@ public class CommunityChest extends Square{
                     System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
                 bank.takeMoneyFromPlayer(player, 200);
                     System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                    l.setText("You paid the amount");
                 });
                 break;
             case 10:
@@ -90,6 +97,7 @@ public class CommunityChest extends Square{
                 l.setText("You got third place in dance competition. Collect Rs.200");
                 bank.giveMoneyToPlayer(player,200);
                     System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                    l.setText("You received the amount");
                 });
                 break;
             case 11:
@@ -97,7 +105,7 @@ public class CommunityChest extends Square{
                 yes.setOnAction(event -> {
 
                     player.setPosition(14);
-
+                    l.setText("You landed in pub");
                 });
 
                 break;
@@ -107,6 +115,7 @@ public class CommunityChest extends Square{
                     System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
                 bank.giveMoneyToPlayer(player,150);
                     System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                    l.setText("You received the amount");
                 });
                 break;
 

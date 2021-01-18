@@ -24,6 +24,7 @@ public class Chance extends Square{
                     System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
                bank.giveMoneyToPlayer(player,200);
                     System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                    l.setText("You received the amount");
                 });
                 break;
             case 3:
@@ -32,6 +33,7 @@ public class Chance extends Square{
                     System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
                 bank.takeMoneyFromPlayer(player, 100);
                     System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                    l.setText("You paid the amount");
                 });
                 break;
             case 4:
@@ -40,6 +42,7 @@ public class Chance extends Square{
                     System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
                 bank.giveMoneyToPlayer(player,100);
                 System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                    l.setText("You received the amount");
                  });
                 break;
             case 5:
@@ -48,12 +51,14 @@ public class Chance extends Square{
                     System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
                 bank.takeMoneyFromPlayer(player, 200);
                  System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                    l.setText("You paid the amount");
                 });
                 break;
             case 6:
                 l.setText("Go to jail");
                 yes.setOnAction(event -> {
                     player.setPosition(7);
+                    l.setText("You landed in jail");
                 });
                 break;
             case 7:
@@ -62,6 +67,7 @@ public class Chance extends Square{
                     System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
                 bank.takeMoneyFromPlayer(player, 100);
                 System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                    l.setText("You paid the amount");
                 });
                 break;
             case 8:
@@ -70,6 +76,7 @@ public class Chance extends Square{
                     System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
                 bank.giveMoneyToPlayer(player,100);
                  System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                    l.setText("You received the amount");
                 });
                 break;
             case 9:
@@ -78,7 +85,7 @@ public class Chance extends Square{
                     Integer currPos = player.getPosition();
                     Integer newPos = (currPos - 2) % 28;
                     player.setPosition(newPos);
-
+                    l.setText("You went 2 places backwards");
                 });
                 break;
             case 10:
@@ -87,6 +94,7 @@ public class Chance extends Square{
                     System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
                 bank.giveMoneyToPlayer(player,150);
                 System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                    l.setText("You received the amount");
                  });
                 break;
             case 11:
@@ -95,7 +103,7 @@ public class Chance extends Square{
                     Integer currPos = player.getPosition();
                     Integer newPos = (currPos+ 4) % 28;
                     player.setPosition(newPos);
-
+                    l.setText("You went 4 places forward");
                 });
                 break;
             case 12:
@@ -104,6 +112,7 @@ public class Chance extends Square{
                     System.out.println("Before: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
                 bank.takeMoneyFromPlayer(player, 150);
                  System.out.println("After: player"+player.getPlayerMoney() + " bank:"+ bank.getBankMoney());
+                    l.setText("You paid the amount");
                  });
                 break;
 
