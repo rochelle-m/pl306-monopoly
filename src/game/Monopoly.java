@@ -154,7 +154,7 @@ public class Monopoly {
         int a = board[newPos].task(currentPlayer, bank, resultPane);
         if(a > 0){
             rollbtn.setDisable(true);
-            Thread.sleep(2000);
+            Thread.sleep(4000);
             textLabel.setText(currentPlayer.getName() + " ... ");
             board[newPos].removePlayerFromSquare(currentPlayer);
             board[a].addPlayerToSquare(currentPlayer);

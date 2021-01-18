@@ -57,14 +57,14 @@ public class Square {
         Button no = (Button) resPane.getChildren().get(3);
 
         if(this.getSQUARE_NAME().equals("Luxury Tax")){
-            System.out.println("Pay Luxury tax of RS.200");
+            l.setText("Pay Luxury tax of RS.200");
             yes.setOnAction(event -> {
                 bank.takeMoneyFromPlayer(currentPlayer, 200);
                 l.setText("You paid the amount");
             });
         }
         if(this.getSQUARE_NAME().equals("Income Tax")){
-            System.out.println("Pay Income tax of RS.150");
+            l.setText("Pay Income tax of RS.150");
             yes.setOnAction(event -> {
                 bank.takeMoneyFromPlayer(currentPlayer, 150);
                 l.setText("You paid the amount");

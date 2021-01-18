@@ -15,6 +15,8 @@ public class CommunityChest extends Square {
         Label l = (Label) resPane.getChildren().get(1);
         Button yes = (Button) resPane.getChildren().get(2);
         Button no = (Button) resPane.getChildren().get(3);
+
+
         int squareNext = player.getPosition();
         int x = 0;
         switch (player.getCurrentRoll()) {

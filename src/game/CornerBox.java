@@ -22,28 +22,32 @@ public class CornerBox extends Square {
         Button yes = (Button) pane.getChildren().get(2);
         Button no = (Button) pane.getChildren().get(3);
 
-        if (this.getSQUARE_NAME().equals("JAIL")) {
+        switch (this.getSQUARE_NAME()) {
+            case "JAIL":
+                bank.takeMoneyFromPlayer(player, amount);
+                l.setText("You have to pay Rs.100 to get out of the jail");
+                break;
+            case "GO":
+                bank.giveMoneyToPlayer(player, amount);
+                l.setText("You received Rs.200 for crossing GO");
+                break;
+            case "restHouse":
 
-            bank.takeMoneyFromPlayer(player, amount);
-            l.setText("You have to pay Rs.100 to get out of the jail");
-        } else if (this.getSQUARE_NAME().equals("GO")) {
-            bank.giveMoneyToPlayer(player, amount);
-            l.setText("You received Rs.200 for crossing GO");
-        } else if (this.getSQUARE_NAME().equals("restHouse")) {
+                Stream<Player> temp = players.stream().filter(p -> p.getName().equals(player.getName()));
 
-            Stream<Player> temp =  players.stream().filter(p-> p.getName().equals(player.getName()));
+                temp.forEach(System.out::println);
+                for (Player p : players) {
+                    player.takeFromPlayer(p, amount);
+                }
+                l.setText("You received the amount");
+                break;
+            case "PUB":
 
-            temp.forEach(System.out::println);
-            for (Player p : players) {
-                player.takeFromPlayer(p, amount);
-            }
-            l.setText("You received the amount");
-        } else if (this.getSQUARE_NAME().equals("PUB")) {
-
-            for (Player p : players) {
-                p.payToPlayer(player, amount);
-            }
-            l.setText("You paid the amount");
+                for (Player p : players) {
+                    p.payToPlayer(player, amount);
+                }
+                l.setText("You paid the amount");
+                break;
         }
         return -2;
     }
