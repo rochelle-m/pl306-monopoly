@@ -1,5 +1,7 @@
 package game;
 
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
 import java.util.stream.Stream;
@@ -15,11 +17,18 @@ public class CornerBox extends Square {
 
 
     public int task(Player player, Bank bank, Pane pane) {
+        Label l1 = (Label) pane.getChildren().get(0);
+        Label l = (Label) pane.getChildren().get(1);
+        Button yes = (Button) pane.getChildren().get(2);
+        Button no = (Button) pane.getChildren().get(3);
+
         if (this.getSQUARE_NAME().equals("JAIL")) {
+
             bank.takeMoneyFromPlayer(player, amount);
+            l.setText("You have to pay Rs.100 to get out of the jail");
         } else if (this.getSQUARE_NAME().equals("GO")) {
             bank.giveMoneyToPlayer(player, amount);
-
+            l.setText("You received Rs.200 for crossing GO");
         } else if (this.getSQUARE_NAME().equals("restHouse")) {
 
             Stream<Player> temp =  players.stream().filter(p-> p.getName().equals(player.getName()));
@@ -28,10 +37,13 @@ public class CornerBox extends Square {
             for (Player p : players) {
                 player.takeFromPlayer(p, amount);
             }
+            l.setText("You received the amount");
         } else if (this.getSQUARE_NAME().equals("PUB")) {
-//            for (Player p : players) {
-//                p.payToPlayer(player, amount);
-//            }
+
+            for (Player p : players) {
+                p.payToPlayer(player, amount);
+            }
+            l.setText("You paid the amount");
         }
         return -2;
     }

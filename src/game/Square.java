@@ -1,5 +1,7 @@
 package game;
 
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -40,23 +42,40 @@ public class Square {
     }
 
 
-    public void payIncomeTax(Player currentPlayer, Bank bank){
-        System.out.println("pay income tax of RS.150");
-       bank.takeMoneyFromPlayer(currentPlayer, 150);
+//
+//    public void payIncomeTax(Player currentPlayer, Bank bank, Pane resPane){
+//        Label l1 = (Label) resPane.getChildren().get(0);
+//        Label l = (Label) resPane.getChildren().get(1);
+//        Button yes = (Button) resPane.getChildren().get(2);
+//        Button no = (Button) resPane.getChildren().get(3);
+//
+//    }
+    public int task(Player currentPlayer, Bank bank, Pane resPane){
+        Label l1 = (Label) resPane.getChildren().get(0);
+        Label l = (Label) resPane.getChildren().get(1);
+        Button yes = (Button) resPane.getChildren().get(2);
+        Button no = (Button) resPane.getChildren().get(3);
 
-    }
-    public void payLuxuryTax(Player currentPlayer, Bank bank){
-        System.out.println("pay luxury tax of RS.200");
-        bank.takeMoneyFromPlayer(currentPlayer, 200);
+        if(this.getSQUARE_NAME().equals("Luxury Tax")){
+            System.out.println("Pay Luxury tax of RS.200");
+            yes.setOnAction(event -> {
+                bank.takeMoneyFromPlayer(currentPlayer, 200);
+                l.setText("You paid the amount");
+            });
+        }
+        if(this.getSQUARE_NAME().equals("Income Tax")){
+            System.out.println("Pay Income tax of RS.150");
+            yes.setOnAction(event -> {
+                bank.takeMoneyFromPlayer(currentPlayer, 150);
+                l.setText("You paid the amount");
+            });
+        }
 
-    }
-
-   
-
-    int task(Player player, Bank bank, Pane pane ) {
         return -1;
 
     }
+
+
 
     public String getSQUARE_NAME() {
         return SQUARE_NAME;

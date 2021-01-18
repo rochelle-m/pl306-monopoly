@@ -27,7 +27,7 @@ public class City extends Square {
         this.houses = new ArrayList<>();
     }
 
-    int task(Player player, Bank bank, Pane pane) {
+    public int task(Player player, Bank bank, Pane pane) {
         Label l1 = (Label) pane.getChildren().get(0);
         Label l = (Label) pane.getChildren().get(1);
         Button yes = (Button) pane.getChildren().get(2);
