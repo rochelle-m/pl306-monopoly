@@ -35,7 +35,7 @@ public class Square {
         Tooltip.install(c, new Tooltip(player.getName()));
     }
 
-    public void removePlayerToSquare(Player player) {
+    public void removePlayerFromSquare(Player player) {
         this.PANE.getChildren().removeIf(p -> player.getName().equals(p.getId()));
     }
 
@@ -54,7 +54,7 @@ public class Square {
    
 
     int task(Player player, Bank bank, Pane pane ) {
-        return 1;
+        return -1;
 
     }
 

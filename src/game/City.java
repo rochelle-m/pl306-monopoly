@@ -118,7 +118,7 @@ public class City extends Square {
                 // if hotels or houses exist - accordingly calculate the rent amount and have the player pay it
             }
         }
-        return 1;
+        return -1;
     }
 
     public void addHouse(House house) {

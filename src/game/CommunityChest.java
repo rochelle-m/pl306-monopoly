@@ -16,6 +16,7 @@ public class CommunityChest extends Square{
         Button yes = (Button) resPane.getChildren().get(2);
         Button no = (Button) resPane.getChildren().get(3);
         int squareNext = player.getPosition();
+        int x = 0;
         switch (player.getCurrentRoll()) {
             case 2:
 
@@ -67,14 +68,11 @@ public class CommunityChest extends Square{
                 });
                 break;
             case 8:
-
                 l.setText("Go 2 spaces forward");
-                yes.setOnAction(event -> {
-                    Integer currPos = player.getPosition();
-                    Integer newPos = (currPos+ 2) % 28;
-                    player.setPosition(newPos);
-
-                });
+                Integer currPos = player.getPosition();
+                Integer newPos = (currPos+ 2) % 28;
+                player.setPosition(newPos);
+                x = newPos;
                 break;
             case 9:
                 l.setText("You did not wear a mask. Pay fine worth rs200");
@@ -94,11 +92,11 @@ public class CommunityChest extends Square{
                 break;
             case 11:
                 l.setText("Go to Pub");
-                yes.setOnAction(event -> {
 
-                    player.setPosition(14);
 
-                });
+                player.setPosition(14);
+                x = 14;
+
 
                 break;
             case 12:
@@ -111,6 +109,6 @@ public class CommunityChest extends Square{
                 break;
 
         }
-        return squareNext;
+        return x;
     }
 }

@@ -29,11 +29,11 @@ public class CornerBox extends Square {
                 player.takeFromPlayer(p, amount);
             }
         } else if (this.getSQUARE_NAME().equals("PUB")) {
-            for (Player p : players) {
-                p.payToPlayer(player, amount);
-            }
+//            for (Player p : players) {
+//                p.payToPlayer(player, amount);
+//            }
         }
-        return 0;
+        return -2;
     }
 
 

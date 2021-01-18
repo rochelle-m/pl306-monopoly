@@ -59,7 +59,7 @@ public class Company extends Square {
             else if (company.getSQUARE_NAME() == " ELECTRICITY"){}
             else if (company.getSQUARE_NAME() == " RAILWAYS"){}*/
         }
-        return 1;
+        return -1;
     }
 
 

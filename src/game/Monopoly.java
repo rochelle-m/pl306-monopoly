@@ -125,19 +125,23 @@ public class Monopoly {
 
         rollbtn.setOnAction(event -> {
             updateInListView();
-            currentPlayerIndex = nextMove(currentPlayer);
+            try {
+                currentPlayerIndex = nextMove(currentPlayer);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             currentPlayer = players.get(currentPlayerIndex);
         });
     }
 
-    private Integer nextMove(Player currentPlayer) {
-        rollbtn.setDisable(true);
+    private Integer nextMove(Player currentPlayer) throws InterruptedException {
+//        rollbtn.setDisable(true);
         removePlayer();
 
         Integer roll = currentPlayer.roll(d1, d2);
         currentPlayerLabel.setText(currentPlayer.getName() + " \uD83C\uDFB2 " + roll);
         Integer currPos = currentPlayer.getPosition();
-        board[currPos].removePlayerToSquare(currentPlayer);
+        board[currPos].removePlayerFromSquare(currentPlayer);
 
         Integer newPos = (currPos + roll) % 28;
         board[newPos].addPlayerToSquare(currentPlayer);
@@ -147,7 +151,16 @@ public class Monopoly {
         textLabel.setTextFill(Color.DARKSLATEBLUE);
         textLabel.setStyle("-fx-padding: 2; -fx-font-size: 16px;");
 
-        board[newPos].task(currentPlayer, bank, resultPane);
+        int a = board[newPos].task(currentPlayer, bank, resultPane);
+        if(a > 0){
+            rollbtn.setDisable(true);
+            Thread.sleep(2000);
+            textLabel.setText(currentPlayer.getName() + " ... ");
+            board[newPos].removePlayerFromSquare(currentPlayer);
+            board[a].addPlayerToSquare(currentPlayer);
+            rollbtn.setDisable(false);
+            return currentPlayerIndex;
+        }
 
         rollbtn.setDisable(false);
         return (currentPlayerIndex + 1) % numOfPlayers;
