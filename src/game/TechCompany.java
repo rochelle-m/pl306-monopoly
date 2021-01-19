@@ -1,17 +1,15 @@
 package game;
 
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class City extends Square{
+public class TechCompany extends Square{
     private String color;
     private float buyingAmount;
     private float[] rents; // array of 4 [rent for 1 Houses, rent for 2, rent for 3, rent for Hotel]
@@ -20,7 +18,7 @@ public class City extends Square{
     private List<House> houses;
     private float[] costBuilding; // building prices; 0 -> House, 1-> Hotel
 
-    public City(String squareName, Integer squareId,  String color, float buyingAmount, float[] rents, Pane pane, float[] costBuilding, String _imgPath) throws FileNotFoundException {
+    public TechCompany(String squareName, Integer squareId, String color, float buyingAmount, float[] rents, Pane pane, float[] costBuilding, String _imgPath) throws FileNotFoundException {
         super(squareName, squareId, pane, _imgPath);
         this.buyingAmount = buyingAmount;
         this.color = color;
@@ -88,7 +86,7 @@ public class City extends Square{
                 );
 
                 // if this size is 3
-                Stream<City> s = this.owner.getCitiesOwned().stream().filter(city ->
+                Stream<TechCompany> s = this.owner.getCitiesOwned().stream().filter(city ->
                    city.getColor().equals(this.color)
                 );
 

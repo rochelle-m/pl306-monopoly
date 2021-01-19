@@ -48,29 +48,29 @@ public class Monopoly {
 //        Square ssd = new Company("SSD", 24, 180, 60, p24Electricity, "");
 //        Square io = new Company("I/O", 27, 210, 90, p27railroad, "");
 
-        Square apple = new City("Apple", 1, "#FF3139",
+        Square apple = new TechCompany("Apple", 1, "#FF3139",
                 300, new float[]{150, 350, 550, 300}, p1Bangalore, new float[]{500, 350}, "images/apple.png");
-        Square microsoft = new City("Microsoft", 3, "#FF3139",
+        Square microsoft = new TechCompany("Microsoft", 3, "#FF3139",
                 220, new float[]{100, 220, 450, 250}, p3Hyderabad, new float[]{300, 450}, "images/microsoft.jpg");
-        Square google = new City("Google", 6, "#FF3139",
+        Square google = new TechCompany("Google", 6, "#FF3139",
                 500, new float[]{140, 290, 440, 310}, p6Mumbai, new float[]{300, 200}, "images/google.jpg");
-        Square tencent = new City("Tencent", 10, "Yellow",
+        Square tencent = new TechCompany("Tencent", 10, "Yellow",
                 200, new float[]{140, 290, 440, 310}, p10Kolkata, new float[]{300, 280}, "images/tencent.png");
-        Square facebook = new City("Facebook", 11, "Yellow",
+        Square facebook = new TechCompany("Facebook", 11, "Yellow",
                 400, new float[]{140, 290, 440, 320 }, p11Pune, new float[]{200, 170}, "images/facebook.png");
-        Square ibm = new City("IBM", 13, "Yellow",
+        Square ibm = new TechCompany("IBM", 13, "Yellow",
                 230, new float[]{100, 210, 320, 210}, p13Patna, new float[]{200, 100}, "images/ibm.png");
-        Square netflix = new City("Netflix", 16, "Blue",
+        Square netflix = new TechCompany("Netflix", 16, "Blue",
                 300, new float[]{140, 300, 440, 310}, p16Chennai, new float[]{400, 250}, "images/netflix.jpg");
-        Square intel = new City("Intel", 17, "Blue",
+        Square intel = new TechCompany("Intel", 17, "Blue",
                 450, new float[]{120, 270, 420, 290 }, p17Delhi, new float[]{300, 150}, "images/intel.jpg");
-        Square adobe = new City("Adobe", 20, "Blue",
+        Square adobe = new TechCompany("Adobe", 20, "Blue",
                 260, new float[]{0, 0, 0, 0}, p20Jaipur, new float[]{400, 125}, "images/adobe.png");
-        Square oracle = new City("Oracle", 23, "Green",
+        Square oracle = new TechCompany("Oracle", 23, "Green",
                 290, new float[]{140, 290, 440, 310}, p23Chandigarh, new float[]{400, 250}, "images/oracle.png");
-        Square amazon = new City("Amazon", 25, "Green",
+        Square amazon = new TechCompany("Amazon", 25, "Green",
                 420, new float[]{140, 290, 440, 310 }, p25Indore, new float[]{400, 250}, "images/amazon.jpg");
-        Square cisco = new City("Cisco", 26, "Green",
+        Square cisco = new TechCompany("Cisco", 26, "Green",
                 260, new float[]{90, 190, 290, 180}, p26Kanpur, new float[]{200, 300}, "images/cisco.jpg");
 //
 //        Square chance1 = new Chance("Chance", 2, p2Chance1, "");

@@ -11,7 +11,7 @@ public class Player {
     private Boolean turn;
     private Integer position;
     private final String TOKEN_COLOR;
-    private List<City> citiesOwned;
+    private List<TechCompany> citiesOwned;
     private Integer currentRoll;
 
     public Player(Integer id, String name, String tokenColor) {
@@ -99,15 +99,15 @@ public class Player {
         return TOKEN_COLOR;
     }
 
-    public List<City> getCitiesOwned() {
+    public List<TechCompany> getCitiesOwned() {
         return citiesOwned;
     }
 
-    public void setCitiesOwned(List<City> citiesOwned) {
+    public void setCitiesOwned(List<TechCompany> citiesOwned) {
         this.citiesOwned = citiesOwned;
     }
 
-    public void addNewlyBoughtCity(City cityBought) {
+    public void addNewlyBoughtCity(TechCompany cityBought) {
         this.citiesOwned.add(cityBought);
     }
 
