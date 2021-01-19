@@ -56,22 +56,22 @@ public class Monopoly {
                 500, new float[]{140, 290, 440, 310}, p6Mumbai, new float[]{300, 200}, "images/google.jpg");
         Square tencent = new City("Tencent", 10, "Yellow",
                 200, new float[]{140, 290, 440, 310}, p10Kolkata, new float[]{300, 280}, "images/tencent.png");
-        Square pune = new City("Facebook", 11, "Yellow",
+        Square facebook = new City("Facebook", 11, "Yellow",
                 400, new float[]{140, 290, 440, 320 }, p11Pune, new float[]{200, 170}, "images/facebook.png");
-//        Square patna = new City("IBM", 13, "Yellow",
-//                230, new float[]{100, 210, 320, 210}, p13Patna, new float[]{200, 100}, "");
-        Square chennai = new City("Netflix", 16, "Blue",
+        Square ibm = new City("IBM", 13, "Yellow",
+                230, new float[]{100, 210, 320, 210}, p13Patna, new float[]{200, 100}, "images/ibm.png");
+        Square netflix = new City("Netflix", 16, "Blue",
                 300, new float[]{140, 300, 440, 310}, p16Chennai, new float[]{400, 250}, "images/netflix.jpg");
-//        Square delhi = new City("Intel", 17, "Blue",
-//                450, new float[]{120, 270, 420, 290 }, p17Delhi, new float[]{300, 150}, "");
-        Square jaipur = new City("Adobe", 20, "Blue",
+        Square intel = new City("Intel", 17, "Blue",
+                450, new float[]{120, 270, 420, 290 }, p17Delhi, new float[]{300, 150}, "images/intel.jpg");
+        Square adobe = new City("Adobe", 20, "Blue",
                 260, new float[]{0, 0, 0, 0}, p20Jaipur, new float[]{400, 125}, "images/adobe.png");
-        Square chandigarh = new City("Oracle", 23, "Green",
+        Square oracle = new City("Oracle", 23, "Green",
                 290, new float[]{140, 290, 440, 310}, p23Chandigarh, new float[]{400, 250}, "images/oracle.png");
-//        Square indore = new City("Amazon", 25, "Green",
-//                420, new float[]{140, 290, 440, 310 }, p25Indore, new float[]{400, 250}, "");
-//        Square kanpur = new City("Cisco", 26, "Green",
-//                260, new float[]{90, 190, 290, 180}, p26Kanpur, new float[]{200, 300}, "");
+        Square amazon = new City("Amazon", 25, "Green",
+                420, new float[]{140, 290, 440, 310 }, p25Indore, new float[]{400, 250}, "images/amazon.jpg");
+        Square cisco = new City("Cisco", 26, "Green",
+                260, new float[]{90, 190, 290, 180}, p26Kanpur, new float[]{200, 300}, "images/cisco.jpg");
 //
 //        Square chance1 = new Chance("Chance", 2, p2Chance1, "");
 //        Square chance2 = new Chance("Chance",18 ,p18Chance2,"");
@@ -83,8 +83,8 @@ public class Monopoly {
 //        Square luxuryTax= new Square("Luxury Tax",12,p12luxuryTax, "");
 
 //        board = new Square[]{init, apple, chance1, microsoft, incomeTax, ram, google, ddos, gpu, communityChest1,
-//                kolkata, pune, luxuryTax, patna, gitpub, processor, chennai, delhi, chance2, monitor, jaipur,
-//                resthouse, communityChest2, chandigarh, ssd, indore, kanpur, io};
+//                kolkata, facebook, luxuryTax, ibm, gitpub, processor, netflix, intel, chance2, monitor, adobe,
+//                resthouse, communityChest2, oracle, ssd, amazon, cisco, io};
 
 
         board = new Square[]{init, google};

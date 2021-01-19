@@ -33,10 +33,10 @@ public class Square {
         Image image = new Image(f);
         this.IMG_PATH = _imgPath;
         imageView.setImage(image);
-        imageView.setFitWidth(74);
-        imageView.setFitHeight(74);
-        imageView.setLayoutX(5);
-        imageView.setLayoutY(5);
+        imageView.fitHeightProperty().bind(pane.heightProperty());
+        imageView.fitWidthProperty().bind(pane.widthProperty());
+//        imageView.setLayoutX(5);
+//        imageView.setLayoutY(5);
         Tooltip.install(imageView, new Tooltip(SQUARE_NAME));
 
         this.PANE.getChildren().add(imageView);
